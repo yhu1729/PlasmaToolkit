@@ -9,6 +9,7 @@ Foundation modules:
 * foundation/context
 * foundation/memory
 * foundation/io
+* foundation/math
 * foundation/test
 
 Data container modules:
