@@ -1,4 +1,4 @@
-#include "pt/foundation/error.h"
+#include "pt/foundation.h"
 
 int main(void) {
   return 0;
