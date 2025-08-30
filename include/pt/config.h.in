@@ -1,3 +1,8 @@
 #pragma once
 
+#cmakedefine PT_CANARY @PT_CANARY@
 #cmakedefine PT_VERBOSITY @PT_VERBOSITY@
+
+#if PT_CANARY > 0
+#define PT_ABORT_ON_ERROR
+#endif

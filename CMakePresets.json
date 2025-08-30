@@ -12,6 +12,7 @@
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/default",
       "cacheVariables": {
+        "PT_CANARY": "2",
         "PT_VERBOSITY": "4"
       },
       "environment": {}
