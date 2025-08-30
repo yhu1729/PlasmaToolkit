@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include "pt/foundation/error.h"
+#include <stdlib.h>
 
 const char*
 pt_get_error_message(const pt_error target) {

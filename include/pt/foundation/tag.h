@@ -8,7 +8,7 @@
   entry(PT_TAG_NULL_POINTER, "Null pointer") \
   entry(PT_TAG_OUT_OF_MEMORY, "Out of memory") \
   entry(PT_TAG_OUT_OF_RANGE, "Out of range") \
-  entry(PT_TAG_UNREACHABLE, "Unreachable branch") \
+  entry(PT_TAG_UNREACHABLE, "Unreachable branch")
 
 // clang-format on
 
