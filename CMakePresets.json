@@ -13,7 +13,9 @@
       "binaryDir": "${sourceDir}/build/default",
       "cacheVariables": {
         "PT_CANARY": "2",
-        "PT_VERBOSITY": "4"
+        "PT_VERBOSITY": "4",
+        "PT_USE_MPI": "OFF",
+        "PT_USE_NCCL": "OFF"
       },
       "environment": {}
     }
