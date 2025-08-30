@@ -11,7 +11,9 @@
       "name": "default",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/default",
-      "cacheVariables": {},
+      "cacheVariables": {
+        "PT_VERBOSITY": "4"
+      },
       "environment": {}
     }
   ],

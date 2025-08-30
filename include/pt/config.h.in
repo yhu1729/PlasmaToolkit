@@ -1,0 +1,3 @@
+#pragma once
+
+#cmakedefine PT_VERBOSITY @PT_VERBOSITY@
