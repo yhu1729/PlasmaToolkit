@@ -6,3 +6,7 @@
 #if PT_CANARY > 0
 #define PT_OPTION_ABORT_ON_ERROR
 #endif
+#if PT_CANARY > 1
+#endif
+#if PT_CANARY > 2
+#endif
