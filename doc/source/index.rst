@@ -38,5 +38,6 @@ Application modules:
 
 * application/advection
 * application/euler
+* application/mhd
 * application/vlasov
 * application/gyrokinetic
