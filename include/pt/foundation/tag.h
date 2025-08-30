@@ -3,6 +3,9 @@
 enum _pt_tag_t {
   PT_TAG_LEFT,
   PT_TAG_RIGHT,
+  PT_TAG_LOCAL,
+  PT_TAG_MPI,
+  PT_TAG_NCCL,
 };
 typedef enum _pt_tag_t pt_tag;
 
