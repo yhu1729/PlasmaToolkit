@@ -14,6 +14,7 @@ typedef enum _pt_tag_t pt_tag;
 #define _PT_ERROR_LIST(entry) \
   entry(PT_TAG_SUCCESS, "Success") \
   entry(PT_TAG_INVALID_PARAMETER, "Invalid parameter") \
+  entry(PT_TAG_INVALID_OPERATION, "Invalid operation") \
   entry(PT_TAG_NULL_POINTER, "Null pointer") \
   entry(PT_TAG_OUT_OF_MEMORY, "Out of memory") \
   entry(PT_TAG_OUT_OF_RANGE, "Out of range") \
