@@ -1,0 +1,19 @@
+#include "pt/foundation/context.h"
+
+static pt_error
+pt_context_set_id(pt_context target, const size_t id) {
+  target->id = id;
+
+  return PT_TAG_SUCCESS;
+}
+
+pt_context
+pt_acquire_context_impl_local(void) {
+  struct _pt_context_local_t* c = malloc(sizeof *c);
+
+  c->interface.context.type = PT_TAG_LOCAL;
+  c->interface.context.id = 0;
+  c->interface.set_id = pt_context_set_id;
+
+  return &(c->interface.context);
+}
