@@ -2,6 +2,8 @@
 
 #cmakedefine PT_CANARY @PT_CANARY@
 #cmakedefine PT_VERBOSITY @PT_VERBOSITY@
+#cmakedefine PT_USE_MPI
+#cmakedefine PT_USE_NCCL
 
 #if PT_CANARY > 0
 #define PT_OPTION_ABORT_ON_ERROR
@@ -9,4 +11,12 @@
 #if PT_CANARY > 1
 #endif
 #if PT_CANARY > 2
+#endif
+
+#ifdef PT_USE_MPI
+#include "mpi.h"
+#endif
+
+#ifdef PT_USE_NCCL
+#include "nccl.h"
 #endif
