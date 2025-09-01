@@ -2,6 +2,7 @@ add_library(PT_Foundation SHARED)
 add_library(PT::Foundation ALIAS PT_Foundation)
 
 target_compile_features(PT_Foundation PUBLIC c_std_11)
+target_compile_options(PT_Foundation PUBLIC -pedantic -Wall -Wextra)
 
 # error
 target_sources(PT_Foundation PRIVATE
