@@ -9,7 +9,7 @@ test_fetch_first(void) {
 
   pt_acquire_vector(&target, 10);
 
-  int* content = pt_vector_as_pointer(target);
+  int* content = pt_vec2ptr(target);
   content[0] = 3;
 
   int* value_1;
