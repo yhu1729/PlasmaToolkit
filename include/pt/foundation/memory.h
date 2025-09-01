@@ -29,6 +29,8 @@ pt_error pt_aligned_realloc_impl(
   pt_aligned_realloc_impl( \
     (target), (input), (alignment), (size), (size_prev), __FILE__, __LINE)
 
+const char* pt_get_memory_type_name(const pt_memory_type target);
+
 struct _pt_buffer_t {
   pt_memory_type type;
   size_t size;
