@@ -14,12 +14,12 @@
 
 #define pt_acquire_vector(_target, _length) \
   ({ \
-    pt_vector(typeof(**((*(_target))->tag))) _type; \
+    typedef typeof(**((*(_target))->tag)) _datatype; \
+    pt_vector(_datatype) _type; \
     pt_invoke(pt_malloc((void**)(_target), sizeof(_type))); \
     pt_invoke(pt_acquire_buffer( \
-      &((*(_target))->buffer), \
-      ((_length) * (sizeof(typeof(**((*(_target))->tag))))), 0)); \
-    (*(_target))->length = _length; \
+      &((*(_target))->buffer), ((_length) * (sizeof(_datatype))), 0)); \
+    (*(_target))->length = (_length); \
     PT_TAG_SUCCESS; \
   })
 
@@ -34,5 +34,5 @@
   _Generic( \
     (_element), \
     typeof(*((_target)->tag)): pt_fetch_buffer_element( \
-      (_target)->buffer, _index * sizeof(**((_target)->tag)), \
+      (_target)->buffer, (_index) * sizeof(**((_target)->tag)), \
       (void**)(&(_element))))
