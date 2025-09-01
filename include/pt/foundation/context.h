@@ -13,11 +13,13 @@ typedef struct _pt_context_t* pt_context;
 
 typedef pt_error (*_pt_context_set_id_t)(pt_context target, const size_t id);
 typedef pt_error (*_pt_context_get_id_t)(pt_context target, size_t id[1]);
+typedef pt_error (*_pt_context_get_size_t)(pt_context target, size_t size[1]);
 
 struct _pt_context_interface_t {
   struct _pt_context_t context;
   _pt_context_set_id_t set_id;
   _pt_context_get_id_t get_id;
+  _pt_context_get_size_t get_size;
 };
 typedef struct _pt_context_interface_t* pt_context_interface;
 
