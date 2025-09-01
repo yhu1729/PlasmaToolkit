@@ -25,6 +25,12 @@ pt_error pt_realloc_impl(
 #define pt_realloc(target, size) \
   pt_realloc_impl((target), (size), __FILE__, __LINE__, __func__)
 
+pt_error pt_aligned_alloc_impl(
+  void** target, const size_t alignment, const size_t size, const char* file,
+  const int line, const char* function);
+#define pt_aligned_alloc( \
+  target, input, alignment, size, __FILE__, __LINE__, __func__)
+
 pt_error pt_aligned_realloc_impl(
   void** target, void* input, const size_t alignment, const size_t size,
   const size_t size_prev, const char* file, const int line,
