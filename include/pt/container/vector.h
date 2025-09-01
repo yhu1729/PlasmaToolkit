@@ -11,13 +11,6 @@
     type* tag[0]; \
   }*
 
-#define pt_fetch_vector_element(target, index, element) \
-  _Generic( \
-    (element), \
-    typeof(*((target)->tag)): pt_fetch_buffer_element( \
-      (target)->buffer, index * sizeof(**((target)->tag)), \
-      (void**)(&(element))))
-
 #define pt_acquire_vector(target, size) \
   ({ \
     pt_vector(typeof(**((*(target))->tag))) _type; \
@@ -32,3 +25,10 @@
     pt_invoke(pt_free((target))); \
     PT_TAG_SUCCESS; \
   })
+
+#define pt_fetch_vector_element(target, index, element) \
+  _Generic( \
+    (element), \
+    typeof(*((target)->tag)): pt_fetch_buffer_element( \
+      (target)->buffer, index * sizeof(**((target)->tag)), \
+      (void**)(&(element))))
