@@ -15,7 +15,7 @@ _pt_context_get_id(pt_context target, size_t id[1]) {
 }
 
 static pt_error
-_pt_context_get_size(pt_context target, size_t size[1]) {
+_pt_context_get_size([[maybe_unused]]  pt_context target, size_t size[1]) {
   *size = 1;
 
   return PT_TAG_SUCCESS;
