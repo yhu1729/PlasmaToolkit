@@ -17,5 +17,8 @@ pt_error pt_release_buffer(pt_buffer target);
 pt_error pt_resize_buffer(pt_buffer target, const size_t size);
 pt_error pt_copy_buffer(pt_buffer dst, const pt_buffer src);
 pt_error pt_move_buffer(pt_buffer dst, pt_buffer src);
-pt_error
-pt_fetch_buffer_element(pt_buffer target, const size_t offset, void** element);
+
+pt_error pt_fetch_buffer_element_impl(
+  pt_buffer target, const size_t offset, void** element);
+#define pt_fetch_buffer_element(target, offset, element) \
+  pt_fetch_buffer_element_impl((target), (offset), (void**)(element))
