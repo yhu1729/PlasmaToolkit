@@ -12,6 +12,7 @@ target_sources(PT_Foundation PRIVATE
   get_error_message.c
   invoke_impl.c
   log.c
+  malloc_impl.c
   release_context.c
   set_context_id.c)
 
