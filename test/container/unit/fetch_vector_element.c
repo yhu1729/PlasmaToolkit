@@ -9,14 +9,13 @@ test_fetch_first(void) {
 
   pt_acquire_vector(&target, 10);
 
-  int* value_0;
-  pt_fetch_buffer_element(target->buffer, 0, &value_0);
-  *value_0 = 3;
+  int* content = pt_vector_as_pointer(target);
+  content[0] = 3;
 
   int* value_1;
   pt_fetch_vector_element(target, 0, value_1);
   pt_test_assert(*value_1 == 3);
-  pt_test_assert(value_1 == value_0);
+  pt_test_assert(value_1 == (content + 0));
 
   pt_release_vector(target);
 }
