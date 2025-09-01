@@ -11,10 +11,6 @@
     type* tag[0]; \
   }*
 
-#define pt_vector_as_pointer(target) \
-  ((typeof(**((*(target)).tag))*)((*(target)).buffer->content))
-#define pt_vec2ptr(target) pt_vector_as_pointer((target));
-
 #define pt_fetch_vector_element(target, index, element) \
   _Generic( \
     (element), \

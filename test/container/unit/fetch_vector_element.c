@@ -1,5 +1,6 @@
 #include "pt/container/vector.h"
 #include "pt/foundation/error.h"
+#include "pt/foundation/macro.h"
 #include "pt/foundation/test.h"
 
 pt_vector(int) v_int_t;
@@ -10,7 +11,7 @@ test_fetch_first(void) {
 
   pt_invoke(pt_acquire_vector(&target, 10));
 
-  int* content = pt_vec2ptr(target);
+  int* content = pt_as_pointer(target);
   content[0] = 3;
 
   int* value_1;
