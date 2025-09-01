@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pt/container/buffer.h"
+#include "pt/foundation/error.h"
 #include "pt/foundation/tag.h"
 #include <stdlib.h>
 
@@ -22,14 +23,16 @@
       (void**)(&(element))))
 
 #define pt_acquire_vector(target, size) \
-  do { \
+  ({ \
     pt_vector(typeof(**((*(target))->tag))) _type; \
-    *(target) = malloc(sizeof(_type)); \
-    pt_acquire_buffer(&((*(target))->buffer), (size), 0); \
-  } while (0)
+    pt_invoke(pt_malloc((void**)(target), sizeof(_type))); \
+    pt_invoke(pt_acquire_buffer(&((*(target))->buffer), (size), 0)); \
+    PT_TAG_SUCCESS; \
+  })
 
 #define pt_release_vector(target) \
-  do { \
-    pt_release_buffer((target)->buffer); \
-    free((target)); \
-  } while (0)
+  ({ \
+    pt_invoke(pt_release_buffer((target)->buffer)); \
+    pt_invoke(pt_free((target))); \
+    PT_TAG_SUCCESS; \
+  })
