@@ -7,5 +7,7 @@ target_sources(PT_Container PRIVATE
   acquire_buffer.c
   release_buffer.c)
 
+target_link_libraries(PT_Container PT::Foundation)
+
 target_include_directories(PT_Container PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(PT_Container PUBLIC ${PROJECT_BINARY_DIR}/include)
