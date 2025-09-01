@@ -5,11 +5,11 @@
 #include "pt/foundation/tag.h"
 #include <stdlib.h>
 
-#define pt_vector(type) \
+#define pt_vector(_type) \
   typedef struct { \
     pt_buffer buffer; \
     size_t length; \
-    type* tag[0]; \
+    _type* tag[0]; \
   }*
 
 #define pt_acquire_vector(_target, _length) \

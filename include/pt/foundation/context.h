@@ -23,8 +23,8 @@ struct _pt_context_interface_t {
 };
 typedef struct _pt_context_interface_t* pt_context_interface;
 
-#define _PT_GET_CONTEXT_INTERFACE(c) \
-  (pt_container_of((c), struct _pt_context_interface_t, context))
+#define _PT_GET_CONTEXT_INTERFACE(_target) \
+  (pt_container_of((_target), struct _pt_context_interface_t, context))
 
 struct _pt_context_local_t {
   struct _pt_context_interface_t interface;

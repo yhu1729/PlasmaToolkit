@@ -20,5 +20,5 @@ pt_error pt_move_buffer(pt_buffer dst, pt_buffer src);
 
 pt_error pt_fetch_buffer_element_impl(
   pt_buffer target, const size_t offset, void** element);
-#define pt_fetch_buffer_element(target, offset, element) \
-  pt_fetch_buffer_element_impl((target), (offset), (void**)(element))
+#define pt_fetch_buffer_element(_target, _offset, _element) \
+  pt_fetch_buffer_element_impl((_target), (_offset), (void**)(_element))

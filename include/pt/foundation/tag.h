@@ -44,7 +44,7 @@ enum _pt_error_t {
 typedef enum _pt_error_t pt_error;
 
 enum _pt_verbosity_t {
-#define _PT_EXPAND_TO_ENUM(tag, value, name) tag = value,
+#define _PT_EXPAND_TO_ENUM(_tag, _value, _name) _tag = _value,
 
   _PT_VERBOSITY_LIST(_PT_EXPAND_TO_ENUM)
 
@@ -53,7 +53,7 @@ enum _pt_verbosity_t {
 typedef enum _pt_verbosity_t pt_verbosity;
 
 enum _pt_memory_type_t {
-#define _PT_EXPAND_TO_ENUM(tag, message) tag,
+#define _PT_EXPAND_TO_ENUM(_tag, _message) _tag,
 
   _PT_MEMORY_TYPE_LIST(_PT_EXPAND_TO_ENUM)
 

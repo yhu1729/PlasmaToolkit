@@ -25,9 +25,9 @@ _pt_test_assert(
   return result;
 }
 
-#define pt_test_assert(expr) \
+#define pt_test_assert(_expr) \
   do { \
-    if (!_pt_test_assert((expr), __FILE__, __LINE__, #expr)) { \
+    if (!_pt_test_assert((_expr), __FILE__, __LINE__, #_expr)) { \
       abort(); \
     } \
   } while (0)
@@ -53,9 +53,9 @@ _pt_test_invoke(
   return (result == target);
 }
 
-#define pt_test_invoke(expr, r) \
+#define pt_test_invoke(_expr, _result) \
   do { \
-    if (!_pt_test_invoke((expr), (r), __FILE__, __LINE__, #expr)) { \
+    if (!_pt_test_invoke((_expr), (_result), __FILE__, __LINE__, #_expr)) { \
       abort(); \
     } \
   } while (0)
