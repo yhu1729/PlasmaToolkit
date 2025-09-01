@@ -8,27 +8,31 @@
 #define pt_vector(type) \
   typedef struct { \
     pt_buffer buffer; \
+    size_t length; \
     type* tag[0]; \
   }*
 
-#define pt_acquire_vector(target, size) \
+#define pt_acquire_vector(_target, _length) \
   ({ \
-    pt_vector(typeof(**((*(target))->tag))) _type; \
-    pt_invoke(pt_malloc((void**)(target), sizeof(_type))); \
-    pt_invoke(pt_acquire_buffer(&((*(target))->buffer), (size), 0)); \
+    pt_vector(typeof(**((*(_target))->tag))) _type; \
+    pt_invoke(pt_malloc((void**)(_target), sizeof(_type))); \
+    pt_invoke(pt_acquire_buffer( \
+      &((*(_target))->buffer), \
+      ((_length) * (sizeof(typeof(**((*(_target))->tag))))), 0)); \
+    (*(_target))->length = _length; \
     PT_TAG_SUCCESS; \
   })
 
-#define pt_release_vector(target) \
+#define pt_release_vector(_target) \
   ({ \
-    pt_invoke(pt_release_buffer((target)->buffer)); \
-    pt_invoke(pt_free((target))); \
+    pt_invoke(pt_release_buffer((_target)->buffer)); \
+    pt_invoke(pt_free((_target))); \
     PT_TAG_SUCCESS; \
   })
 
-#define pt_fetch_vector_element(target, index, element) \
+#define pt_fetch_vector_element(_target, _index, _element) \
   _Generic( \
-    (element), \
-    typeof(*((target)->tag)): pt_fetch_buffer_element( \
-      (target)->buffer, index * sizeof(**((target)->tag)), \
-      (void**)(&(element))))
+    (_element), \
+    typeof(*((_target)->tag)): pt_fetch_buffer_element( \
+      (_target)->buffer, _index * sizeof(**((_target)->tag)), \
+      (void**)(&(_element))))
