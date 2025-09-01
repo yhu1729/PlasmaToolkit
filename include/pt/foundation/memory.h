@@ -1,7 +1,6 @@
 #pragma once
 
 #include "pt/foundation/tag.h"
-#include <stdlib.h>
 
 pt_error pt_free_impl(void* target, const char* file, const int line);
 #define pt_free(target) pt_free_impl((target), __FILE__, __LINE__)
