@@ -7,6 +7,7 @@ project(PlasmaToolkit
 configure_file(include/pt/config.h.in include/pt/config.h @ONLY)
 
 add_subdirectory(src)
+
 add_library(PT INTERFACE)
 target_link_libraries(PT INTERFACE PT::Foundation PT::Container)
 
