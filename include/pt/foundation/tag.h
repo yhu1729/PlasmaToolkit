@@ -27,6 +27,11 @@ typedef enum _pt_tag_t pt_tag;
   entry(PT_TAG_VERBOSITY_INFO, 3, "Info") \
   entry(PT_TAG_VERBOSITY_DEBUG, 4, "Debug")
 
+#define _PT_MEMORY_TYPE_LIST(entry) \
+  entry(PT_TAG_CPU, "CPU") \
+  entry(PT_TAG_GPU_NVIDIA, "GPU/NVIDIA") \
+  entry(PT_TAG_GPU_AMD, "GPU/AMD")
+
 // clang-format on
 
 enum _pt_error_t {
@@ -46,3 +51,12 @@ enum _pt_verbosity_t {
 #undef _PT_EXPAND_TO_ENUM
 };
 typedef enum _pt_verbosity_t pt_verbosity;
+
+enum _pt_memory_type_t {
+#define _PT_EXPAND_TO_ENUM(tag, message) tag,
+
+  _PT_MEMORY_TYPE_LIST(_PT_EXPAND_TO_ENUM)
+
+#undef _PT_EXPAND_TO_ENUM
+};
+typedef enum _pt_memory_type_t pt_memory_type;
