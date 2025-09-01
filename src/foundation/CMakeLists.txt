@@ -6,6 +6,7 @@ target_compile_features(PT_Foundation PUBLIC c_std_11)
 target_sources(PT_Foundation PRIVATE
   acquire_context.c
   acquire_context_impl_local.c
+  aligned_alloc_impl.c
   free_impl.c
   get_context_id.c
   get_context_size.c
