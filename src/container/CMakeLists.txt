@@ -6,7 +6,7 @@ target_compile_features(PT_Container PUBLIC c_std_23)
 # buffer
 target_sources(PT_Container PRIVATE
   acquire_buffer.c
-  fetch_buffer_element.c
+  fetch_buffer_element_impl.c
   release_buffer.c
 )
 
