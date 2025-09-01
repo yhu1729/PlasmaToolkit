@@ -60,12 +60,12 @@ _pt_test_invoke(
     } \
   } while (0)
 
-struct _pt_test_list_t {
-  const char* name;
+struct _pt_test_list_item_t {
   void (*handle)(void);
+  const char* name;
 };
-extern const struct _pt_test_list_t pt_test_list[];
-#define PT_TEST_LIST const struct _pt_test_list_t pt_test_list[]
+extern const struct _pt_test_list_item_t pt_test_list[];
+#define PT_TEST_LIST const struct _pt_test_list_item_t pt_test_list[]
 
 #define PT_TEST_MAIN \
   int main(void) { \
