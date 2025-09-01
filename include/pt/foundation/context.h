@@ -11,7 +11,7 @@ struct _pt_context_t {
 };
 typedef struct _pt_context_t* pt_context;
 
-typedef pt_error (*_pt_context_set_id_t)(pt_context context, const size_t id);
+typedef pt_error (*_pt_context_set_id_t)(pt_context target, const size_t id);
 
 struct _pt_context_interface_t {
   struct _pt_context_t context;
