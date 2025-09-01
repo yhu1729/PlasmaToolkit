@@ -1,7 +1,7 @@
 #include "pt/foundation/context.h"
 
 static pt_error
-pt_context_set_id(pt_context target, const size_t id) {
+_pt_context_set_id(pt_context target, const size_t id) {
   target->id = id;
 
   return PT_TAG_SUCCESS;
@@ -20,7 +20,7 @@ pt_acquire_context_impl_local(void) {
 
   c->interface.context.type = PT_TAG_LOCAL;
   c->interface.context.id = 0;
-  c->interface.set_id = pt_context_set_id;
+  c->interface.set_id = _pt_context_set_id;
   c->interface.get_id = _pt_context_get_id;
 
   return &(c->interface.context);
