@@ -4,7 +4,8 @@
 
 pt_error
 pt_malloc_impl(
-  void** target, const size_t size, const char* file, const int line) {
+  void** target, const size_t size, const char* file, const int line,
+  const char* function) {
 
   *target = malloc(size);
   pt_log_debug(

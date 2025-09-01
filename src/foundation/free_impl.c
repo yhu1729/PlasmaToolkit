@@ -3,7 +3,8 @@
 #include <stdlib.h>
 
 pt_error
-pt_free_impl(void* target, const char* file, const int line) {
+pt_free_impl(
+  void* target, const char* file, const int line, const char* function) {
   free(target);
   pt_log_debug("free: %s:%d  %s  %p\n", file, line, function, target);
 
