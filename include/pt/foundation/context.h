@@ -49,3 +49,4 @@ pt_error pt_acquire_context(pt_context target[1], pt_tag type);
 pt_error pt_release_context(pt_context target);
 pt_error pt_set_context_id(pt_context target, const size_t id);
 pt_error pt_get_context_id(pt_context target, size_t id[1]);
+pt_error pt_get_context_size(pt_context target, size_t size[1]);

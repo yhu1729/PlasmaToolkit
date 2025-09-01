@@ -7,6 +7,7 @@ target_sources(PT_Foundation PRIVATE
   acquire_context.c
   acquire_context_impl_local.c
   get_context_id.c
+  get_context_size.c
   get_error_message.c
   invoke_impl.c
   log.c
