@@ -1,3 +1,5 @@
+include(FortranCInterface)
+
 add_library(PT_Algorithm SHARED)
 add_library(PT::Algorithm ALIAS PT_Algorithm)
 
@@ -13,6 +15,17 @@ target_sources(PT_Algorithm PRIVATE
   release_range.c
   release_range_iterator.c
   reset_range_iterator.c
+)
+
+# blas
+target_sources(PT_Algorithm PRIVATE
+  dscal.c
+  dscal.f90
+)
+FortranCInterface_HEADER(
+  ${PROJECT_BINARY_DIR}/include/pt/algorithm/blas_f90.h
+  SYMBOLS
+  dscal
 )
 
 target_link_libraries(PT_Algorithm PT::Foundation)
