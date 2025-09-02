@@ -44,7 +44,8 @@ struct _pt_context_nccl_t {
 #endif
 };
 
-pt_context pt_acquire_context_impl_local(void);
+pt_error pt_acquire_context_impl_local(pt_context target[1]);
+
 pt_error pt_acquire_context(pt_context target[1], const pt_tag type);
 pt_error pt_release_context(pt_context target);
 pt_error pt_set_context_id(pt_context target, const size_t id);

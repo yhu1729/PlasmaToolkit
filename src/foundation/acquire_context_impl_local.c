@@ -23,8 +23,8 @@ _pt_context_get_size([[maybe_unused]] pt_context target, size_t size[1]) {
   return PT_TAG_SUCCESS;
 }
 
-pt_context
-pt_acquire_context_impl_local(void) {
+pt_error
+pt_acquire_context_impl_local(pt_context target[1]) {
   struct _pt_context_local_t* context;
   pt_invoke(pt_malloc(&context, sizeof *context));
 
@@ -34,5 +34,7 @@ pt_acquire_context_impl_local(void) {
   context->interface.get_id = _pt_context_get_id;
   context->interface.get_size = _pt_context_get_size;
 
-  return &(context->interface.context);
+  *target = &(context->interface.context);
+
+  return PT_TAG_SUCCESS;
 }
