@@ -2,7 +2,7 @@
 #include "pt/foundation/test.h"
 #include <string.h>
 
-inline static void
+void
 test_all(void) {
 #define _PT_EXPAND_TO_TEST(tag, message) \
   do { \

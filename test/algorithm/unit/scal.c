@@ -2,7 +2,7 @@
 #include "pt/foundation/test.h"
 #include <limits.h>
 
-inline static void
+void
 test_step_1(void) {
   double x[4] = {1.0, 2.0, 3.0, 4.0};
   pt_invoke(pt_scal(4, 2.0, x, 1));
@@ -12,7 +12,7 @@ test_step_1(void) {
   pt_test_assert(x[3] == 8.0);
 }
 
-inline static void
+void
 test_step_2(void) {
   double x[4] = {1.0, 2.0, 3.0, 4.0};
   pt_invoke(pt_scal(2, 2.0, x, 2));
@@ -22,7 +22,7 @@ test_step_2(void) {
   pt_test_assert(x[3] == 4.0);
 }
 
-inline static void
+void
 test_step_10000(void) {
   size_t size = (size_t)INT_MAX + 10;
   double* x = calloc(size, sizeof(double));

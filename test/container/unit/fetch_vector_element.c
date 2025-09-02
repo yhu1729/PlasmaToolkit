@@ -5,7 +5,7 @@
 
 pt_vector(int) v_int_t;
 
-inline static void
+void
 test_fetch_first(void) {
   v_int_t target;
 
