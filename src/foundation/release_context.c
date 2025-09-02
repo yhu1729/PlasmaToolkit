@@ -5,9 +5,9 @@
 pt_error
 pt_release_context(pt_context target) {
   if (target->type == PT_TAG_LOCAL) {
-    struct _pt_context_local_t* c =
-      pt_container_of(target, struct _pt_context_local_t, interface.context);
-    pt_invoke(pt_free(c));
+    pt_context_local context;
+    context = pt_container_of(target, typeof(*context), interface.context);
+    pt_invoke(pt_free(context));
   } else {
     return PT_TAG_INVALID_PARAMETER;
   }

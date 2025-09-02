@@ -29,6 +29,7 @@ typedef struct _pt_context_interface_t* pt_context_interface;
 struct _pt_context_local_t {
   struct _pt_context_interface_t interface;
 };
+typedef struct _pt_context_local_t* pt_context_local;
 
 struct _pt_context_mpi_t {
   struct _pt_context_interface_t interface;
@@ -36,6 +37,7 @@ struct _pt_context_mpi_t {
   MPI_Comm communicator;
 #endif
 };
+typedef struct _pt_context_mpi_t* pt_context_mpi;
 
 struct _pt_context_nccl_t {
   struct _pt_context_interface_t interface;
@@ -43,6 +45,7 @@ struct _pt_context_nccl_t {
   ncclComm_t communicator;
 #endif
 };
+typedef struct _pt_context_nccl_t pt_context_nccl;
 
 pt_error pt_acquire_context_impl_local(pt_context target[1]);
 

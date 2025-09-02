@@ -25,7 +25,7 @@ _pt_context_get_size([[maybe_unused]] pt_context target, size_t size[1]) {
 
 pt_error
 pt_acquire_context_impl_local(pt_context target[1]) {
-  struct _pt_context_local_t* context;
+  pt_context_local context;
   pt_invoke(pt_malloc(&context, sizeof *context));
 
   context->interface.context.type = PT_TAG_LOCAL;
