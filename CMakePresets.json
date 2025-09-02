@@ -31,11 +31,17 @@
       "name": "default",
       "configurePreset": "default",
       "output": {
+        "labelSummary": true,
         "outputOnFailure": true
       },
       "execution": {
         "noTestsAction": "ignore",
         "stopOnFailure": true
+      },
+      "filter": {
+        "exclude": {
+          "label": "(need:memory)"
+        }
       }
     }
   ],
