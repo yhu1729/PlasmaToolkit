@@ -36,6 +36,7 @@ Method modules:
 
 Application modules:
 
+* application/ode
 * application/advection
 * application/euler
 * application/shallow_water
