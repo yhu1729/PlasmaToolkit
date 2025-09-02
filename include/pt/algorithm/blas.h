@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pt/algorithm/blas_f90.h"
+#include "pt/algorithm/blas.f90.h"
 #include "pt/foundation/tag.h"
 
 extern void dscal(int n, double a, double* x, int inc_x);

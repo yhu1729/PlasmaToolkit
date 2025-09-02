@@ -23,7 +23,7 @@ target_sources(PT_Algorithm PRIVATE
   dscal.f90
 )
 FortranCInterface_HEADER(
-  ${PROJECT_BINARY_DIR}/include/pt/algorithm/blas_f90.h
+  ${PROJECT_BINARY_DIR}/include/pt/algorithm/blas.f90.h
   SYMBOLS
   dscal
 )
