@@ -1,5 +1,6 @@
 #include "pt/algorithm/blas.h"
 #include "pt/foundation/test.h"
+#include <limits.h>
 
 inline static void
 test_step_1(void) {
@@ -21,9 +22,23 @@ test_step_2(void) {
   pt_test_assert(x[3] == 4.0);
 }
 
+inline static void
+test_step_10000(void) {
+  size_t size = (size_t)INT_MAX + 10;
+  double* x = calloc(size, sizeof(double));
+  for (size_t index = 0; index < size; ++index) {
+    x[index] = (double)index;
+  }
+  pt_invoke(pt_scal(size / 10000, 2.0, x, 10000));
+  for (size_t index = 0; index < size / 10000 * 10000; index += 10000) {
+    pt_test_assert(x[index] == 2.0 * (double)index);
+  }
+}
+
 PT_TEST_LIST = {
   {test_step_1, "step size 1"},
   {test_step_2, "step size 2"},
+  {test_step_10000, "step size 10000"},
   {NULL, NULL},
 };
 
