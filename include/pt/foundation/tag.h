@@ -32,6 +32,10 @@ typedef enum _pt_tag_t pt_tag;
   entry(PT_TAG_GPU_NVIDIA, "GPU/NVIDIA") \
   entry(PT_TAG_GPU_AMD, "GPU/AMD")
 
+#define _PT_PDE_TYPE_LIST(entry) \
+  entry(PT_TAG_ADVECTION, "Advection equation") \
+  entry(PT_TAG_EULER, "Euler equation")
+
 // clang-format on
 
 enum _pt_error_t {
@@ -60,3 +64,12 @@ enum _pt_memory_type_t {
 #undef _PT_EXPAND_TO_ENUM
 };
 typedef enum _pt_memory_type_t pt_memory_type;
+
+enum _pt_pde_type_t {
+#define _PT_EXPAND_TO_ENUM(_tag, _name) _tag,
+
+  _PT_PDE_TYPE_LIST(_PT_EXPAND_TO_ENUM)
+
+#undef _PT_EXPAND_TO_ENUM
+};
+typedef enum _pt_pde_type_t pt_pde_type;
