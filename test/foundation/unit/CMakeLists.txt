@@ -3,3 +3,7 @@ target_link_libraries(get_error_message PT::Foundation)
 
 add_test(NAME Foundation/unit/get_error_message
   COMMAND ./get_error_message)
+set_tests_properties(Foundation/unit/get_error_message
+  PROPERTIES LABELS
+  "type:unit;module:foundation/error"
+)
