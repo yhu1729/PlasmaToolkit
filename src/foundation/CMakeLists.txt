@@ -22,6 +22,7 @@ target_sources(PT_Foundation PRIVATE
 # memory
 target_sources(PT_Foundation PRIVATE
   aligned_alloc_impl.c
+  calloc_impl.c
   free_impl.c
   get_error_message.c
   malloc_impl.c
