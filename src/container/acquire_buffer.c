@@ -1,9 +1,11 @@
 #include "pt/container/buffer.h"
+#include "pt/foundation/error.h"
+#include "pt/foundation/memory.h"
 
 pt_error
 pt_acquire_buffer(
   pt_buffer target[1], const size_t size, const size_t alignment) {
-  *target = malloc(sizeof **target);
+  pt_invoke(pt_malloc(target, sizeof **target));
   pt_buffer buffer = *target;
   buffer->size = size;
   buffer->alignment = alignment;
