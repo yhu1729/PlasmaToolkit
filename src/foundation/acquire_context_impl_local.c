@@ -1,4 +1,6 @@
 #include "pt/foundation/context.h"
+#include "pt/foundation/error.h"
+#include "pt/foundation/memory.h"
 
 static pt_error
 _pt_context_set_id(pt_context target, const size_t id) {
@@ -23,7 +25,8 @@ _pt_context_get_size([[maybe_unused]] pt_context target, size_t size[1]) {
 
 pt_context
 pt_acquire_context_impl_local(void) {
-  struct _pt_context_local_t* c = malloc(sizeof *c);
+  struct _pt_context_local_t* c;
+  pt_invoke(pt_malloc(&c, sizeof *c));
 
   c->interface.context.type = PT_TAG_LOCAL;
   c->interface.context.id = 0;
