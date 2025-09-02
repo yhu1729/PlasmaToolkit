@@ -35,7 +35,7 @@ typedef enum _pt_tag_t pt_tag;
 // clang-format on
 
 enum _pt_error_t {
-#define _PT_EXPAND_TO_ENUM(tag, message) tag,
+#define _PT_EXPAND_TO_ENUM(_tag, _message) _tag,
 
   _PT_ERROR_LIST(_PT_EXPAND_TO_ENUM)
 
