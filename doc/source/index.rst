@@ -17,6 +17,7 @@ Data container modules:
 * container/buffer
 * container/vector
 * container/matrix
+* container/pool
 * container/tree
 
 Algorithm modules:
