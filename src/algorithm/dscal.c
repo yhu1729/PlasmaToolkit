@@ -3,6 +3,9 @@
 
 pt_error
 pt_dscal(size_t n, double a, double* x, size_t inc_x) {
+  if (x == NULL) {
+    return PT_TAG_NULL_POINTER;
+  }
   if ((n == 0) || (inc_x == 0)) {
     return PT_TAG_INVALID_PARAMETER;
   }
