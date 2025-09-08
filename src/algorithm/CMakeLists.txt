@@ -6,6 +6,9 @@ add_library(PT::Algorithm ALIAS PT_Algorithm)
 target_compile_features(PT_Algorithm PUBLIC c_std_23)
 target_compile_options(PT_Algorithm PUBLIC -pedantic -Wall -Wextra)
 
+find_package(BLAS REQUIRED)
+target_link_libraries(PT_Algorithm BLAS::BLAS)
+
 # range
 target_sources(PT_Algorithm PRIVATE
   acquire_range.c
@@ -20,12 +23,6 @@ target_sources(PT_Algorithm PRIVATE
 # blas
 target_sources(PT_Algorithm PRIVATE
   dscal.c
-  dscal.f90
-)
-FortranCInterface_HEADER(
-  ${PROJECT_BINARY_DIR}/include/pt/algorithm/blas.f90.h
-  SYMBOLS
-  dscal
 )
 
 target_link_libraries(PT_Algorithm PT::Foundation)
