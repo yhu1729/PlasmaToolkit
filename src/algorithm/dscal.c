@@ -3,6 +3,13 @@
 
 pt_error
 pt_dscal(size_t n, double a, double* x, size_t inc_x) {
+  if ((n == 0) || (inc_x == 0)) {
+    return PT_TAG_INVALID_PARAMETER;
+  }
+  if (a == 1.0) {
+    return PT_TAG_SUCCESS;
+  }
+
   int tmp_n;
   int tmp_inc_x;
   if (n < (size_t)INT_MAX) {
