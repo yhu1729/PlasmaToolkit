@@ -2,4 +2,5 @@
 
 #include "pt/container/buffer.h"
 #include "pt/container/matrix.h"
+#include "pt/container/pool.h"
 #include "pt/container/vector.h"
