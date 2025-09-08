@@ -3,10 +3,10 @@ subroutine dscal(n, a, x, inc_x)
 
     implicit none
 
-    integer, intent(in), value :: n
-    real(c_double), intent(in), value :: a
+    integer, intent(in) :: n
+    real(c_double), intent(in) :: a
     real(c_double), intent(inout) :: x(*)
-    integer(c_int), intent(in), value :: inc_x
+    integer(c_int), intent(in) :: inc_x
     integer :: i_stop, i
 
     i_stop = n*inc_x

@@ -4,7 +4,7 @@
 #include "pt/foundation/tag.h"
 #include <stdlib.h>
 
-extern void dscal(int n, double a, double* x, int inc_x);
+extern void dscal(int* n, double* a, double* x, int* inc_x);
 
 pt_error pt_dscal(size_t n, double a, double* x, int inc_x);
 
