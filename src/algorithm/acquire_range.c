@@ -6,17 +6,17 @@
 pt_error
 pt_acquire_range(
   pt_range target[1], const pt_tag style, const int dimension,
-  const long long* lower, const long long* upper) {
+  const pt_i64* lower, const pt_i64* upper) {
   pt_invoke(pt_malloc(target, sizeof **target));
 
   pt_range pointer = *target;
   pointer->style = style;
   pointer->dimension = dimension;
 
-  pt_invoke(pt_calloc(&(pointer->lower), dimension, sizeof(long long)));
-  pt_invoke(pt_calloc(&(pointer->upper), dimension, sizeof(long long)));
-  pt_invoke(pt_calloc(&(pointer->extent), dimension, sizeof(long long)));
-  pt_invoke(pt_calloc(&(pointer->stride), dimension, sizeof(long long)));
+  pt_invoke(pt_calloc(&(pointer->lower), dimension, sizeof(pt_i64)));
+  pt_invoke(pt_calloc(&(pointer->upper), dimension, sizeof(pt_i64)));
+  pt_invoke(pt_calloc(&(pointer->extent), dimension, sizeof(pt_i64)));
+  pt_invoke(pt_calloc(&(pointer->stride), dimension, sizeof(pt_i64)));
   for (int d = 0; d < dimension; ++d) {
     pointer->lower[d] = lower[d];
     pointer->upper[d] = upper[d];

@@ -2,8 +2,7 @@
 
 pt_error
 pt_find_index(
-  long long* target, size_t offset, const int dimension,
-  const size_t* stride) {
+  pt_i64* target, size_t offset, const int dimension, const size_t* stride) {
   if (stride[0] < stride[dimension - 1]) {
     for (int d = 0; d < dimension; ++d) {
       target[d] =

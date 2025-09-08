@@ -1,16 +1,17 @@
 #pragma once
 
+#include "pt/config.h"
 #include "pt/foundation/tag.h"
 #include <stdlib.h>
 
 pt_error pt_find_index(
-  long long* target, size_t offset, const int dimension, const size_t* stride);
+  pt_i64* target, size_t offset, const int dimension, const size_t* stride);
 
 struct _pt_range_t {
   pt_tag style;
   int dimension;
-  long long* lower;
-  long long* upper;
+  pt_i64* lower;
+  pt_i64* upper;
   size_t* extent;
   size_t* stride;
   size_t volume;
@@ -20,13 +21,13 @@ typedef struct _pt_range_t* pt_range;
 struct _pt_range_iterator_t {
   pt_range range;
   size_t offset;
-  long long* index;
+  pt_i64* index;
 };
 typedef struct _pt_range_iterator_t* pt_range_iterator;
 
 pt_error pt_acquire_range(
   pt_range target[1], const pt_tag style, const int dimension,
-  const long long* lower, const long long* upper);
+  const pt_i64* lower, const pt_i64* upper);
 pt_error pt_release_range(pt_range target);
 
 pt_error

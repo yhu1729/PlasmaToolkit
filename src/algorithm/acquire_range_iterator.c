@@ -11,7 +11,7 @@ pt_acquire_range_iterator(pt_range_iterator target[1], const pt_range range) {
   pointer->range = range;
   pointer->offset = 0;
 
-  pt_invoke(pt_calloc(&(pointer->index), range->dimension, sizeof(long long)));
+  pt_invoke(pt_calloc(&(pointer->index), range->dimension, sizeof(pt_i64)));
   for (int d = 0; d < range->dimension; ++d) {
     pointer->index[d] = 0;
   }
