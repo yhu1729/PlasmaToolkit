@@ -8,6 +8,8 @@ target_compile_options(PT_Algorithm PUBLIC -pedantic -Wall -Wextra)
 
 find_package(BLAS REQUIRED)
 target_link_libraries(PT_Algorithm BLAS::BLAS)
+find_package(LAPACK REQUIRED)
+target_link_libraries(PT_Algorithm LAPACK::LAPACK)
 
 # range
 target_sources(PT_Algorithm PRIVATE
