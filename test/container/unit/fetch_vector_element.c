@@ -3,11 +3,9 @@
 #include "pt/foundation/macro.h"
 #include "pt/foundation/test.h"
 
-pt_vector(int) v_int_t;
-
 void
 test_fetch_first(void) {
-  v_int_t target;
+  pt_vector_i32 target;
 
   pt_invoke(pt_acquire_vector(&target, 10));
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "pt/config.h"
 #include "pt/container/buffer.h"
 #include "pt/foundation/error.h"
 #include "pt/foundation/tag.h"
@@ -11,6 +12,31 @@
     size_t length; \
     _type* tag[0]; \
   }*
+
+pt_vector(pt_u8) pt_vector_u8;
+pt_vector(pt_u16) pt_vector_u16;
+pt_vector(pt_u32) pt_vector_u32;
+pt_vector(pt_u64) pt_vector_u64;
+pt_vector(pt_i8) pt_vector_i8;
+pt_vector(pt_i16) pt_vector_i16;
+pt_vector(pt_i32) pt_vector_i32;
+pt_vector(pt_i64) pt_vector_i64;
+pt_vector(pt_f32) pt_vector_f32;
+pt_vector(pt_f64) pt_vector_f64;
+pt_vector(pt_f128) pt_vector_f128;
+#ifdef PT_USE_TYPE
+typedef pt_vector_u8 vector_u8;
+typedef pt_vector_u16 vector_u16;
+typedef pt_vector_u32 vector_u32;
+typedef pt_vector_u64 vector_u64;
+typedef pt_vector_i8 vector_i8;
+typedef pt_vector_i16 vector_i16;
+typedef pt_vector_i32 vector_i32;
+typedef pt_vector_i64 vector_i64;
+typedef pt_vector_f32 vector_f32;
+typedef pt_vector_f64 vector_f64;
+typedef pt_vector_f128 vector_f128;
+#endif
 
 #define pt_acquire_vector(_target, _length) \
   ({ \
