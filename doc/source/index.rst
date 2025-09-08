@@ -24,6 +24,7 @@ Algorithm modules:
 
 * algorithm/range
 * algorithm/blas
+* algorithm/lapack
 * algorithm/solve
 
 Method modules:
