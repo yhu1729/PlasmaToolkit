@@ -26,6 +26,7 @@ Algorithm modules:
 * algorithm/blas
 * algorithm/lapack
 * algorithm/linear_solver
+* algorithm/nonlinear_solver
 
 Method modules:
 
