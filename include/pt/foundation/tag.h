@@ -20,11 +20,11 @@ typedef enum _pt_tag_t pt_tag;
   _entry(PT_TAG_SINGULAR_MATRIX, "Singular matrix")
 
 #define _PT_VERBOSITY_LIST(_entry) \
-  _entry(PT_TAG_VERBOSITY_NONE, 0, "None") \
-  _entry(PT_TAG_VERBOSITY_ERROR, 1, "Error") \
-  _entry(PT_TAG_VERBOSITY_WARNING, 2, "Warning") \
-  _entry(PT_TAG_VERBOSITY_INFO, 3, "Info") \
-  _entry(PT_TAG_VERBOSITY_DEBUG, 4, "Debug")
+  _entry(PT_TAG_VERBOSITY_NONE, "None", 0) \
+  _entry(PT_TAG_VERBOSITY_ERROR, "Error", 1) \
+  _entry(PT_TAG_VERBOSITY_WARNING, "Warning", 2) \
+  _entry(PT_TAG_VERBOSITY_INFO, "Info", 3) \
+  _entry(PT_TAG_VERBOSITY_DEBUG, "Debug", 4)
 
 #define _PT_CONTEXT_TYPE_LIST(_entry) \
   _entry(PT_TAG_LOCAL, "Local") \
@@ -56,7 +56,7 @@ enum _pt_error_t {
 typedef enum _pt_error_t pt_error;
 
 enum _pt_verbosity_t {
-#define _PT_EXPAND_TO_ENUM(_tag, _value, _name) _tag = _value,
+#define _PT_EXPAND_TO_ENUM(_tag, _name, _value) _tag = _value,
 
   _PT_VERBOSITY_LIST(_PT_EXPAND_TO_ENUM)
 
