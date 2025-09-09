@@ -3,9 +3,6 @@
 enum _pt_tag_t {
   PT_TAG_LEFT,
   PT_TAG_RIGHT,
-  PT_TAG_LOCAL,
-  PT_TAG_MPI,
-  PT_TAG_NCCL,
 };
 typedef enum _pt_tag_t pt_tag;
 
@@ -28,6 +25,11 @@ typedef enum _pt_tag_t pt_tag;
   _entry(PT_TAG_VERBOSITY_WARNING, 2, "Warning") \
   _entry(PT_TAG_VERBOSITY_INFO, 3, "Info") \
   _entry(PT_TAG_VERBOSITY_DEBUG, 4, "Debug")
+
+#define _PT_CONTEXT_TYPE_LIST(_entry) \
+  _entry(PT_TAG_LOCAL, "Local") \
+  _entry(PT_TAG_MPI, "MPI") \
+  _entry(PT_TAG_NCCL, "NCCL")
 
 #define _PT_MEMORY_TYPE_LIST(_entry) \
   _entry(PT_TAG_CPU, "CPU") \
@@ -61,6 +63,15 @@ enum _pt_verbosity_t {
 #undef _PT_EXPAND_TO_ENUM
 };
 typedef enum _pt_verbosity_t pt_verbosity;
+
+enum _pt_context_type_t {
+#define _PT_EXPAND_TO_ENUM(_tag, _name) _tag,
+
+  _PT_CONTEXT_TYPE_LIST(_PT_EXPAND_TO_ENUM)
+
+#undef _PT_EXPAND_TO_ENUM
+};
+typedef enum _pt_context_type_t pt_context_type;
 
 enum _pt_memory_type_t {
 #define _PT_EXPAND_TO_ENUM(_tag, _name) _tag,

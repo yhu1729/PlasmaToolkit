@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 struct _pt_context_t {
-  pt_tag type;
+  pt_context_type type;
   size_t id;
 };
 typedef struct _pt_context_t* pt_context;
@@ -49,7 +49,7 @@ typedef struct _pt_context_nccl_t pt_context_nccl;
 
 pt_error pt_acquire_context_impl_local(pt_context target[1]);
 
-pt_error pt_acquire_context(pt_context target[1], const pt_tag type);
+pt_error pt_acquire_context(pt_context target[1], const pt_context_type type);
 pt_error pt_release_context(pt_context target);
 pt_error pt_set_context_id(pt_context target, const size_t id);
 pt_error pt_get_context_id(pt_context target, size_t id[1]);
