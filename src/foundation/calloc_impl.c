@@ -8,7 +8,7 @@ pt_calloc_impl(
   const int line, const char* function) {
   *target = calloc(n, size);
   pt_log_debug(
-    "calloc: %s:%d  %s  %p+%zu\n", file, line, function, *target, size);
+    "calloc: %s:%d  %s  %p+%zu\n", file, line, function, *target, n * size);
 
   return PT_TAG_SUCCESS;
 }
