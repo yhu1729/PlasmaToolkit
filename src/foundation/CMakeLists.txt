@@ -33,5 +33,12 @@ target_sources(PT_Foundation PRIVATE
   log.c
 )
 
+# test
+target_sources(PT_Foundation PRIVATE
+  test_assert_equal_impl_double.c
+  test_assert_impl.c
+  test_invoke_impl.c
+)
+
 target_include_directories(PT_Foundation PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(PT_Foundation PUBLIC ${PROJECT_BINARY_DIR}/include)

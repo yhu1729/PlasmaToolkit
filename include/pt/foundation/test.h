@@ -5,57 +5,39 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-inline static bool
-_pt_test_assert(
-  const bool result, const char* file, const int line, const char* expr) {
-  const char* feedback;
-  if (result) {
-    feedback = "PASS";
-  } else {
-    feedback = "FAIL";
-  }
-
-  if (!result) {
-    const char* message = "Invalid assertion";
-    pt_log_error("%s: %s:%d  %s\n%s.\n", feedback, file, line, expr, message);
-  } else {
-    pt_log_debug("%s: %s:%d  %s\n", feedback, file, line, expr);
-  }
-
-  return result;
-}
+bool pt_test_assert_impl(
+  const bool result, const char* file, const int line, const char* expr);
 
 #define pt_test_assert(_expr) \
   do { \
-    if (!_pt_test_assert((_expr), __FILE__, __LINE__, #_expr)) { \
+    if (!pt_test_assert_impl((_expr), __FILE__, __LINE__, #_expr)) { \
       abort(); \
     } \
   } while (0)
 
-inline static bool
-_pt_test_invoke(
-  const pt_error result, const pt_error target, const char* file,
-  const int line, const char* expr) {
-  const char* feedback;
-  if (result == target) {
-    feedback = "PASS";
-  } else {
-    feedback = "FAIL";
-  }
+bool pt_test_assert_equal_impl_double(
+  const double lhs, const double rhs, const double tolerance, const char* file,
+  const int line);
 
-  if (result != target) {
-    const char* message = pt_get_error_message(result);
-    pt_log_error("%s: %s:%d  %s\n%s.\n", feedback, file, line, expr, message);
-  } else {
-    pt_log_debug("%s: %s:%d  %s\n", feedback, file, line, expr);
-  }
+#define pt_test_assert_equal_impl(_lhs, _rhs, _tolerance) \
+  _Generic((_lhs), double: pt_test_assert_equal_impl_double)( \
+    (_lhs), (_rhs), (_tolerance), __FILE__, __LINE__)
 
-  return (result == target);
-}
-
-#define pt_test_invoke(_expr, _result) \
+#define pt_test_assert_equal(_lhs, _rhs, _tolerance) \
   do { \
-    if (!_pt_test_invoke((_expr), (_result), __FILE__, __LINE__, #_expr)) { \
+    if (!pt_test_assert_equal_impl((_lhs), (_rhs), (_tolerance))) { \
+      abort(); \
+    } \
+  } while (0)
+
+bool pt_test_invoke_impl(
+  const pt_error result, const pt_error target, const char* file,
+  const int line, const char* expr);
+
+#define pt_test_invoke(_result, _expr) \
+  do { \
+    if (!pt_test_invoke_impl( \
+          (_expr), (_result), __FILE__, __LINE__, #_expr)) { \
       abort(); \
     } \
   } while (0)
