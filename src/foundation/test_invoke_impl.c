@@ -13,7 +13,8 @@ pt_test_invoke_impl(
 
   if (result != target) {
     const char* message = pt_get_error_message(result);
-    pt_log_error("%s: %s:%d  %s\n%s.\n", feedback, file, line, expr, message);
+    pt_log_error(
+      "%s: %s:%d  %s\nERROR: %s.\n", feedback, file, line, expr, message);
   } else {
     pt_log_debug("%s: %s:%d  %s\n", feedback, file, line, expr);
   }
