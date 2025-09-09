@@ -34,6 +34,10 @@ typedef enum _pt_tag_t pt_tag;
   _entry(PT_TAG_GPU_NVIDIA, "GPU/NVIDIA") \
   _entry(PT_TAG_GPU_AMD, "GPU/AMD")
 
+#define _PT_LINEAR_SOLVER_TYPE_LIST(_entry) \
+  _entry(PT_TAG_DIRECT, "Direct linear algebra solver") \
+  _entry(PT_TAG_ITERATIVE, "Iterative linear algebra solver")
+
 #define _PT_PDE_TYPE_LIST(_entry) \
   _entry(PT_TAG_ADVECTION, "Advection equation") \
   _entry(PT_TAG_EULER, "Euler equation")
@@ -66,6 +70,15 @@ enum _pt_memory_type_t {
 #undef _PT_EXPAND_TO_ENUM
 };
 typedef enum _pt_memory_type_t pt_memory_type;
+
+enum _pt_linear_solver_type_t {
+#define _PT_EXPAND_TO_ENUM(_tag, _name) _tag,
+
+  _PT_LINEAR_SOLVER_TYPE_LIST(_PT_EXPAND_TO_ENUM)
+
+#undef _PT_EXPAND_TO_ENUM
+};
+typedef enum _pt_linear_solver_type_t pt_linear_solver_type;
 
 enum _pt_pde_type_t {
 #define _PT_EXPAND_TO_ENUM(_tag, _name) _tag,
