@@ -1,5 +1,7 @@
 #pragma once
 
+#include "pt/foundation/tag.h"
+
 extern void
 dgetrf(int* m, int* n, double* A, int* ld_A, int* pivot, int* info);
 

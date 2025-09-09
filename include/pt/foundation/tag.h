@@ -18,7 +18,9 @@ typedef enum _pt_tag_t pt_tag;
   entry(PT_TAG_NULL_POINTER, "Null pointer") \
   entry(PT_TAG_OUT_OF_MEMORY, "Out of memory") \
   entry(PT_TAG_OUT_OF_RANGE, "Out of range") \
-  entry(PT_TAG_UNREACHABLE, "Unreachable branch")
+  entry(PT_TAG_UNREACHABLE, "Unreachable branch") \
+  entry(PT_TAG_INVALID_OUTPUT, "Invalid output") \
+  entry(PT_TAG_SINGULAR_MATRIX, "Singular matrix")
 
 #define _PT_VERBOSITY_LIST(entry) \
   entry(PT_TAG_VERBOSITY_NONE, 0, "None") \

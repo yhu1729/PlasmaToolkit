@@ -27,6 +27,11 @@ target_sources(PT_Algorithm PRIVATE
   dscal.c
 )
 
+# lapack
+target_sources(PT_Algorithm PRIVATE
+  dgetrf.c
+)
+
 target_link_libraries(PT_Algorithm PT::Foundation)
 target_link_libraries(PT_Algorithm PT::Container)
 

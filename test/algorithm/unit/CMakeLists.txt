@@ -7,3 +7,13 @@ set_tests_properties(Algorithm/unit/scal
   PROPERTIES LABELS
   "type:unit;module:algorithm/blas;need:memory"
 )
+
+# getrf
+add_executable(getrf getrf.c)
+target_link_libraries(getrf PT::Algorithm)
+add_test(NAME Algorithm/unit/getrf
+  COMMAND ./getrf)
+set_tests_properties(Algorithm/unit/getrf
+  PROPERTIES LABELS
+  "type:unit;module:algorithm/lapack"
+)
