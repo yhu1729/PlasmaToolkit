@@ -33,6 +33,12 @@ target_sources(PT_Foundation PRIVATE
   log.c
 )
 
+# math
+target_sources(PT_Foundation PRIVATE
+  sign_double.c
+  sign_float.c
+)
+
 # test
 target_sources(PT_Foundation PRIVATE
   test_assert_equal_impl_double.c
