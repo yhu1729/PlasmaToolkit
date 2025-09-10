@@ -1,3 +1,4 @@
+#include "pt/config.h"
 #include "pt/container/vector.h"
 #include "pt/foundation/macro.h"
 #include "pt/foundation/test.h"
@@ -8,10 +9,10 @@ test_fetch_first(void) {
 
   pt_test_invoke(PT_TAG_SUCCESS, pt_acquire_vector(&target, 10));
 
-  int* content = pt_as_pointer(target);
+  pt_i32* content = pt_as_pointer(target);
   content[0] = 3;
 
-  int* value_1;
+  pt_i32* value_1;
   pt_test_invoke(PT_TAG_SUCCESS, pt_fetch_vector_element(target, 0, value_1));
   pt_test_assert(*value_1 == 3);
   pt_test_assert(value_1 == (content + 0));
