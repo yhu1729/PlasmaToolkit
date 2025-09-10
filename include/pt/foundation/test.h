@@ -5,6 +5,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#define PT_TEST_EPSILON_FLOAT 1e-4
+#define PT_TEST_EPSILON_DOUBLE 1e-13
+
 bool pt_test_assert_impl(
   const bool result, const char* file, const int line, const char* expr);
 

@@ -14,7 +14,7 @@ test_1(void) {
 
   A[0] = 2.0;
   pt_test_invoke(PT_TAG_SUCCESS, pt_getrf(n, n, A, ld_A, pivot));
-  pt_test_assert_equal(A[0], 2.0, 1.0E-14);
+  pt_test_assert_equal(A[0], 2.0, PT_TEST_EPSILON_DOUBLE);
 
   pt_invoke(pt_free(A));
   pt_invoke(pt_free(pivot));
