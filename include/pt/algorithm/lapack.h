@@ -2,8 +2,10 @@
 
 #include "pt/foundation/tag.h"
 
+#define dgetrf(...) dgetrf_(__VA_ARGS__)
+
 extern void
-dgetrf(int* m, int* n, double* A, int* ld_A, int* pivot, int* info);
+dgetrf_(int* m, int* n, double* A, int* ld_A, int* pivot, int* info);
 
 pt_error pt_dgetrf(int m, int n, double* A, int ld_A, int* pivot);
 
