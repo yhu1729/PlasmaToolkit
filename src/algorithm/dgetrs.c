@@ -2,8 +2,8 @@
 
 pt_error
 pt_dgetrs(
-  char transpose, int n, int n_rhs, double* A, int ld_A, int* pivot, double* B,
-  int ld_B) {
+  char* transpose, int n, int n_rhs, double* A, int ld_A, int* pivot,
+  double* B, int ld_B) {
   if ((!A) || (!pivot) || (!B)) {
     return PT_TAG_NULL_POINTER;
   }

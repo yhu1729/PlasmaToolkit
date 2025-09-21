@@ -13,7 +13,7 @@ pt_apply_linear_solver(pt_linear_solver target, double* A, double* B) {
 
   if (target->info.pivot_ready) {
     pt_invoke(pt_getrs(
-      'N', target->info.n_eqn, target->info.n_rhs, A, target->info.n_eqn,
+      "N", target->info.n_eqn, target->info.n_rhs, A, target->info.n_eqn,
       target->info.pivot, B, target->info.n_eqn));
   } else {
     pt_invoke(pt_gesv(

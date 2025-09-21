@@ -13,7 +13,7 @@ extern void dgesv_(
   int* info);
 
 extern void dgetrs_(
-  char transpose, int* n, int* n_rhs, double* A, int* ld_A, int* pivot,
+  char* transpose, int* n, int* n_rhs, double* A, int* ld_A, int* pivot,
   double* B, int* ld_B, int* info);
 
 extern void
@@ -23,8 +23,8 @@ pt_error pt_dgesv(
   int n, int n_rhs, double* A, int ld_A, int* pivot, double* B, int ld_B);
 
 pt_error pt_dgetrs(
-  char transpose, int n, int n_rhs, double* A, int ld_A, int* pivot, double* B,
-  int ld_B);
+  char* transpose, int n, int n_rhs, double* A, int ld_A, int* pivot,
+  double* B, int ld_B);
 
 pt_error pt_dgetrf(int m, int n, double* A, int ld_A, int* pivot);
 
