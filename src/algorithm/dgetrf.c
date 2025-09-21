@@ -3,10 +3,10 @@
 
 pt_error
 pt_dgetrf(int m, int n, double* A, int ld_A, int* pivot) {
-  if ((A == NULL) || (pivot == NULL)) {
+  if ((!A) || (!pivot)) {
     return PT_TAG_NULL_POINTER;
   }
-  if ((m == 0) || (n == 0) || (ld_A == 0)) {
+  if ((m < 1) || (n < 1) || (ld_A < 1)) {
     return PT_TAG_INVALID_PARAMETER;
   }
 

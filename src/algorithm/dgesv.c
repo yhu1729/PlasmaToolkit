@@ -4,10 +4,10 @@
 pt_error
 pt_dgesv(
   int n, int n_rhs, double* A, int ld_A, int* pivot, double* B, int ld_B) {
-  if ((A == NULL) || (pivot == NULL) || (B == NULL)) {
+  if ((!A) || (!pivot) || (!B)) {
     return PT_TAG_NULL_POINTER;
   }
-  if ((n == 0) || (n_rhs == 0) || (ld_A == 0) || (ld_B == 0)) {
+  if ((n < 1) || (n_rhs < 1) || (ld_A < 1) || (ld_B < 1)) {
     return PT_TAG_INVALID_PARAMETER;
   }
 
