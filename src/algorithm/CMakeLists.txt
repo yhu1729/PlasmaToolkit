@@ -35,6 +35,3 @@ target_sources(PT_Algorithm PRIVATE
 
 target_link_libraries(PT_Algorithm PT::Foundation)
 target_link_libraries(PT_Algorithm PT::Container)
-
-target_include_directories(PT_Algorithm PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_include_directories(PT_Algorithm PUBLIC ${PROJECT_BINARY_DIR}/include)
