@@ -41,7 +41,7 @@
       },
       "filter": {
         "exclude": {
-          "label": "(need:memory)"
+          "label": ""
         }
       }
     }
