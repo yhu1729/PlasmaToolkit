@@ -1,6 +1,5 @@
 #include "pt/algorithm/blas.h"
 #include "pt/foundation/test.h"
-#include <limits.h>
 
 void
 test_step_1(void) {
