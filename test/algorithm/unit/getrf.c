@@ -67,16 +67,274 @@ test_4(void) {
 }
 
 void
-test_32(void) {}
+test_32(void) {
+  const int n = 32;
+  double* A;
+  double* A_copy;
+  pt_invoke(pt_calloc(&A, n * n, sizeof(double)));
+  pt_invoke(pt_calloc(&A_copy, n * n, sizeof(double)));
+  const int ld_A = n;
+  int* pivot;
+  int* pivot_copy;
+  pt_invoke(pt_calloc(&pivot, n, sizeof(int)));
+  pt_invoke(pt_calloc(&pivot_copy, n, sizeof(int)));
+
+  for (int col = 0; col < n; ++col) {
+    for (int row = 0; row < n; ++row) {
+      int value = rand();
+      A[row + col * n] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      A_copy[row + col * n] = A[row + col * n];
+    }
+  }
+  pt_test_invoke(PT_TAG_SUCCESS, pt_getrf(n, n, A, ld_A, pivot));
+
+  double* B;
+  pt_invoke(pt_calloc(&B, n, sizeof(double)));
+  for (int index = 0; index < n; ++index) {
+    int value = rand();
+    B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+  }
+  const int ld_B = n;
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gesv(n, 1, A_copy, ld_A, pivot_copy, B, ld_B));
+  for (int index = 0; index < n * n; ++index) {
+    pt_test_assert_equal(A[index], A_copy[index], PT_TEST_EPSILON_DOUBLE);
+  }
+  for (int index = 0; index < n; ++index) {
+    pt_test_assert_equal(pivot[n], pivot_copy[n], 0);
+  }
+  pt_invoke(pt_free(B));
+
+  pt_invoke(pt_free(A));
+  pt_invoke(pt_free(A_copy));
+  pt_invoke(pt_free(pivot));
+  pt_invoke(pt_free(pivot_copy));
+}
 
 void
-test_64(void) {}
+test_64(void) {
+  const int n = 64;
+  double* A;
+  double* A_copy;
+  pt_invoke(pt_calloc(&A, n * n, sizeof(double)));
+  pt_invoke(pt_calloc(&A_copy, n * n, sizeof(double)));
+  const int ld_A = n;
+  int* pivot;
+  int* pivot_copy;
+  pt_invoke(pt_calloc(&pivot, n, sizeof(int)));
+  pt_invoke(pt_calloc(&pivot_copy, n, sizeof(int)));
+
+  for (int col = 0; col < n; ++col) {
+    for (int row = 0; row < n; ++row) {
+      int value = rand();
+      A[row + col * n] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      A_copy[row + col * n] = A[row + col * n];
+    }
+  }
+  pt_test_invoke(PT_TAG_SUCCESS, pt_getrf(n, n, A, ld_A, pivot));
+
+  double* B;
+  pt_invoke(pt_calloc(&B, n, sizeof(double)));
+  for (int index = 0; index < n; ++index) {
+    int value = rand();
+    B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+  }
+  const int ld_B = n;
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gesv(n, 1, A_copy, ld_A, pivot_copy, B, ld_B));
+  for (int index = 0; index < n * n; ++index) {
+    pt_test_assert_equal(A[index], A_copy[index], PT_TEST_EPSILON_DOUBLE);
+  }
+  for (int index = 0; index < n; ++index) {
+    pt_test_assert_equal(pivot[n], pivot_copy[n], 0);
+  }
+  pt_invoke(pt_free(B));
+
+  pt_invoke(pt_free(A));
+  pt_invoke(pt_free(A_copy));
+  pt_invoke(pt_free(pivot));
+  pt_invoke(pt_free(pivot_copy));
+}
 
 void
-test_128(void) {}
+test_128(void) {
+  const int n = 128;
+  double* A;
+  double* A_copy;
+  pt_invoke(pt_calloc(&A, n * n, sizeof(double)));
+  pt_invoke(pt_calloc(&A_copy, n * n, sizeof(double)));
+  const int ld_A = n;
+  int* pivot;
+  int* pivot_copy;
+  pt_invoke(pt_calloc(&pivot, n, sizeof(int)));
+  pt_invoke(pt_calloc(&pivot_copy, n, sizeof(int)));
+
+  for (int col = 0; col < n; ++col) {
+    for (int row = 0; row < n; ++row) {
+      int value = rand();
+      A[row + col * n] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      A_copy[row + col * n] = A[row + col * n];
+    }
+  }
+  pt_test_invoke(PT_TAG_SUCCESS, pt_getrf(n, n, A, ld_A, pivot));
+
+  double* B;
+  pt_invoke(pt_calloc(&B, n, sizeof(double)));
+  for (int index = 0; index < n; ++index) {
+    int value = rand();
+    B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+  }
+  const int ld_B = n;
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gesv(n, 1, A_copy, ld_A, pivot_copy, B, ld_B));
+  for (int index = 0; index < n * n; ++index) {
+    pt_test_assert_equal(A[index], A_copy[index], PT_TEST_EPSILON_DOUBLE);
+  }
+  for (int index = 0; index < n; ++index) {
+    pt_test_assert_equal(pivot[n], pivot_copy[n], 0);
+  }
+  pt_invoke(pt_free(B));
+
+  pt_invoke(pt_free(A));
+  pt_invoke(pt_free(A_copy));
+  pt_invoke(pt_free(pivot));
+  pt_invoke(pt_free(pivot_copy));
+}
 
 void
-test_256(void) {}
+test_256(void) {
+  const int n = 256;
+  double* A;
+  double* A_copy;
+  pt_invoke(pt_calloc(&A, n * n, sizeof(double)));
+  pt_invoke(pt_calloc(&A_copy, n * n, sizeof(double)));
+  const int ld_A = n;
+  int* pivot;
+  int* pivot_copy;
+  pt_invoke(pt_calloc(&pivot, n, sizeof(int)));
+  pt_invoke(pt_calloc(&pivot_copy, n, sizeof(int)));
+
+  for (int col = 0; col < n; ++col) {
+    for (int row = 0; row < n; ++row) {
+      int value = rand();
+      A[row + col * n] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      A_copy[row + col * n] = A[row + col * n];
+    }
+  }
+  pt_test_invoke(PT_TAG_SUCCESS, pt_getrf(n, n, A, ld_A, pivot));
+
+  double* B;
+  pt_invoke(pt_calloc(&B, n, sizeof(double)));
+  for (int index = 0; index < n; ++index) {
+    int value = rand();
+    B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+  }
+  const int ld_B = n;
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gesv(n, 1, A_copy, ld_A, pivot_copy, B, ld_B));
+  for (int index = 0; index < n * n; ++index) {
+    pt_test_assert_equal(A[index], A_copy[index], PT_TEST_EPSILON_DOUBLE);
+  }
+  for (int index = 0; index < n; ++index) {
+    pt_test_assert_equal(pivot[n], pivot_copy[n], 0);
+  }
+  pt_invoke(pt_free(B));
+
+  pt_invoke(pt_free(A));
+  pt_invoke(pt_free(A_copy));
+  pt_invoke(pt_free(pivot));
+  pt_invoke(pt_free(pivot_copy));
+}
+
+void
+test_512(void) {
+  const int n = 512;
+  double* A;
+  double* A_copy;
+  pt_invoke(pt_calloc(&A, n * n, sizeof(double)));
+  pt_invoke(pt_calloc(&A_copy, n * n, sizeof(double)));
+  const int ld_A = n;
+  int* pivot;
+  int* pivot_copy;
+  pt_invoke(pt_calloc(&pivot, n, sizeof(int)));
+  pt_invoke(pt_calloc(&pivot_copy, n, sizeof(int)));
+
+  for (int col = 0; col < n; ++col) {
+    for (int row = 0; row < n; ++row) {
+      int value = rand();
+      A[row + col * n] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      A_copy[row + col * n] = A[row + col * n];
+    }
+  }
+  pt_test_invoke(PT_TAG_SUCCESS, pt_getrf(n, n, A, ld_A, pivot));
+
+  double* B;
+  pt_invoke(pt_calloc(&B, n, sizeof(double)));
+  for (int index = 0; index < n; ++index) {
+    int value = rand();
+    B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+  }
+  const int ld_B = n;
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gesv(n, 1, A_copy, ld_A, pivot_copy, B, ld_B));
+  for (int index = 0; index < n * n; ++index) {
+    pt_test_assert_equal(A[index], A_copy[index], PT_TEST_EPSILON_DOUBLE);
+  }
+  for (int index = 0; index < n; ++index) {
+    pt_test_assert_equal(pivot[n], pivot_copy[n], 0);
+  }
+  pt_invoke(pt_free(B));
+
+  pt_invoke(pt_free(A));
+  pt_invoke(pt_free(A_copy));
+  pt_invoke(pt_free(pivot));
+  pt_invoke(pt_free(pivot_copy));
+}
+
+void
+test_1024(void) {
+  const int n = 1024;
+  double* A;
+  double* A_copy;
+  pt_invoke(pt_calloc(&A, n * n, sizeof(double)));
+  pt_invoke(pt_calloc(&A_copy, n * n, sizeof(double)));
+  const int ld_A = n;
+  int* pivot;
+  int* pivot_copy;
+  pt_invoke(pt_calloc(&pivot, n, sizeof(int)));
+  pt_invoke(pt_calloc(&pivot_copy, n, sizeof(int)));
+
+  for (int col = 0; col < n; ++col) {
+    for (int row = 0; row < n; ++row) {
+      int value = rand();
+      A[row + col * n] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      A_copy[row + col * n] = A[row + col * n];
+    }
+  }
+  pt_test_invoke(PT_TAG_SUCCESS, pt_getrf(n, n, A, ld_A, pivot));
+
+  double* B;
+  pt_invoke(pt_calloc(&B, n, sizeof(double)));
+  for (int index = 0; index < n; ++index) {
+    int value = rand();
+    B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+  }
+  const int ld_B = n;
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gesv(n, 1, A_copy, ld_A, pivot_copy, B, ld_B));
+  for (int index = 0; index < n * n; ++index) {
+    pt_test_assert_equal(A[index], A_copy[index], PT_TEST_EPSILON_DOUBLE);
+  }
+  for (int index = 0; index < n; ++index) {
+    pt_test_assert_equal(pivot[n], pivot_copy[n], 0);
+  }
+  pt_invoke(pt_free(B));
+
+  pt_invoke(pt_free(A));
+  pt_invoke(pt_free(A_copy));
+  pt_invoke(pt_free(pivot));
+  pt_invoke(pt_free(pivot_copy));
+}
 
 PT_TEST_LIST = {
   {test_1, "1-by-1 matrix"},
@@ -85,6 +343,8 @@ PT_TEST_LIST = {
   {test_64, "64-by-64 matrix"},
   {test_128, "128-by-128 matrix"},
   {test_256, "256-by-256 matrix"},
+  {test_512, "512-by-512 matrix"},
+  {test_1024, "1024-by-1024 matrix"},
   {NULL, NULL},
 };
 
