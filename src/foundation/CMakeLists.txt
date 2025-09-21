@@ -26,6 +26,7 @@ target_sources(PT_Foundation PRIVATE
   free_impl.c
   get_error_message.c
   malloc_impl.c
+  realloc_impl.c
 )
 
 # io
