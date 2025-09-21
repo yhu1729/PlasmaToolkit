@@ -18,12 +18,19 @@ bool pt_test_assert_impl(
     } \
   } while (0)
 
+bool pt_test_assert_equal_impl_int(
+  const int lhs, const int rhs, const int tolerance, const char* file,
+  const int line);
+
 bool pt_test_assert_equal_impl_double(
   const double lhs, const double rhs, const double tolerance, const char* file,
   const int line);
 
 #define pt_test_assert_equal_impl(_lhs, _rhs, _tolerance) \
-  _Generic((_lhs), double: pt_test_assert_equal_impl_double)( \
+  _Generic( \
+    (_lhs), \
+    int: pt_test_assert_equal_impl_int, \
+    double: pt_test_assert_equal_impl_double)( \
     (_lhs), (_rhs), (_tolerance), __FILE__, __LINE__)
 
 #define pt_test_assert_equal(_lhs, _rhs, _tolerance) \

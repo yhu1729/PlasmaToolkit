@@ -41,6 +41,7 @@ target_sources(PT_Foundation PRIVATE
 
 # test
 target_sources(PT_Foundation PRIVATE
+  test_assert_equal_impl_int.c
   test_assert_equal_impl_double.c
   test_assert_impl.c
   test_invoke_impl.c
