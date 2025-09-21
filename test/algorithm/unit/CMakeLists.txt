@@ -17,3 +17,13 @@ set_tests_properties(Algorithm/unit/getrf
   PROPERTIES LABELS
   "type:unit;module:algorithm/lapack"
 )
+
+# linear_solver
+add_executable(linear_solver linear_solver.c)
+target_link_libraries(linear_solver PT::Algorithm)
+add_test(NAME Algorithm/unit/linear_solver
+  COMMAND ./linear_solver)
+set_tests_properties(Algorithm/unit/linear_solver
+  PROPERTIES LABELS
+  "type:unit;module:algorithm/linear_solver"
+)

@@ -33,5 +33,13 @@ target_sources(PT_Algorithm PRIVATE
   dgetrf.c
 )
 
+# solver
+target_sources(PT_Algorithm PRIVATE
+  acquire_linear_solver.c
+  apply_linear_solver.c
+  prepare_linear_solver.c
+  release_linear_solver.c
+)
+
 target_link_libraries(PT_Algorithm PT::Foundation)
 target_link_libraries(PT_Algorithm PT::Container)
