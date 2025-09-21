@@ -31,6 +31,7 @@ target_sources(PT_Algorithm PRIVATE
 target_sources(PT_Algorithm PRIVATE
   dgesv.c
   dgetrf.c
+  dgetrs.c
 )
 
 # solver
