@@ -24,3 +24,11 @@
     pt_context: pt_release_context, \
     pt_linear_solver: pt_release_linear_solver)((_target)__VA_OPT__(, ) \
                                                   __VA_ARGS__)
+
+#define pt_prepare(_target, ...) \
+  _Generic((_target), pt_linear_solver: pt_prepare_linear_solver)( \
+    (_target)__VA_OPT__(, ) __VA_ARGS__)
+
+#define pt_apply(_target, ...) \
+  _Generic((_target), pt_linear_solver: pt_apply_linear_solver)( \
+    (_target)__VA_OPT__(, ) __VA_ARGS__)
