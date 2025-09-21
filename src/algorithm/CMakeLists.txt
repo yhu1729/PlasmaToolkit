@@ -29,6 +29,7 @@ target_sources(PT_Algorithm PRIVATE
 
 # lapack
 target_sources(PT_Algorithm PRIVATE
+  dgesv.c
   dgetrf.c
 )
 
