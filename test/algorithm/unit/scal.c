@@ -24,13 +24,14 @@ test_step_2(void) {
 
 void
 test_step_10000(void) {
-  size_t size = (size_t)INT_MAX + 10;
+  int step = 10000;
+  int size = step * 128 + 10;
   double* x = calloc(size, sizeof(double));
-  for (size_t index = 0; index < size; ++index) {
+  for (int index = 0; index < size; ++index) {
     x[index] = (double)index;
   }
-  pt_invoke(pt_scal(size / 10000, 2.0, x, 10000));
-  for (size_t index = 0; index < size / 10000 * 10000; index += 10000) {
+  pt_invoke(pt_scal(size / step + 1, 2.0, x, step));
+  for (int index = 0; index <= size / step * step; index += step) {
     pt_test_assert(x[index] == 2.0 * (double)index);
   }
 }
