@@ -45,6 +45,10 @@ test_4(void) {
 
   double* B;
   pt_invoke(pt_calloc(&B, n, sizeof(double)));
+  for (int index = 0; index < n; ++index) {
+    int value = rand();
+    B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+  }
   const int ld_B = n;
   pt_test_invoke(
     PT_TAG_SUCCESS, pt_gesv(n, 1, A_copy, ld_A, pivot_copy, B, ld_B));
