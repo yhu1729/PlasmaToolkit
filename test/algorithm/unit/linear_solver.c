@@ -1,4 +1,5 @@
 #include "pt/algorithm/linear_solver.h"
+#include "pt/algorithm/blas.h"
 #include "pt/foundation/context.h"
 #include "pt/foundation/macro.h"
 #include "pt/foundation/memory.h"
@@ -51,11 +52,25 @@ test_direct_4(void) {
   pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, NULL));
   generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
   pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gemm(
+                      "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
+                      n_eqn, -1.0, B_original, n_eqn));
+  for (int index = 0; index < n_eqn * n_rhs; ++index) {
+    pt_test_assert_equal(B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE);
+  }
 
   // factor, solve
   generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
   pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, A));
   pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gemm(
+                      "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
+                      n_eqn, -1.0, B_original, n_eqn));
+  for (int index = 0; index < n_eqn * n_rhs; ++index) {
+    pt_test_assert_equal(B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE);
+  }
 
   pt_test_invoke(PT_TAG_SUCCESS, pt_free(A));
   pt_test_invoke(PT_TAG_SUCCESS, pt_free(B));
