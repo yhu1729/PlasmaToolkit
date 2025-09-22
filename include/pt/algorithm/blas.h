@@ -21,3 +21,11 @@ pt_error pt_dgemm(
 // level 1: scal
 #define pt_scal(_n, _a, _x, _inc_x) \
   _Generic((_a), double: pt_dscal)((_n), (_a), (_x), (_inc_x))
+
+// level 3: gemm
+#define pt_gemm( \
+  _transpose_A, _transpose_B, _m, _n, _k, _alpha, _A, _ld_A, _B, _ld_B, \
+  _beta, _C, _ld_C) \
+  _Generic((_alpha), double: pt_dgemm)( \
+    (_transpose_A), (_transpose_B), (_m), (_n), (_k), (_alpha), (_A), \
+    (_ld_A), (_B), (_ld_B), (_beta), (_C), (_ld_C))
