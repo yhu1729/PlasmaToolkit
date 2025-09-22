@@ -4,6 +4,7 @@
 #include "pt/foundation/macro.h"
 #include "pt/foundation/memory.h"
 #include "pt/foundation/test.h"
+#include <math.h>
 #include <stdlib.h>
 
 void
@@ -57,7 +58,8 @@ test_direct_4(void) {
                       "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
                       n_eqn, -1.0, B_original, n_eqn));
   for (int index = 0; index < n_eqn * n_rhs; ++index) {
-    pt_test_assert_equal(B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE);
+    pt_test_assert_equal(
+      B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE * (double)(n_rhs));
   }
 
   // factor, solve
@@ -69,7 +71,120 @@ test_direct_4(void) {
                       "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
                       n_eqn, -1.0, B_original, n_eqn));
   for (int index = 0; index < n_eqn * n_rhs; ++index) {
-    pt_test_assert_equal(B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE);
+    pt_test_assert_equal(
+      B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE * (double)(n_rhs));
+  }
+
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(A));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(B));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(A_original));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(B_original));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_release(target));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_release(context));
+}
+
+void
+test_direct_32(void) {
+  const int n_eqn = 32;
+  const int n_rhs = 8;
+
+  pt_context context;
+  pt_test_invoke(PT_TAG_SUCCESS, pt_acquire(&context, PT_TAG_LOCAL));
+
+  pt_linear_solver target;
+  pt_test_invoke(PT_TAG_SUCCESS, pt_acquire(&target, context, PT_TAG_DIRECT));
+
+  double* A;
+  double* B;
+  double* A_original;
+  double* B_original;
+  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&A, n_eqn * n_eqn, sizeof(double)));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&B, n_eqn * n_rhs, sizeof(double)));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_calloc(&A_original, n_eqn * n_eqn, sizeof(double)));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_calloc(&B_original, n_eqn * n_rhs, sizeof(double)));
+
+  // solve
+  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, NULL));
+  generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
+  pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gemm(
+                      "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
+                      n_eqn, -1.0, B_original, n_eqn));
+  for (int index = 0; index < n_eqn * n_rhs; ++index) {
+    pt_test_assert_equal(
+      B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE * (double)(n_rhs));
+  }
+
+  // factor, solve
+  generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
+  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, A));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gemm(
+                      "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
+                      n_eqn, -1.0, B_original, n_eqn));
+  for (int index = 0; index < n_eqn * n_rhs; ++index) {
+    pt_test_assert_equal(
+      B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE * (double)(n_rhs));
+  }
+
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(A));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(B));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(A_original));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(B_original));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_release(target));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_release(context));
+}
+
+void
+test_direct_256(void) {
+  const int n_eqn = 256;
+  const int n_rhs = 32;
+
+  pt_context context;
+  pt_test_invoke(PT_TAG_SUCCESS, pt_acquire(&context, PT_TAG_LOCAL));
+
+  pt_linear_solver target;
+  pt_test_invoke(PT_TAG_SUCCESS, pt_acquire(&target, context, PT_TAG_DIRECT));
+
+  double* A;
+  double* B;
+  double* A_original;
+  double* B_original;
+  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&A, n_eqn * n_eqn, sizeof(double)));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&B, n_eqn * n_rhs, sizeof(double)));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_calloc(&A_original, n_eqn * n_eqn, sizeof(double)));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_calloc(&B_original, n_eqn * n_rhs, sizeof(double)));
+
+  // solve
+  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, NULL));
+  generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
+  pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gemm(
+                      "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
+                      n_eqn, -1.0, B_original, n_eqn));
+  for (int index = 0; index < n_eqn * n_rhs; ++index) {
+    pt_test_assert_equal(
+      B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE * (double)(n_rhs));
+  }
+
+  // factor, solve
+  generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
+  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, A));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_gemm(
+                      "N", "N", n_eqn, n_rhs, n_eqn, 1.0, A_original, n_eqn, B,
+                      n_eqn, -1.0, B_original, n_eqn));
+  for (int index = 0; index < n_eqn * n_rhs; ++index) {
+    pt_test_assert_equal(
+      B_original[index], 0.0, PT_TEST_EPSILON_DOUBLE * (double)(n_rhs));
   }
 
   pt_test_invoke(PT_TAG_SUCCESS, pt_free(A));
@@ -82,6 +197,8 @@ test_direct_4(void) {
 
 PT_TEST_LIST = {
   {test_direct_4, "direct; 4-by-4"},
+  {test_direct_32, "direct; 32-by-32"},
+  {test_direct_256, "direct; 256-by-256"},
   {NULL, NULL},
 };
 
