@@ -6,45 +6,61 @@
 #include <stdlib.h>
 
 void
+generate_data(
+  const int n_eqn, const int n_rhs, double* A, double* B, double* A_original,
+  double* B_original) {
+  for (int row = 0; row < n_eqn; ++row) {
+    for (int col = 0; col < n_eqn; ++col) {
+      const int index = row + col * n_eqn;
+      int value = rand();
+      A[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      A_original[index] = A[index];
+    }
+    for (int col = 0; col < n_rhs; ++col) {
+      const int index = row + col * n_eqn;
+      int value = rand();
+      B[index] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
+      B_original[index] = B[index];
+    }
+  }
+}
+
+void
 test_direct_4(void) {
+  const int n_eqn = 4;
+  const int n_rhs = 2;
+
   pt_context context;
   pt_test_invoke(PT_TAG_SUCCESS, pt_acquire(&context, PT_TAG_LOCAL));
 
   pt_linear_solver target;
   pt_test_invoke(PT_TAG_SUCCESS, pt_acquire(&target, context, PT_TAG_DIRECT));
 
-  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, 4, 2, NULL));
   double* A;
   double* B;
-  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&A, 4 * 4, sizeof(double)));
-  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&B, 4 * 2, sizeof(double)));
-  for (int row = 0; row < 4; ++row) {
-    for (int col = 0; col < 4; ++col) {
-      int value = rand();
-      A[row + col * 4] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
-    }
-    for (int col = 0; col < 2; ++col) {
-      int value = rand();
-      B[row + col * 4] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
-    }
-  }
+  double* A_original;
+  double* B_original;
+  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&A, n_eqn * n_eqn, sizeof(double)));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_calloc(&B, n_eqn * n_rhs, sizeof(double)));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_calloc(&A_original, n_eqn * n_eqn, sizeof(double)));
+  pt_test_invoke(
+    PT_TAG_SUCCESS, pt_calloc(&B_original, n_eqn * n_rhs, sizeof(double)));
+
+  // solve
+  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, NULL));
+  generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
   pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
 
-  for (int row = 0; row < 4; ++row) {
-    for (int col = 0; col < 4; ++col) {
-      int value = rand();
-      A[row + col * 4] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
-    }
-    for (int col = 0; col < 2; ++col) {
-      int value = rand();
-      B[row + col * 4] = ((double)(value) / (double)(RAND_MAX)) * 2.0 - 1.0;
-    }
-  }
-  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, 4, 2, A));
+  // factor, solve
+  generate_data(n_eqn, n_rhs, A, B, A_original, B_original);
+  pt_test_invoke(PT_TAG_SUCCESS, pt_prepare(target, n_eqn, n_rhs, A));
   pt_test_invoke(PT_TAG_SUCCESS, pt_apply(target, A, B));
 
   pt_test_invoke(PT_TAG_SUCCESS, pt_free(A));
   pt_test_invoke(PT_TAG_SUCCESS, pt_free(B));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(A_original));
+  pt_test_invoke(PT_TAG_SUCCESS, pt_free(B_original));
   pt_test_invoke(PT_TAG_SUCCESS, pt_release(target));
   pt_test_invoke(PT_TAG_SUCCESS, pt_release(context));
 }
