@@ -1,0 +1,69 @@
+{
+  "version": 10,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 31,
+    "patch": 6
+  },
+  "include": [],
+  "configurePresets": [
+    {
+      "name": "debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-${hostSystemName}-$env{PT_COMPILER}/${presetName}",
+      "cacheVariables": {
+        "PT_BUILD_TYPE": "Debug",
+        "PT_CANARY": "2",
+        "PT_VERBOSITY": "4",
+        "PT_USE_TYPE": "ON",
+        "PT_USE_MPI": "OFF",
+        "PT_USE_NCCL": "OFF"
+      },
+      "environment": {}
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "output": {
+        "labelSummary": true,
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "ignore",
+        "stopOnFailure": true
+      },
+      "filter": {
+        "exclude": {
+          "label": ""
+        }
+      }
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "debug",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "debug"
+        },
+        {
+          "type": "build",
+          "name": "debug"
+        },
+        {
+          "type": "test",
+          "name": "debug"
+        }
+      ]
+    }
+  ]
+}
