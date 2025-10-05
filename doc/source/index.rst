@@ -15,6 +15,7 @@ Core modules:
 Test modules:
 
 * test/unit
+* test/benchmark
 
 Data container modules:
 
@@ -26,7 +27,7 @@ Data container modules:
 
 IO modules:
 
-* io/plain
+* io/print
 * io/file
 
 Algorithm modules:
@@ -54,4 +55,5 @@ Application modules:
 * application/euler
 * application/mhd
 * application/vlasov
-* application/gyrokinetic
+* application/laser
+* application/tokamak
