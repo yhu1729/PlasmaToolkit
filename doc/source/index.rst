@@ -3,6 +3,7 @@ Plasma Toolkit
 
 Core modules:
 
+* core/type
 * core/version
 * core/macro
 * core/tag
