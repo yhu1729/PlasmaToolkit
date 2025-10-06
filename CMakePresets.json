@@ -13,9 +13,8 @@
       "binaryDir": "${sourceDir}/build-${hostSystemName}-$env{PT_COMPILER}/${presetName}",
       "cacheVariables": {
         "PT_BUILD_TYPE": "Debug",
-        "PT_CANARY": "2",
+        "PT_CANARY": "3",
         "PT_VERBOSITY": "4",
-        "PT_USE_TYPE": "ON",
         "PT_USE_MPI": "OFF",
         "PT_USE_NCCL": "OFF"
       },
