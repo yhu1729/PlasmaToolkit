@@ -7,7 +7,7 @@ Core modules:
 * core/macro
 * core/tag
 * core/log
-* core/error
+* core/status
 * core/context
 * core/memory
 * core/math
@@ -24,6 +24,7 @@ Data container modules:
 * container/matrix
 * container/pool
 * container/tree
+* container/grid
 
 IO modules:
 
@@ -35,6 +36,7 @@ Algorithm modules:
 * algorithm/blas
 * algorithm/lapack
 * algorithm/range
+* algorithm/mesh
 * algorithm/solver
 
 Method modules:
@@ -43,17 +45,17 @@ Method modules:
 * method/fv
 * method/dg
 * method/rk
+* method/sl
 * method/ader
 * method/pic
 
 Application modules:
 
-* application/ode
-* application/pde
 * application/advection
 * application/wave
 * application/euler
 * application/mhd
+* application/maxwell
 * application/vlasov
 * application/laser
-* application/tokamak
+* application/fusion
