@@ -27,6 +27,7 @@ option(PT_USE_MPI "Use MPI features" ON)
 option(PT_USE_NCCL "Use NCCL features" ON)
 list(APPEND _pt_build_option "PT_USE_MPI" "PT_USE_NCCL")
 
+# display build options
 list(APPEND CMAKE_MESSAGE_CONTEXT "PlasmaToolkit")
 message(STATUS "Build options:")
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
