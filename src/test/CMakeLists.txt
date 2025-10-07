@@ -1,5 +1,6 @@
 add_library(PT_Test SHARED)
 add_library(PT::Test ALIAS PT_Test)
+target_link_libraries(PT_Test PUBLIC PT::Core)
 
 set_property(TARGET PT_Test PROPERTY C_STANDARD 23)
 set_property(TARGET PT_Test PROPERTY C_STANDARD_REQUIRED ON)
