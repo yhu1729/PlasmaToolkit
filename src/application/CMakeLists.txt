@@ -1,0 +1,8 @@
+add_subdirectory(advection)
+add_subdirectory(wave)
+add_subdirectory(euler)
+add_subdirectory(mhd)
+add_subdirectory(maxwell)
+add_subdirectory(vlasov)
+add_subdirectory(laser)
+add_subdirectory(fusion)

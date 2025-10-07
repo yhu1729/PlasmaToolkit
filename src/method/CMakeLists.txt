@@ -1,0 +1,7 @@
+add_subdirectory(fd)
+add_subdirectory(fv)
+add_subdirectory(dg)
+add_subdirectory(rk)
+add_subdirectory(sl)
+add_subdirectory(ader)
+add_subdirectory(pic)

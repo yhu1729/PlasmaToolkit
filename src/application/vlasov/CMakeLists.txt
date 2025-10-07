@@ -1,0 +1,3 @@
+add_subdirectory(electrostatic)
+add_subdirectory(nonrelativistic)
+add_subdirectory(relativistic)
