@@ -19,6 +19,11 @@ Test modules:
 * test/unit
 * test/benchmark
 
+Profile modules:
+
+* profile/timer
+* profile/tracker
+
 Data container modules:
 
 * container/buffer

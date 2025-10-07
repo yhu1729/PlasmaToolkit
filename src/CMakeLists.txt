@@ -1,5 +1,6 @@
 add_subdirectory(core)
 add_subdirectory(test)
+add_subdirectory(profile)
 add_subdirectory(container)
 add_subdirectory(io)
 add_subdirectory(algorithm)
