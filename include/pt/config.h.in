@@ -23,3 +23,6 @@
 #ifdef PT_USE_NCCL
 #include "nccl.h"
 #endif
+
+#define PT_EPSILON_FLOAT 1e-4
+#define PT_EPSILON_DOUBLE 1e-13
