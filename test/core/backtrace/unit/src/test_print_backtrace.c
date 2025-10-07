@@ -1,14 +1,14 @@
-#include "pt/core/info.h"
+#include "pt/core/backtrace.h"
 #include "pt/test/assert.h"
 #include "pt/test/unit.h"
 
 void
 test_print_all(void) {
-  PT_INFO_TOP(target_0);
-  pt_print_info(&target_0);
+  PT_BACKTRACE_TOP(target_0);
+  pt_print_backtrace(&target_0);
 
-  PT_INFO(target_1, &target_0);
-  pt_print_info(&target_1);
+  PT_BACKTRACE(target_1, &target_0);
+  pt_print_backtrace(&target_1);
 
   pt_assert_ok();
 }

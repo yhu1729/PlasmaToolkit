@@ -4,11 +4,11 @@ Plasma Toolkit
 Core modules:
 
 * core/type
-* core/info
 * core/version
 * core/macro
 * core/tag
 * core/log
+* core/backtrace
 * core/status
 * core/context
 * core/memory

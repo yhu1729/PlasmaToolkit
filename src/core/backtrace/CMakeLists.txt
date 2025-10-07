@@ -1,3 +1,3 @@
 target_sources(PT_Core PRIVATE
-  print_info.c
+  print_backtrace.c
 )
