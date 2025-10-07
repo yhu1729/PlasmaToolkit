@@ -13,9 +13,7 @@ target_include_directories(PT_Test PUBLIC
   ${PROJECT_BINARY_DIR}/include
 )
 
-target_sources(PT_Test PRIVATE
-  assert_impl.c
-)
-
+add_subdirectory(assert)
+add_subdirectory(invoke)
 add_subdirectory(unit)
 add_subdirectory(benchmark)
