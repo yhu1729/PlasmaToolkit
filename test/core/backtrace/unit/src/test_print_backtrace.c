@@ -6,6 +6,8 @@ void
 f(pt_backtrace* backtrace) {
   PT_BACKTRACE(target, backtrace);
   pt_print_backtrace(&target);
+
+  pt_assert_ok();
 }
 
 void
