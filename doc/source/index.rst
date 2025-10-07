@@ -16,7 +16,7 @@ Core modules:
 
 Test modules:
 
-* test/assert
+* test/check
 * test/invoke
 * test/unit
 * test/benchmark
