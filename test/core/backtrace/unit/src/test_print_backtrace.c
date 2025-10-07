@@ -15,4 +15,4 @@ test_print_all(void) {
 
 PT_TEST_LIST({test_print_all, "print all"})
 
-PT_TEST_MAIN
+PT_TEST_UNIT_MAIN

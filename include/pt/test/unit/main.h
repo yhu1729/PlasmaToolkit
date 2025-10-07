@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-#define PT_TEST_MAIN \
+#define PT_TEST_UNIT_MAIN \
   int main(void) { \
     int list_size = 0; \
     for (list_size = 0;; ++list_size) { \
