@@ -3,7 +3,13 @@
 #include "pt/test/unit.h"
 
 void
-test_print_all(void) {
+f(pt_backtrace* backtrace) {
+  PT_BACKTRACE(target, backtrace);
+  pt_print_backtrace(&target);
+}
+
+void
+test_print_local(void) {
   PT_BACKTRACE_TOP(target_0);
   pt_print_backtrace(&target_0);
 
@@ -13,6 +19,16 @@ test_print_all(void) {
   pt_assert_ok();
 }
 
-PT_TEST_LIST({test_print_all, "print all"})
+void
+test_print_remote(void) {
+  PT_BACKTRACE_TOP(target);
+  f(&target);
+
+  pt_assert_ok();
+}
+
+PT_TEST_LIST(
+  {test_print_local, "print local backtrace"},
+  {test_print_remote, "print remote backtrace"});
 
 PT_TEST_UNIT_MAIN
