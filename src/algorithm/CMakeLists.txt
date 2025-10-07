@@ -1,0 +1,5 @@
+add_subdirectory(blas)
+add_subdirectory(lapack)
+add_subdirectory(range)
+add_subdirectory(mesh)
+add_subdirectory(solver)

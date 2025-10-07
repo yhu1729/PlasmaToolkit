@@ -1,0 +1,8 @@
+add_subdirectory(info)
+add_subdirectory(version)
+add_subdirectory(tag)
+add_subdirectory(log)
+add_subdirectory(status)
+add_subdirectory(context)
+add_subdirectory(memory)
+add_subdirectory(math)

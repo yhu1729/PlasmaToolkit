@@ -1,0 +1,5 @@
+add_subdirectory(text)
+add_subdirectory(binary)
+add_subdirectory(netcdf)
+add_subdirectory(hdf5)
+add_subdirectory(adios2)
