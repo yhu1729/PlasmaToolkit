@@ -24,4 +24,4 @@ pt_status pt_invoke_impl(
   pt_invoke_impl( \
     (_expression), (_callback), (_context), __func__, __FILE__, __LINE__)
 
-#define pt_safe_invoke(_expression) pt_invoke((_expression),pt_abort,NULL)
+#define pt_safe_invoke(_expression) pt_invoke((_expression), pt_abort, NULL)
