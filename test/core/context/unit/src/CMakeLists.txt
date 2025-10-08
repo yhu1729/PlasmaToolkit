@@ -6,7 +6,7 @@ add_test(
 )
 set_tests_properties(Core/unit/acquire_context_local
   PROPERTIES
-  LABELS "type:unit;module:core/context"
+  LABELS "type:unit;module:core/context;network:local"
 )
 
 if(PT_USE_MPI)
@@ -22,6 +22,6 @@ if(PT_USE_MPI)
   )
   set_tests_properties(Core/unit/acquire_context_mpi
     PROPERTIES
-    LABELS "type:unit;module:core/context"
+    LABELS "type:unit;module:core/context;network:mpi"
   )
 endif()
