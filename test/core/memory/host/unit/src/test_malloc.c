@@ -1,11 +1,12 @@
 #include "pt/core/memory.h"
 #include "pt/test/check.h"
+#include "pt/test/expect.h"
 #include "pt/test/unit.h"
 
 void
 test_allocate_small(void) {
   char* target;
-  pt_safe_invoke(pt_malloc(&target, 16));
+  pt_expect(PT_TAG_SUCCESS, pt_malloc(&target, 16));
   pt_free(target);
 
   pt_check_ok();
@@ -14,7 +15,7 @@ test_allocate_small(void) {
 void
 test_allocate_large(void) {
   char* target;
-  pt_safe_invoke(pt_malloc(&target, 1024));
+  pt_expect(PT_TAG_SUCCESS, pt_malloc(&target, 1024));
   pt_free(target);
 
   pt_check_ok();

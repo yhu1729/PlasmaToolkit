@@ -1,12 +1,13 @@
 #include "pt/config.h"
 #include "pt/core/context.h"
 #include "pt/test/check.h"
+#include "pt/test/expect.h"
 #include "pt/test/unit.h"
 
 void
 test_local(void) {
   pt_context target;
-  pt_safe_invoke(pt_acquire(&target, PT_TAG_LOCAL));
+  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, PT_TAG_LOCAL));
   pt_check(target->type == PT_TAG_LOCAL);
   pt_check(!(target->active));
   pt_check(!(target->interface.local->active));
