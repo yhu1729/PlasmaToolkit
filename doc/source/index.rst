@@ -10,8 +10,8 @@ Core modules:
 * core/log
 * core/backtrace
 * core/status
-* core/context
 * core/memory
+* core/context
 * core/math
 
 Test modules:
