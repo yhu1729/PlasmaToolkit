@@ -5,21 +5,10 @@
 
 void
 test_all(void) {
-  pt_check(!strcmp(
-    pt_get_verbosity_name(PT_TAG_VERBOSITY_NONE),
-    pt_get_tag_name(PT_TAG_VERBOSITY_NONE)));
-  pt_check(!strcmp(
-    pt_get_verbosity_name(PT_TAG_VERBOSITY_ERROR),
-    pt_get_tag_name(PT_TAG_VERBOSITY_ERROR)));
-  pt_check(!strcmp(
-    pt_get_verbosity_name(PT_TAG_VERBOSITY_WARNING),
-    pt_get_tag_name(PT_TAG_VERBOSITY_WARNING)));
-  pt_check(!strcmp(
-    pt_get_verbosity_name(PT_TAG_VERBOSITY_INFO),
-    pt_get_tag_name(PT_TAG_VERBOSITY_INFO)));
-  pt_check(!strcmp(
-    pt_get_verbosity_name(PT_TAG_VERBOSITY_DEBUG),
-    pt_get_tag_name(PT_TAG_VERBOSITY_DEBUG)));
+  for (int target = PT_TAG_VERBOSITY_NONE; target <= PT_TAG_VERBOSITY_DEBUG;
+       ++target) {
+    pt_check(!strcmp(pt_get_verbosity_name(target), pt_get_tag_name(target)));
+  }
 
   pt_check_ok();
 }
