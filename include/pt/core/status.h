@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pt/core/tag.h"
+#include <stdlib.h>
 
 typedef struct _pt_status_t pt_status;
 typedef pt_status (*pt_status_callback_t)(const pt_tag, void* context);
