@@ -15,6 +15,6 @@ target_include_directories(PT_Test PUBLIC
 )
 
 add_subdirectory(check)
-add_subdirectory(invoke)
+add_subdirectory(expect)
 add_subdirectory(unit)
 add_subdirectory(benchmark)
