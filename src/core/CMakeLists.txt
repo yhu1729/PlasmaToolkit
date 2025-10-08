@@ -13,6 +13,11 @@ target_include_directories(PT_Core PUBLIC
   ${PROJECT_BINARY_DIR}/include
 )
 
+if(PT_USE_MPI)
+  find_package(MPI REQUIRED)
+  target_link_libraries(PT_Core MPI::MPI_C)
+endif()
+
 add_subdirectory(version)
 add_subdirectory(tag)
 add_subdirectory(log)

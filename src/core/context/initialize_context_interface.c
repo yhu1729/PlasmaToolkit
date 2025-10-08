@@ -1,15 +1,19 @@
 #include "pt/core/context.h"
 
 pt_status
-pt_initialize_context_api(pt_context_api api, const pt_tag type) {
+pt_initialize_context_interface(
+  pt_context_interface interface, const pt_tag type, pt_context leader) {
   PT_STATUS(status);
 
   switch (type) {
   case PT_TAG_LOCAL:
-    pt_initialize_context_local(&(api.local));
+    pt_initialize_context_local(interface.local);
     break;
+#ifdef PT_USE_MPI
   case PT_TAG_MPI:
+    pt_initialize_context_mpi(interface.mpi, leader);
     break;
+#endif
   case PT_TAG_NCCL:
     break;
   case PT_TAG_MPI_NCCL:

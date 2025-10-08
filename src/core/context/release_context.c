@@ -7,10 +7,13 @@ pt_release_context(pt_context target) {
 
   switch (target->type) {
   case PT_TAG_LOCAL:
-    pt_release_context_local(&(target->api.local));
+    pt_release_context_local(target->interface.local);
     break;
+#ifdef PT_USE_MPI
   case PT_TAG_MPI:
+    pt_release_context_mpi(target->interface.mpi);
     break;
+#endif
   case PT_TAG_NCCL:
     break;
   case PT_TAG_MPI_NCCL:

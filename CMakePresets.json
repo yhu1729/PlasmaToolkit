@@ -8,7 +8,7 @@
   "include": [],
   "configurePresets": [
     {
-      "name": "debug",
+      "name": "debug-sequential",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build-${hostSystemName}-$env{PT_HOST_COMPILER}-$env{PT_DEVICE_COMPILER}/${presetName}",
       "cacheVariables": {
@@ -23,18 +23,56 @@
         "PT_USE_NCCL": "OFF"
       },
       "environment": {}
+    },
+    {
+      "name": "debug-mpi",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-${hostSystemName}-$env{PT_HOST_COMPILER}-$env{PT_DEVICE_COMPILER}/${presetName}",
+      "cacheVariables": {
+        "PT_BUILD_TYPE": "Debug",
+        "PT_HOST_PROCESSOR": "$env{PT_HOST_PROCESSOR}",
+        "PT_HOST_COMPILER": "$env{PT_HOST_COMPILER}",
+        "PT_DEVICE_PROCESSOR": "$env{PT_DEVICE_PROCESSOR}",
+        "PT_DEVICE_COMPILER": "$env{PT_DEVICE_COMPILER}",
+        "PT_CANARY": "3",
+        "PT_VERBOSITY": "4",
+        "PT_USE_MPI": "ON",
+        "PT_USE_NCCL": "OFF"
+      },
+      "environment": {}
     }
   ],
   "buildPresets": [
     {
-      "name": "debug",
-      "configurePreset": "debug"
+      "name": "debug-sequential",
+      "configurePreset": "debug-sequential"
+    },
+    {
+      "name": "debug-mpi",
+      "configurePreset": "debug-mpi"
     }
   ],
   "testPresets": [
     {
-      "name": "debug",
-      "configurePreset": "debug",
+      "name": "debug-sequential",
+      "configurePreset": "debug-sequential",
+      "output": {
+        "labelSummary": true,
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "ignore",
+        "stopOnFailure": true
+      },
+      "filter": {
+        "exclude": {
+          "label": ""
+        }
+      }
+    },
+    {
+      "name": "debug-mpi",
+      "configurePreset": "debug-mpi",
       "output": {
         "labelSummary": true,
         "outputOnFailure": true
@@ -52,19 +90,36 @@
   ],
   "workflowPresets": [
     {
-      "name": "debug",
+      "name": "debug-sequential",
       "steps": [
         {
           "type": "configure",
-          "name": "debug"
+          "name": "debug-sequential"
         },
         {
           "type": "build",
-          "name": "debug"
+          "name": "debug-sequential"
         },
         {
           "type": "test",
-          "name": "debug"
+          "name": "debug-sequential"
+        }
+      ]
+    },
+    {
+      "name": "debug-mpi",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "debug-mpi"
+        },
+        {
+          "type": "build",
+          "name": "debug-mpi"
+        },
+        {
+          "type": "test",
+          "name": "debug-mpi"
         }
       ]
     }

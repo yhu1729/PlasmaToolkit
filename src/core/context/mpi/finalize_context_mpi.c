@@ -1,8 +1,7 @@
-
-#include "pt/core/context/local.h"
+#include "pt/core/context/mpi.h"
 
 pt_status
-pt_finalize_context_local(pt_context_local target) {
+pt_finalize_context_mpi(pt_context_mpi target) {
   PT_STATUS(status);
 
   if (!(target->active)) {
@@ -14,6 +13,7 @@ pt_finalize_context_local(pt_context_local target) {
   target->active = false;
   target->rank = 0;
   target->size = 0;
+  target->network = NULL;
 
   return status;
 }
