@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stdbool.h>
+#include "pt/core/type.h"
 
 #define PT_VERSION_MAJOR 0
 #define PT_VERSION_MINOR 1

@@ -6,7 +6,6 @@
 
 #include "pt/core/status.h"
 #include "pt/core/type.h"
-#include <stdbool.h>
 
 typedef struct _pt_context_t* pt_context;
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pt/config.h"
+#include <stdbool.h>
 #include <stdint.h>
 
 typedef uint_fast8_t pt_u8;
