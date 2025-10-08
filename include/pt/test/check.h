@@ -3,11 +3,11 @@
 #include "pt/config.h"
 
 bool pt_check_impl(
-  const bool result, const char* file, const int line, const char* expr);
+  const bool result, const char* file, const int line, const char* expression);
 
-#define pt_check(_expr) \
+#define pt_check(_expression) \
   do { \
-    if (!pt_check_impl((_expr), __FILE__, __LINE__, #_expr)) { \
+    if (!pt_check_impl((_expression), __FILE__, __LINE__, #_expression)) { \
       abort(); \
     } \
   } while (0)
