@@ -12,12 +12,12 @@ pt_check_impl(
     feedback = "FAIL";
   }
 
-  if (!result) {
+  if (result) {
+    pt_emit_log_debug("%s: %s:%d  %s", feedback, file, line, expression);
+  } else {
     const char* message = "Invalid result";
     pt_emit_log_debug(
       "%s: %s:%d  %s  \"%s\"", feedback, file, line, expression, message);
-  } else {
-    pt_emit_log_debug("%s: %s:%d  %s", feedback, file, line, expression);
   }
 
   return result;

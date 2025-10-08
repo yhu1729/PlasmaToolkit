@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pt/config.h"
+#include "pt/core/type.h"
 #include <signal.h>
 
 bool pt_check_impl(
@@ -15,19 +16,19 @@ bool pt_check_impl(
 
 #define pt_check_ok(...) pt_check(true);
 
-bool pt_check_equal_impl_int(
-  const int lhs, const int rhs, const int tolerance, const char* file,
+bool pt_check_equal_impl_i32(
+  const pt_i32 lhs, const pt_i32 rhs, const pt_i32 tolerance, const char* file,
   const int line);
 
-bool pt_check_equal_impl_double(
-  const double lhs, const double rhs, const double tolerance, const char* file,
+bool pt_check_equal_impl_f64(
+  const pt_f64 lhs, const pt_f64 rhs, const pt_f64 tolerance, const char* file,
   const int line);
 
 #define pt_check_equal_impl(_lhs, _rhs, _tolerance) \
   _Generic( \
     (_lhs), \
-    int: pt_check_equal_impl_int, \
-    double: pt_check_equal_impl_double)( \
+    pt_i32: pt_check_equal_impl_i32, \
+    pt_f64: pt_check_equal_impl_f64)( \
     (_lhs), (_rhs), (_tolerance), __FILE__, __LINE__)
 
 #define pt_check_equal(_lhs, _rhs, _tolerance) \
