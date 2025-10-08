@@ -1,5 +1,5 @@
+#include "pt/core/log.h"
 #include "pt/test/check.h"
-#include <stdio.h>
 
 bool
 pt_check_impl(
@@ -13,9 +13,10 @@ pt_check_impl(
 
   if (!result) {
     const char* message = "Invalid result";
-    printf("%s: %s:%d  %s\n%s.\n", feedback, file, line, expr, message);
+    pt_emit_log_debug(
+      "%s: %s:%d  %s  \"%s\"", feedback, file, line, expr, message);
   } else {
-    printf("%s: %s:%d  %s\n", feedback, file, line, expr);
+    pt_emit_log_debug("%s: %s:%d  %s", feedback, file, line, expr);
   }
 
   return result;
