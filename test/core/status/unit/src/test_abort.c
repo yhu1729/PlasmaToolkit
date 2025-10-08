@@ -5,11 +5,11 @@
 void
 test_good(void) {
   pt_status target = {PT_TAG_SUCCESS, NULL, NULL};
-  pt_status result = pt_invoke(target, pt_abort, NULL);
+  pt_status status = pt_invoke(target, pt_abort, NULL);
 
-  pt_check(result.code == PT_TAG_SUCCESS);
-  pt_check(!result.callback);
-  pt_check(!result.context);
+  pt_check(status.code == PT_TAG_SUCCESS);
+  pt_check(!status.callback);
+  pt_check(!status.context);
 
   pt_check_ok();
 }
