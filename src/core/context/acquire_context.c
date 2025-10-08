@@ -8,7 +8,7 @@ pt_status
 pt_acquire_context(pt_context target[1], const pt_tag type) {
   PT_STATUS(result);
 
-  pt_safe_invoke(pt_malloc(&target, sizeof *target));
+  pt_safe_invoke(pt_malloc(target, sizeof **target));
   (*target)->type = type;
   switch ((*target)->type) {
   case PT_TAG_LOCAL:
