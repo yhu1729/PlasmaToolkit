@@ -3,6 +3,7 @@
 // clang-format off
 
 #define _PT_TAG_LIST(_entry) \
+  _entry(PT_TAG_UNKNOWN,           "Unknown",              -1) \
   _entry(PT_TAG_SUCCESS,           "Success",               0) \
   _entry(PT_TAG_ERROR_MIN,         "Min error code",      999) \
   _entry(PT_TAG_INVALID_PARAMETER, "Invalid parameter",  1000) \
