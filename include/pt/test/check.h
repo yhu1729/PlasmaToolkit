@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pt/config.h"
+#include <signal.h>
 
 bool pt_check_impl(
   const bool result, const char* file, const int line, const char* expression);
@@ -8,7 +9,7 @@ bool pt_check_impl(
 #define pt_check(_expression) \
   do { \
     if (!pt_check_impl((_expression), __FILE__, __LINE__, #_expression)) { \
-      abort(); \
+      raise(SIGTERM); \
     } \
   } while (0)
 
@@ -32,6 +33,6 @@ bool pt_check_equal_impl_double(
 #define pt_check_equal(_lhs, _rhs, _tolerance) \
   do { \
     if (!pt_check_equal_impl((_lhs), (_rhs), (_tolerance))) { \
-      abort(); \
+      raise(SIGTERM); \
     } \
   } while (0)
