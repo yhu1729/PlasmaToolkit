@@ -1,6 +1,7 @@
 #include "pt/core/status.h"
 #include "pt/test/check.h"
 #include "pt/test/unit.h"
+#include <signal.h>
 
 void
 skip(int signal) {}
