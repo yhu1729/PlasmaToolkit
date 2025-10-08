@@ -6,13 +6,13 @@
 void
 test_local(void) {
   pt_context target;
-  pt_safe_invoke(pt_acquire_context(&target, PT_TAG_LOCAL));
+  pt_safe_invoke(pt_acquire(&target, PT_TAG_LOCAL));
   pt_check(target->type == PT_TAG_LOCAL);
   pt_check(!(target->active));
   pt_check(!(target->interface.local->active));
   pt_check_equal(target->interface.local->rank, 0, 0);
   pt_check_equal(target->interface.local->size, 0, 0);
-  pt_release_context(target);
+  pt_release(target);
 }
 
 PT_TEST_LIST({test_local, "Acquire local context"});

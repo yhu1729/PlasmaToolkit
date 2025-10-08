@@ -11,11 +11,11 @@ pt_acquire_context(pt_context target[1], const pt_tag type) {
   handle->active = false;
   switch (handle->type) {
   case PT_TAG_LOCAL:
-    pt_acquire_context_local(&(handle->interface.local));
+    pt_acquire(&(handle->interface.local));
     break;
 #ifdef PT_USE_MPI
   case PT_TAG_MPI:
-    pt_acquire_context_mpi(&(handle->interface.mpi));
+    pt_acquire(&(handle->interface.mpi));
     break;
 #endif
   case PT_TAG_NCCL:

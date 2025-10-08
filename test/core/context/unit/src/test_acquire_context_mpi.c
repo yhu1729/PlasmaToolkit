@@ -6,13 +6,13 @@
 void
 test_root(void) {
   pt_context target;
-  pt_safe_invoke(pt_acquire_context(&target, PT_TAG_MPI));
+  pt_safe_invoke(pt_acquire(&target, PT_TAG_MPI));
   pt_check(target->type == PT_TAG_MPI);
   pt_check(!(target->active));
   pt_check(!(target->interface.mpi->active));
   pt_check_equal(target->interface.mpi->rank, 0, 0);
   pt_check_equal(target->interface.mpi->size, 0, 0);
-  pt_release_context(target);
+  pt_release(target);
 }
 
 PT_TEST_LIST({test_root, "Acquire MPI context"});

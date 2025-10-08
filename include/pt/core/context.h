@@ -4,6 +4,7 @@
 #include "pt/core/context/local.h"
 #include "pt/core/context/mpi.h"
 #include "pt/core/context/nccl.h"
+#include "pt/core/macro.h"
 #include "pt/core/status.h"
 #include "pt/core/tag.h"
 

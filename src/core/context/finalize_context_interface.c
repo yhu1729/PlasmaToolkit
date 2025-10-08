@@ -7,11 +7,11 @@ pt_finalize_context_interface(
 
   switch (type) {
   case PT_TAG_LOCAL:
-    pt_finalize_context_local(interface.local);
+    pt_finalize(interface.local);
     break;
 #ifdef PT_USE_MPI
   case PT_TAG_MPI:
-    pt_finalize_context_mpi(interface.mpi);
+    pt_finalize(interface.mpi);
     break;
 #endif
   case PT_TAG_NCCL:

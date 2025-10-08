@@ -7,11 +7,11 @@ pt_initialize_context_interface(
 
   switch (type) {
   case PT_TAG_LOCAL:
-    pt_initialize_context_local(interface.local);
+    pt_initialize(interface.local);
     break;
 #ifdef PT_USE_MPI
   case PT_TAG_MPI:
-    pt_initialize_context_mpi(interface.mpi, leader);
+    pt_initialize(interface.mpi, leader);
     break;
 #endif
   case PT_TAG_NCCL:
