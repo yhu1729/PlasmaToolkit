@@ -1,3 +1,4 @@
-target_sources(PT_Core PRIVATE
+target_sources(PT_Core
+  PRIVATE
   print_version.c
 )

@@ -40,7 +40,8 @@ list(POP_BACK CMAKE_MESSAGE_CONTEXT)
 add_subdirectory(src)
 
 add_library(PT INTERFACE)
-target_link_libraries(PT INTERFACE
+target_link_libraries(PT
+  INTERFACE
   PT::Core
   PT::Test
   PT::Container

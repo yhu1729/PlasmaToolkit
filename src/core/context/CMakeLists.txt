@@ -1,4 +1,5 @@
-target_sources(PT_Core PRIVATE
+target_sources(PT_Core
+  PRIVATE
   acquire_context.c
   release_context.c
   initialize_context.c
