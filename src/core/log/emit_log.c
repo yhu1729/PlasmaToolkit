@@ -16,7 +16,19 @@ pt_emit_log(const pt_tag level, const char* format, ...) {
   }
 
   const char* name = pt_get_verbosity_name(level);
+#ifdef PT_USE_MPI
+  int active = 0;
+  MPI_Initialized(&active);
+  if (active) {
+    int rank = 0;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    fprintf(stderr, "[PT.%s:%d] ", name, rank);
+  } else {
+    fprintf(stderr, "[PT.%s] ", name);
+  }
+#else
   fprintf(stderr, "[PT.%s] ", name);
+#endif
 
   va_list arg;
   va_start(arg, format);
