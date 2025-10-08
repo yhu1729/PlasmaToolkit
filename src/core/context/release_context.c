@@ -1,7 +1,4 @@
 #include "pt/core/context.h"
-#include "pt/core/context/local.h"
-#include "pt/core/context/mpi.h"
-#include "pt/core/context/nccl.h"
 #include "pt/core/memory.h"
 
 pt_status
