@@ -2,7 +2,7 @@
 
 #include "pt/core/tag.h"
 
-const char* pt_get_verbosity_name(const pt_tag level);
+const char* pt_get_verbosity_name(const pt_tag target);
 
 void pt_emit_log(const pt_tag level, const char* format, ...);
 
