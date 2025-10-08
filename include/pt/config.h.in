@@ -24,5 +24,10 @@
 #include "nccl.h"
 #endif
 
+#define PT_USE_CUDA defined(__CUDA_ARCH__)
+
+#define PT_ON_HOST !PT_ON_DEVICE
+#define PT_ON_DEVICE PT_USE_CUDA
+
 #define PT_EPSILON_FLOAT 1e-4
 #define PT_EPSILON_DOUBLE 1e-13

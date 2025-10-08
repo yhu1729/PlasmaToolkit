@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stddef.h>
+#include "pt/config.h"
 
 #define pt_unreachable __builtin_unreachable
 
