@@ -5,6 +5,6 @@ add_test(
   COMMAND ./print_version
 )
 set_tests_properties(Core/unit/print_version
-  PROPERTIES LABELS
-  "type:unit;module:core/version"
+  PROPERTIES
+  LABELS "type:unit;module:core/version"
 )

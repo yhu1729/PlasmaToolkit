@@ -5,8 +5,8 @@ add_test(
   COMMAND ./emit_log
 )
 set_tests_properties(Core/unit/emit_log
-  PROPERTIES LABELS
-  "type:unit;module:core/log"
+  PROPERTIES
+  LABELS "type:unit;module:core/log"
 )
 
 add_executable(get_verbosity_name test_get_verbosity_name.c)
@@ -16,6 +16,6 @@ add_test(
   COMMAND ./get_verbosity_name
 )
 set_tests_properties(Core/unit/get_verbosity_name
-  PROPERTIES LABELS
-  "type:unit;module:core/log"
+  PROPERTIES
+  LABELS "type:unit;module:core/log"
 )

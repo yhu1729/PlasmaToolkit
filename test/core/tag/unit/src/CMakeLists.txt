@@ -5,6 +5,6 @@ add_test(
   COMMAND ./get_tag_name
 )
 set_tests_properties(Core/unit/get_tag_name
-  PROPERTIES LABELS
-  "type:unit;module:core/tag"
+  PROPERTIES
+  LABELS "type:unit;module:core/tag"
 )

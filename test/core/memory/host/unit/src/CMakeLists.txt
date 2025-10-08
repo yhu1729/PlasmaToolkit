@@ -5,8 +5,8 @@ add_test(
   COMMAND ./free
 )
 set_tests_properties(Core/unit/free
-  PROPERTIES LABELS
-  "type:unit;module:core/memory"
+  PROPERTIES
+  LABELS "type:unit;module:core/memory"
 )
 
 add_executable(malloc test_malloc.c)
@@ -16,6 +16,6 @@ add_test(
   COMMAND ./malloc
 )
 set_tests_properties(Core/unit/malloc
-  PROPERTIES LABELS
-  "type:unit;module:core/memory"
+  PROPERTIES
+  LABELS "type:unit;module:core/memory"
 )

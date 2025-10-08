@@ -5,6 +5,6 @@ add_test(
   COMMAND ./print_backtrace
 )
 set_tests_properties(Core/unit/print_backtrace
-  PROPERTIES LABELS
-  "type:unit;module:core/backtrace"
+  PROPERTIES
+  LABELS "type:unit;module:core/backtrace"
 )
