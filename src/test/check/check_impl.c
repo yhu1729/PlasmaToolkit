@@ -17,7 +17,7 @@ pt_check_impl(
   } else {
     const char* message = "Invalid result";
     pt_emit_log_debug(
-      "%s: %s:%d  %s  \"%s\"", feedback, file, line, expression, message);
+      "%s: %s:%d  %s  (%s)", feedback, file, line, expression, message);
   }
 
   return result;
