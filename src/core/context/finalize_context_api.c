@@ -1,13 +1,12 @@
 #include "pt/core/context.h"
-#include "pt/core/memory.h"
 
 pt_status
-pt_release_context(pt_context target) {
+pt_finalize_context_api(pt_context_api api, const pt_tag type) {
   PT_STATUS(status);
 
-  switch (target->type) {
+  switch (type) {
   case PT_TAG_LOCAL:
-    pt_release_context_local(&(target->api.local));
+    pt_finalize_context_local(&(api.local));
     break;
   case PT_TAG_MPI:
     break;
@@ -18,7 +17,6 @@ pt_release_context(pt_context target) {
   default:
     status.code = PT_TAG_INVALID_PARAMETER;
   }
-  pt_safe_invoke(pt_free(target));
 
   return status;
 }
