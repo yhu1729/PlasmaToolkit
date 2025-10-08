@@ -17,7 +17,7 @@ test_print_short(void) {
 }
 
 PT_TEST_LIST(
-  {test_print_full, "print full version number"},
-  {test_print_short, "print short version number"});
+  {test_print_full, "Print full version number"},
+  {test_print_short, "Print short version number"});
 
 PT_TEST_UNIT_MAIN

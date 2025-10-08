@@ -15,6 +15,6 @@ test_all(void) {
   pt_check_ok();
 }
 
-PT_TEST_LIST({test_all, "check all status names"});
+PT_TEST_LIST({test_all, "Check all status names"});
 
 PT_TEST_UNIT_MAIN

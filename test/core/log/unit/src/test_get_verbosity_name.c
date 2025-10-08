@@ -13,6 +13,6 @@ test_all(void) {
   pt_check_ok();
 }
 
-PT_TEST_LIST({test_all, "check all verbosity names"});
+PT_TEST_LIST({test_all, "Check all verbosity names"});
 
 PT_TEST_UNIT_MAIN

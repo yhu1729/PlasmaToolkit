@@ -14,6 +14,6 @@ test_good(void) {
   pt_check_ok();
 }
 
-PT_TEST_LIST({test_good, "check good path"});
+PT_TEST_LIST({test_good, "Check good path"});
 
 PT_TEST_UNIT_MAIN

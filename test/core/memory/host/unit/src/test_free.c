@@ -21,7 +21,7 @@ test_free_large(void) {
 }
 
 PT_TEST_LIST(
-  {test_free_small, "free small chunks"},
-  {test_free_large, "free large chunks"});
+  {test_free_small, "Free small chunks"},
+  {test_free_large, "Free large chunks"});
 
 PT_TEST_UNIT_MAIN

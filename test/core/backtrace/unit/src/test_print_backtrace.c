@@ -30,7 +30,7 @@ test_print_remote(void) {
 }
 
 PT_TEST_LIST(
-  {test_print_local, "print local backtrace"},
-  {test_print_remote, "print remote backtrace"});
+  {test_print_local, "Print local backtrace"},
+  {test_print_remote, "Print remote backtrace"});
 
 PT_TEST_UNIT_MAIN

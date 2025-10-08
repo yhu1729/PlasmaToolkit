@@ -19,6 +19,6 @@ test_bad(void) {
   pt_check_ok();
 }
 
-PT_TEST_LIST({test_bad, "check bad path"});
+PT_TEST_LIST({test_bad, "Check bad path"});
 
 PT_TEST_UNIT_MAIN

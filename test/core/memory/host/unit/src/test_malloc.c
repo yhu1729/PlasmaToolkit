@@ -21,7 +21,7 @@ test_allocate_large(void) {
 }
 
 PT_TEST_LIST(
-  {test_allocate_small, "allocate small chunks"},
-  {test_allocate_large, "allocate large chunks"});
+  {test_allocate_small, "Allocate small chunks"},
+  {test_allocate_large, "Allocate large chunks"});
 
 PT_TEST_UNIT_MAIN

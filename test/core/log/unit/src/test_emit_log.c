@@ -20,7 +20,7 @@ test_emit_all(void) {
 }
 
 PT_TEST_LIST(
-  {test_emit_one, "emit one log message"},
-  {test_emit_all, "emit all log messages"});
+  {test_emit_one, "Emit one log message"},
+  {test_emit_all, "Emit all log messages"});
 
 PT_TEST_UNIT_MAIN
