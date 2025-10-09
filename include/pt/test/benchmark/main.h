@@ -18,7 +18,7 @@
         break; \
       } \
     } \
-    void (*handle)(int, char**,pt_test_info); \
+    void (*handle)(int, char**, pt_test_info); \
     void (*report)(pt_test_info info); \
     for (int index = 0; index < size; ++index) { \
       handle = pt_test_list[index].handle; \

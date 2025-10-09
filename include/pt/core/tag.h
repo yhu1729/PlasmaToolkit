@@ -35,6 +35,7 @@
 
 // clang-format on
 
+typedef enum _pt_tag_t pt_tag;
 enum _pt_tag_t {
 
 #define _PT_EXPAND(_tag, _message, _value) _tag = _value,
@@ -44,6 +45,5 @@ enum _pt_tag_t {
 #undef _PT_EXPAND
 
 };
-typedef enum _pt_tag_t pt_tag;
 
 const char* pt_get_tag_name(const pt_tag);
