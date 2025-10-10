@@ -15,7 +15,7 @@ target_include_directories(PT_Core PUBLIC
 
 if(PT_USE_MPI)
   find_package(MPI REQUIRED)
-  target_link_libraries(PT_Core MPI::MPI_C)
+  target_link_libraries(PT_Core PUBLIC MPI::MPI_C)
 endif()
 
 add_subdirectory(version)
