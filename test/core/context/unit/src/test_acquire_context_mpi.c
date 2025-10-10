@@ -11,8 +11,8 @@ test_root(void) {
   pt_check(target->type == PT_TAG_MPI);
   pt_check(!(target->active));
   pt_check(!(target->interface.mpi->active));
-  pt_check_equal(target->interface.mpi->rank, 0, 0);
-  pt_check_equal(target->interface.mpi->size, 0, 0);
+  pt_check_same(target->interface.mpi->rank, 0);
+  pt_check_same(target->interface.mpi->size, 0);
   pt_release(target);
   pt_check_ok();
 }

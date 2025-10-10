@@ -11,8 +11,8 @@ test_local(void) {
   pt_check(target->type == PT_TAG_LOCAL);
   pt_check(!(target->active));
   pt_check(!(target->interface.local->active));
-  pt_check_equal(target->interface.local->rank, 0, 0);
-  pt_check_equal(target->interface.local->size, 0, 0);
+  pt_check_same(target->interface.local->rank, 0);
+  pt_check_same(target->interface.local->size, 0);
   pt_release(target);
   pt_check_ok();
 }
