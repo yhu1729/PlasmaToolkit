@@ -19,3 +19,14 @@ set_tests_properties(Core/unit/malloc
   PROPERTIES
   LABELS "type:unit;module:core/memory"
 )
+
+add_executable(calloc test_calloc.c)
+target_link_libraries(calloc PT::Test PT::Core)
+add_test(
+  NAME Core/unit/calloc
+  COMMAND ./calloc
+)
+set_tests_properties(Core/unit/calloc
+  PROPERTIES
+  LABELS "type:unit;module:core/memory"
+)
