@@ -14,6 +14,7 @@ test_root(void) {
   pt_check_equal(target->interface.mpi->rank, 0, 0);
   pt_check_equal(target->interface.mpi->size, 0, 0);
   pt_release(target);
+  pt_check_ok();
 }
 
 PT_TEST_LIST({test_root, "Acquire MPI context"});

@@ -14,6 +14,7 @@ test_local(void) {
   pt_check_equal(target->interface.local->rank, 0, 0);
   pt_check_equal(target->interface.local->size, 0, 0);
   pt_release(target);
+  pt_check_ok();
 }
 
 PT_TEST_LIST({test_local, "Acquire local context"});
