@@ -7,8 +7,7 @@ test_all(void) {
 
 #define _PT_EXPAND(_tag, _message, _value) \
   do { \
-    int r = strcmp(pt_get_tag_name((_tag)), (_message)); \
-    pt_check(!r); \
+    pt_check_same(pt_get_tag_name((_tag)), (_message)); \
   } while (0);
 
 #undef _PT_EXPAND

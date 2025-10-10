@@ -15,6 +15,20 @@ bool pt_check_impl(
 
 #define pt_check_ok(...) pt_check(true);
 
+bool pt_check_same_impl_char_ptr(
+  const char* lhs, const char* rhs, const char* file, const int line);
+
+#define pt_check_same_impl(_lhs, _rhs) \
+  _Generic((_lhs), const char*: pt_check_same_impl_char_ptr)( \
+    (_lhs), (_rhs), __FILE__, __LINE__)
+
+#define pt_check_same(_lhs, _rhs) \
+  do { \
+    if (!pt_check_same_impl((_lhs), (_rhs))) { \
+      raise(SIGTERM); \
+    } \
+  } while (0)
+
 bool pt_check_equal_impl_i32(
   const pt_i32 lhs, const pt_i32 rhs, const pt_i32 tolerance, const char* file,
   const int line);

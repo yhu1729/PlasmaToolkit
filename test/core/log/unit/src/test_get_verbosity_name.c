@@ -7,7 +7,7 @@ void
 test_all(void) {
   for (int target = PT_TAG_VERBOSITY_NONE; target <= PT_TAG_VERBOSITY_DEBUG;
        ++target) {
-    pt_check(!strcmp(pt_get_verbosity_name(target), pt_get_tag_name(target)));
+    pt_check_same(pt_get_verbosity_name(target), pt_get_tag_name(target));
   }
 
   pt_check_ok();
