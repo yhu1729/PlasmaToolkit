@@ -2,6 +2,7 @@
 
 #include "pt/config.h"
 #include "pt/core/context.h"
+#include "pt/profile/timer.h"
 #include <stddef.h>
 
 #define pt_unreachable __builtin_unreachable
@@ -18,16 +19,16 @@
     (*(_target)), \
     pt_context: pt_acquire_context, \
     pt_context_local: pt_acquire_context_local, \
-    pt_context_mpi: pt_acquire_context_mpi)((_target)__VA_OPT__(, ) \
-                                              __VA_ARGS__)
+    pt_context_mpi: pt_acquire_context_mpi, \
+    pt_timer: pt_acquire_timer)((_target)__VA_OPT__(, ) __VA_ARGS__)
 
 #define pt_release(_target, ...) \
   _Generic( \
     (_target), \
     pt_context: pt_release_context, \
     pt_context_local: pt_release_context_local, \
-    pt_context_mpi: pt_release_context_mpi)((_target)__VA_OPT__(, ) \
-                                              __VA_ARGS__)
+    pt_context_mpi: pt_release_context_mpi, \
+    pt_timer: pt_release_timer)((_target)__VA_OPT__(, ) __VA_ARGS__)
 
 #define pt_initialize(_target, ...) \
   _Generic( \
@@ -46,3 +47,11 @@
     pt_context_local: pt_finalize_context_local, \
     pt_context_mpi: pt_finalize_context_mpi)((_target)__VA_OPT__(, ) \
                                                __VA_ARGS__)
+
+#define pt_start(_target, ...) \
+  _Generic((_target), pt_timer: pt_start_timer)((target)__VA_OPT__(, ) \
+                                                  __VA_ARGS__)
+
+#define pt_stop(_target, ...) \
+  _Generic((_target), pt_timer: pt_stop_timer)((target)__VA_OPT__(, ) \
+                                                 __VA_ARGS__)
