@@ -3,7 +3,7 @@
 #include <string.h>
 
 bool
-pt_check_same_impl_char_ptr(
+pt_check_same_impl_char_pointer(
   const char* lhs, const char* rhs, const char* file, const int line) {
   bool result = !strcmp(lhs, rhs);
 
