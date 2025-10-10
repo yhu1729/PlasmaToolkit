@@ -21,11 +21,15 @@ bool pt_check_same_impl_i32(
 bool pt_check_same_impl_char_pointer(
   const char* lhs, const char* rhs, const char* file, const int line);
 
+bool pt_check_same_impl_void_pointer(
+  void* lhs, void* rhs, const char* file, const int line);
+
 #define pt_check_same_impl(_lhs, _rhs) \
   _Generic( \
     (_lhs), \
     pt_i32: pt_check_same_impl_i32, \
-    const char*: pt_check_same_impl_char_pointer)( \
+    const char*: pt_check_same_impl_char_pointer, \
+    void*: pt_check_same_impl_void_pointer)( \
     (_lhs), (_rhs), __FILE__, __LINE__)
 
 #define pt_check_same(_lhs, _rhs) \
