@@ -1,4 +1,5 @@
 #include "pt/core/context.h"
+#include "pt/core/macro.h"
 
 pt_status
 pt_finalize_context_interface(

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pt/core/macro.h"
 #include "pt/core/status.h"
 #include "pt/core/type.h"
 #include <sys/time.h>

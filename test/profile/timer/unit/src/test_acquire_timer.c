@@ -1,3 +1,4 @@
+#include "pt/core/macro.h"
 #include "pt/profile/timer.h"
 #include "pt/test/check.h"
 #include "pt/test/expect.h"
