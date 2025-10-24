@@ -1,0 +1,9 @@
+target_sources(PT_Profile
+  PRIVATE
+  acquire_tracker.c
+  release_tracker.c
+  start_tracker.c
+  stop_tracker.c
+  attach_tracker_port.c
+  get_tracker_port.c
+)

@@ -3,6 +3,7 @@
 #include "pt/config.h"
 #include "pt/core/context.h"
 #include "pt/profile/timer.h"
+#include "pt/profile/tracker.h"
 #include <stddef.h>
 
 #define pt_unreachable __builtin_unreachable
@@ -20,7 +21,8 @@
     pt_context: pt_acquire_context, \
     pt_context_local: pt_acquire_context_local, \
     pt_context_mpi: pt_acquire_context_mpi, \
-    pt_timer: pt_acquire_timer)((_target)__VA_OPT__(, ) __VA_ARGS__)
+    pt_timer: pt_acquire_timer, \
+    pt_tracker: pt_acquire_tracker)((_target)__VA_OPT__(, ) __VA_ARGS__)
 
 #define pt_release(_target, ...) \
   _Generic( \
@@ -28,7 +30,8 @@
     pt_context: pt_release_context, \
     pt_context_local: pt_release_context_local, \
     pt_context_mpi: pt_release_context_mpi, \
-    pt_timer: pt_release_timer)((_target)__VA_OPT__(, ) __VA_ARGS__)
+    pt_timer: pt_release_timer, \
+    pt_tracker: pt_release_tracker)((_target)__VA_OPT__(, ) __VA_ARGS__)
 
 #define pt_initialize(_target, ...) \
   _Generic( \
@@ -49,9 +52,10 @@
                                                __VA_ARGS__)
 
 #define pt_start(_target, ...) \
-  _Generic((_target), pt_timer: pt_start_timer)((target)__VA_OPT__(, ) \
-                                                  __VA_ARGS__)
+  _Generic( \
+    (_target), pt_timer: pt_start_timer, pt_tracker: pt_start_tracker)( \
+    (_target)__VA_OPT__(, ) __VA_ARGS__)
 
 #define pt_stop(_target, ...) \
-  _Generic((_target), pt_timer: pt_stop_timer)((target)__VA_OPT__(, ) \
-                                                 __VA_ARGS__)
+  _Generic((_target), pt_timer: pt_stop_timer, pt_tracker: pt_stop_tracker)( \
+    (_target)__VA_OPT__(, ) __VA_ARGS__)
