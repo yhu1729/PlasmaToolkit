@@ -8,6 +8,7 @@ set_tests_properties(
   core/unit/get_status_name
   PROPERTIES
   LABELS "type:unit;module:core/status"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
 add_executable(ignore test_ignore.c)
@@ -20,6 +21,7 @@ set_tests_properties(
   core/unit/ignore
   PROPERTIES
   LABELS "type:unit;module:core/status"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
 add_executable(abort test_abort.c)
@@ -32,6 +34,7 @@ set_tests_properties(
   core/unit/abort
   PROPERTIES
   LABELS "type:unit;module:core/status"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
 add_executable(abort_skip test_abort_skip.c)
@@ -44,4 +47,5 @@ set_tests_properties(
   core/unit/abort_skip
   PROPERTIES
   LABELS "type:unit;module:core/status"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )

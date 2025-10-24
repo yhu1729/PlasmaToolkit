@@ -8,4 +8,5 @@ set_tests_properties(
   core/unit/print_backtrace
   PROPERTIES
   LABELS "type:unit;module:core/backtrace"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )

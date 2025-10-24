@@ -8,6 +8,7 @@ set_tests_properties(
   core/unit/free
   PROPERTIES
   LABELS "type:unit;module:core/memory"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
 add_executable(malloc test_malloc.c)
@@ -20,6 +21,7 @@ set_tests_properties(
   core/unit/malloc
   PROPERTIES
   LABELS "type:unit;module:core/memory"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
 add_executable(calloc test_calloc.c)
@@ -32,4 +34,5 @@ set_tests_properties(
   core/unit/calloc
   PROPERTIES
   LABELS "type:unit;module:core/memory"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )

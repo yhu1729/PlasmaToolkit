@@ -8,4 +8,5 @@ set_tests_properties(
   openmp/unit/reduce
   PROPERTIES
   LABELS "type:unit;feature:openmp"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )

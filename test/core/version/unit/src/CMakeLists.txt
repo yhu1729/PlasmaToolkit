@@ -8,4 +8,5 @@ set_tests_properties(
   core/unit/print_version
   PROPERTIES
   LABELS "type:unit;module:core/version"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )

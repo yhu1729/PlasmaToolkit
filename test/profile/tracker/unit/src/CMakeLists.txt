@@ -8,4 +8,5 @@ set_tests_properties(
   profile/unit/acquire_tracker
   PROPERTIES
   LABELS "type:unit;module:profile/tracker"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )

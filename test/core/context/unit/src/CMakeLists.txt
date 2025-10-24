@@ -8,6 +8,7 @@ set_tests_properties(
   core/unit/acquire_context_local
   PROPERTIES
   LABELS "type:unit;module:core/context;network:local"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
 if(PT_USE_MPI)
@@ -25,5 +26,6 @@ if(PT_USE_MPI)
     core/unit/acquire_context_mpi
     PROPERTIES
     LABELS "type:unit;module:core/context;network:mpi"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
   )
 endif()

@@ -8,6 +8,7 @@ set_tests_properties(
   core/unit/emit_log
   PROPERTIES
   LABELS "type:unit;module:core/log"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
 add_executable(get_verbosity_name test_get_verbosity_name.c)
@@ -20,4 +21,5 @@ set_tests_properties(
   core/unit/get_verbosity_name
   PROPERTIES
   LABELS "type:unit;module:core/log"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )

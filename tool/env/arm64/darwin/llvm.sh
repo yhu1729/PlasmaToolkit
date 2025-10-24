@@ -3,7 +3,6 @@ export CC=/opt/homebrew/opt/llvm/bin/clang
 export FC=/opt/homebrew/bin/flang
 
 # sanitizer
-export ASAN_OPTIONS=detect_leaks=1
 export LSAN_OPTIONS=suppressions=$(pwd)/tool/lsan/arm64/darwin.txt
 
 # config

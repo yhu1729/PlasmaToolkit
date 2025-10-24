@@ -8,4 +8,5 @@ set_tests_properties(
   core/unit/get_sign
   PROPERTIES
   LABELS "type:unit;module:core/math"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
