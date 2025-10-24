@@ -8,8 +8,8 @@ void
 test_single(void) {
   pt_timer target;
   pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, "test"));
-  pt_check(!(target->active));
   pt_check_same(target->name, "test");
+  pt_check(!(target->active));
   pt_release(target);
 }
 
