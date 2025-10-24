@@ -5,7 +5,7 @@ export FC=/opt/homebrew/bin/flang
 
 # sanitizer
 export ASAN_OPTIONS=detect_leaks=1
-export LSAN_OPTIONS=suppressions=$(pwd)/tool/lsan/darwin_arm64.txt
+export LSAN_OPTIONS=suppressions=$(pwd)/tool/lsan/arm64/darwin.txt
 
 # config
 export PT_PROCESSOR_HOST="Apple"
