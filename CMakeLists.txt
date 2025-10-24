@@ -44,6 +44,7 @@ target_link_libraries(PT
   INTERFACE
   PT::Core
   PT::Test
+  PT::Profile
   PT::Container
   PT::IO
   PT::Algorithm
