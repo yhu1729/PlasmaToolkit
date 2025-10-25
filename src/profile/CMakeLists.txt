@@ -8,8 +8,11 @@ target_compile_options(
   PT_Profile
   PUBLIC
   -pedantic
+  -Werror
   -Wall
   -Wextra
+  -Wno-c23-extensions
+  -Wno-variadic-macro-arguments-omitted
 )
 target_include_directories(PT_Profile PUBLIC
   ${PROJECT_SOURCE_DIR}/include
