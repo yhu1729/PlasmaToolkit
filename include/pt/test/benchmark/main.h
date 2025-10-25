@@ -33,5 +33,7 @@
       } \
       pt_emit_log_info("DONE: %s", pt_test_list[index].name); \
     } \
+    void* _tmp = malloc(0); \
+    free(_tmp); \
     return EXIT_SUCCESS; \
   }
