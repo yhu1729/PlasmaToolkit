@@ -13,7 +13,7 @@
       "binaryDir": "${sourceDir}/build-${hostSystemName}-$env{PT_COMPILER_HOST}-$env{PT_COMPILER_DEVICE}/${presetName}",
       "cacheVariables": {
         "PT_BUILD_TYPE": "Debug",
-        "PT_PROCESSOR_HOST": "$env{PT_PROCESSOR_HOSt}",
+        "PT_PROCESSOR_HOST": "$env{PT_PROCESSOR_HOST}",
         "PT_COMPILER_HOST": "$env{PT_COMPILER_HOST}",
         "PT_PROCESSOR_DEVICE": "$env{PT_PROCESSOR_DEVICE}",
         "PT_COMPILER_DEVICE": "$env{PT_COMPILER_DEVICE}",
