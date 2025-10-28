@@ -4,7 +4,7 @@
 
 int
 main(void) {
-  int result = 0;
+  pt_i32 result = 0;
 
 #pragma omp parallel
   {
