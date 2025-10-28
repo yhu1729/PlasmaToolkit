@@ -11,8 +11,8 @@ main(void) {
   MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
   MPI_Comm_size(MPI_COMM_WORLD, &mpi_size);
 
-  int stride = 32 / mpi_size;
-  int result = 0;
+  pt_i32 stride = 32 / mpi_size;
+  pt_i32 result = 0;
   for (int index_local = 0; index_local < stride; ++index_local) {
     const int index_global = index_local + mpi_rank * stride;
     result += index_global;
