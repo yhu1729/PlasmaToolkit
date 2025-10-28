@@ -8,9 +8,9 @@
   "include": [],
   "configurePresets": [
     {
-      "name": "debug",
+      "name": "debug-cpu",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build-$env{PT_COMPILER_HOST}-$env{PT_COMPILER_DEVICE}/${presetName}",
+      "binaryDir": "${sourceDir}/build-cpu-$env{PT_COMPILER_HOST}-$env{PT_COMPILER_DEVICE}/${presetName}",
       "cacheVariables": {
         "PT_BUILD_TYPE": "Debug",
         "PT_PROCESSOR_HOST": "$env{PT_PROCESSOR_HOST}",
@@ -26,14 +26,14 @@
   ],
   "buildPresets": [
     {
-      "name": "debug",
-      "configurePreset": "debug"
+      "name": "debug-cpu",
+      "configurePreset": "debug-cpu"
     }
   ],
   "testPresets": [
     {
-      "name": "debug",
-      "configurePreset": "debug",
+      "name": "debug-cpu",
+      "configurePreset": "debug-cpu",
       "output": {
         "labelSummary": true,
         "outputOnFailure": true
@@ -51,19 +51,19 @@
   ],
   "workflowPresets": [
     {
-      "name": "debug",
+      "name": "debug-cpu",
       "steps": [
         {
           "type": "configure",
-          "name": "debug"
+          "name": "debug-cpu"
         },
         {
           "type": "build",
-          "name": "debug"
+          "name": "debug-cpu"
         },
         {
           "type": "test",
-          "name": "debug"
+          "name": "debug-cpu"
         }
       ]
     }
