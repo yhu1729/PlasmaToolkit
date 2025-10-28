@@ -11,8 +11,8 @@ struct pt_tracker_t {
   bool active;
   pt_timer timer;
   pt_tracker* port;
-  int port_capacity;
-  int port_size;
+  pt_i32 port_capacity;
+  pt_i32 port_size;
 };
 
 pt_status pt_acquire_tracker(
