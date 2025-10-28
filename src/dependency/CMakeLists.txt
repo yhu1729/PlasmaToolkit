@@ -47,25 +47,13 @@ endif()
 find_package(PkgConfig REQUIRED)
 
 # MPI
-find_package(
-  MPI 3.0
-  REQUIRED
-)
+find_package(MPI 3.0 REQUIRED)
 
 # OpenMP
-find_package(
-  OpenMP 4.0
-  COMPONENTS C
-  REQUIRED
-)
+find_package(OpenMP 4.0 COMPONENTS C REQUIRED)
 
 # netCDF
-pkg_check_modules(
-  netCDF
-  REQUIRED
-  IMPORTED_TARGET
-  netcdf>=4.0
-)
+pkg_check_modules(netCDF REQUIRED IMPORTED_TARGET netcdf>=4.0)
 
 # NCCL
 if(PT_USE_NCCL)
@@ -73,10 +61,6 @@ if(PT_USE_NCCL)
   target_link_libraries(PT_Dependency INTERFACE NCCL::NCCL_C)
 endif()
 
-target_link_libraries(
-  PT_Dependency
-  INTERFACE
-  MPI::MPI_C
-  OpenMP::OpenMP_C
-  PkgConfig::netCDF
-)
+target_link_libraries(PT_Dependency INTERFACE MPI::MPI_C)
+target_link_libraries(PT_Dependency INTERFACE OpenMP::OpenMP_C)
+target_link_libraries(PT_Dependency INTERFACE PkgConfig::netCDF)
