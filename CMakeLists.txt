@@ -9,7 +9,6 @@ configure_file(include/pt/config.h.in include/pt/config.h @ONLY)
 
 set(CMAKE_MESSAGE_CONTEXT_SHOW ON)
 set(CMAKE_C_STANDARD 23)
-set(CMAKE_C_STANDARD_REQUIRED ON)
 
 list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
