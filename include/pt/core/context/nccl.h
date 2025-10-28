@@ -7,7 +7,7 @@
 typedef struct _pt_context_mpi_t* pt_context_mpi;
 
 typedef struct _pt_context_nccl_t* pt_context_nccl;
-struct _pt_context_nccl {
+struct _pt_context_nccl_t {
   bool active;
   pt_index rank;
   pt_index size;
