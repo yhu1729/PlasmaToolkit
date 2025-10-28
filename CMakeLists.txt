@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.31.6)
 
 project(PlasmaToolkit
   VERSION 0.1.0
-  LANGUAGES C Fortran)
+  LANGUAGES C
+)
 
 configure_file(include/pt/config.h.in include/pt/config.h @ONLY)
 

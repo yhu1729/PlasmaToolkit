@@ -12,7 +12,7 @@ find_package(
 # OpenMP
 find_package(
   OpenMP 4.0
-  COMPONENTS C Fortran
+  COMPONENTS C
   REQUIRED
 )
 
