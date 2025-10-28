@@ -37,10 +37,8 @@ endif()
 find_package(OpenMP 5.0 COMPONENTS C Fortran REQUIRED)
 target_link_libraries(PT_Core PUBLIC OpenMP::OpenMP_C)
 
-if(PT_USE_MPI)
-  find_package(MPI REQUIRED)
-  target_link_libraries(PT_Core PUBLIC MPI::MPI_C)
-endif()
+find_package(MPI REQUIRED)
+target_link_libraries(PT_Core PUBLIC MPI::MPI_C)
 
 add_subdirectory(version)
 add_subdirectory(tag)

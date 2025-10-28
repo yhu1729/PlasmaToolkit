@@ -23,9 +23,8 @@ option(PT_CANARY "Canary level" 0)
 option(PT_VERBOSITY "Verbosity level" 0)
 list(APPEND _pt_build_option "PT_CANARY" "PT_VERBOSITY")
 
-option(PT_USE_MPI "Use MPI features" ON)
 option(PT_USE_NCCL "Use NCCL features" ON)
-list(APPEND _pt_build_option "PT_USE_MPI" "PT_USE_NCCL")
+list(APPEND _pt_build_option "PT_USE_NCCL")
 
 # display build options
 list(APPEND CMAKE_MESSAGE_CONTEXT "PlasmaToolkit")

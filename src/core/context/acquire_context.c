@@ -14,11 +14,9 @@ pt_acquire_context(pt_context target[1], const pt_tag type) {
   case PT_TAG_LOCAL:
     pt_acquire(&(handle->interface.local));
     break;
-#ifdef PT_USE_MPI
   case PT_TAG_MPI:
     pt_acquire(&(handle->interface.mpi));
     break;
-#endif
   case PT_TAG_NCCL:
     break;
   case PT_TAG_MPI_NCCL:

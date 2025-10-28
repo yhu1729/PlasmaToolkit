@@ -10,11 +10,9 @@ pt_finalize_context_interface(
   case PT_TAG_LOCAL:
     pt_finalize(interface.local);
     break;
-#ifdef PT_USE_MPI
   case PT_TAG_MPI:
     pt_finalize(interface.mpi);
     break;
-#endif
   case PT_TAG_NCCL:
     break;
   case PT_TAG_MPI_NCCL:

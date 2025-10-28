@@ -10,9 +10,7 @@
 typedef struct _pt_context_interface_t pt_context_interface;
 struct _pt_context_interface_t {
   pt_context_local local;
-#ifdef PT_USE_MPI
   pt_context_mpi mpi;
-#endif
 };
 
 typedef struct _pt_context_t* pt_context;
