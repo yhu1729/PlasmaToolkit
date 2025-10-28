@@ -10,7 +10,7 @@ configure_file(include/pt/config.h.in include/pt/config.h @ONLY)
 set(CMAKE_MESSAGE_CONTEXT_SHOW ON)
 set(CMAKE_C_STANDARD 23)
 
-list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 option(PT_BUILD_TYPE "Build type" "Release")
 list(APPEND _pt_build_option "PT_BUILD_TYPE")
