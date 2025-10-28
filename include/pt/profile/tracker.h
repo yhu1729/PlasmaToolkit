@@ -5,7 +5,6 @@
 #include "pt/profile/timer.h"
 
 typedef struct pt_tracker_t* pt_tracker;
-
 struct pt_tracker_t {
   const char* name;
   bool active;

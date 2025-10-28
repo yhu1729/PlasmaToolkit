@@ -5,12 +5,12 @@
 
 typedef pt_buffer_h* pt_vector_h;
 
+typedef struct pt_vector_h_impl_t* pt_vector_h_impl;
 struct pt_vector_h_impl_t {
   pt_buffer_h buffer;
   size_t stride;
   size_t length;
 };
-typedef struct pt_vector_h_impl_t* pt_vector_h_impl;
 
 pt_status pt_acquire_vector_h_impl(
   pt_vector_h target[1], const size_t stride, const size_t length);

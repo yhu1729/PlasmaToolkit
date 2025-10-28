@@ -5,7 +5,6 @@
 #include <sys/time.h>
 
 typedef struct pt_timer_t* pt_timer;
-
 struct pt_timer_t {
   const char* name;
   bool active;
