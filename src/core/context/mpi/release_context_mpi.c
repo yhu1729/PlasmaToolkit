@@ -1,4 +1,5 @@
 #include "pt/core/context/mpi.h"
+#include "pt/core/macro.h"
 #include "pt/core/memory.h"
 
 pt_status
