@@ -1,5 +1,6 @@
 #pragma once
 
+#include "pt/config.h"
 #include "pt/core/tag.h"
 #include <stdlib.h>
 
@@ -13,7 +14,11 @@ struct _pt_status_t {
   void* context;
 };
 
+#ifdef PT_OPTION_ABORT_ON_ERROR
+#define PT_STATUS(_handle) pt_status _handle = {PT_TAG_SUCCESS, pt_abort, NULL}
+#else
 #define PT_STATUS(_handle) pt_status _handle = {PT_TAG_SUCCESS, NULL, NULL}
+#endif
 
 const char* pt_get_status_name(const pt_status target);
 pt_status pt_ignore(const pt_tag code, void* context);
