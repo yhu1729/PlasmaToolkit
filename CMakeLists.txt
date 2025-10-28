@@ -14,12 +14,12 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 option(PT_BUILD_TYPE "Build type" "Release")
 list(APPEND _pt_build_option "PT_BUILD_TYPE")
 
-option(PT_PROCESSOR_HOST "Host processor vendor" "None")
-option(PT_COMPILER_HOST "Host compiler vendor" "None")
+option(PT_PROCESSOR_HOST "Host processor vendor" "none")
+option(PT_COMPILER_HOST "Host compiler vendor" "none")
 list(APPEND _pt_build_option "PT_PROCESSOR_HOST" "PT_COMPILER_HOST")
 
-option(PT_PROCESSOR_DEVICE "Device processor vendor" "None")
-option(PT_COMPILER_DEVICE "Device compiler vendor" "None")
+option(PT_PROCESSOR_DEVICE "Device processor vendor" "none")
+option(PT_COMPILER_DEVICE "Device compiler vendor" "none")
 list(APPEND _pt_build_option "PT_PROCESSOR_DEVICE" "PT_COMPILER_DEVICE")
 
 option(PT_CANARY "Canary level" 0)
