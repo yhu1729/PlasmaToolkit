@@ -10,7 +10,7 @@
     {
       "name": "debug",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build-${hostSystemName}-$env{PT_COMPILER_HOST}-$env{PT_COMPILER_DEVICE}/${presetName}",
+      "binaryDir": "${sourceDir}/build-$env{PT_COMPILER_HOST}-$env{PT_COMPILER_DEVICE}/${presetName}",
       "cacheVariables": {
         "PT_BUILD_TYPE": "Debug",
         "PT_PROCESSOR_HOST": "$env{PT_PROCESSOR_HOST}",
