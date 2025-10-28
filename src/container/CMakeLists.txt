@@ -1,7 +1,6 @@
 add_library(PT_Container SHARED)
 add_library(PT::Container ALIAS PT_Container)
-
-target_link_libraries(PT_Container PUBLIC PT::Dependency)
+target_link_libraries(PT_Container PUBLIC PT::Core)
 
 add_subdirectory(buffer)
 add_subdirectory(vector)
