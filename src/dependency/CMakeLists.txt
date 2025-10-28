@@ -38,7 +38,8 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(
       PT_Dependency
       INTERFACE
-      -Wno-error=address
+      -Wno-address
+      -Wno-unused-parameter
     )
   elseif(CMAKE_C_COMPILER_ID MATCHES NVHPC)
     target_compile_options(
