@@ -3,9 +3,7 @@ find_package(CUDAToolkit REQUIRED)
 set(NCCL_LIB_NAME "nccl")
 set(NCCL_ROOT $ENV{NVHPC_ROOT}/comm_libs/nccl)
 
-list(APPEND CMAKE_PREFIX_PATH ${NCCL_ROOT})
 find_path(NCCL_INC_DIR NAMES nccl.h)
-
 find_library(NCCL_LIB NAMES ${NCCL_LIB_NAME})
 
 include(FindPackageHandleStandardArgs)
@@ -19,7 +17,7 @@ if(NCCL_FOUND)
   include(CheckCXXSymbolExists)
   check_cxx_symbol_exists(NCCL_VERSION_CODE nccl.h NCCL_VERSION_DEFINED)
   if(NCCL_VERSION_DEFINED)
-    set(file "${PROJECT_BINARY_DIR}/detect_nccl_version.cu")
+    set(_file "${PROJECT_BINARY_DIR}/check_NCCL.cpp")
     file(WRITE ${file} "
       #include <nccl.h>
       int main()
@@ -28,11 +26,13 @@ if(NCCL_FOUND)
         ncclGetVersion(&vection);
         return (x == NCCL_VERSION_CODE);
       }")
-      try_run(NCCL_VERSION_MATCHED compile_result ${PROJECT_BINARY_DIR} ${file}
-        RUN_OUTPUT_VARIABLE NCCL_VERSION_FROM_HEADER
+      try_run(
+        _run_result _compile_result
+        ${PROJECT_BINARY_DIR} ${_file}
+        RUN_OUTPUT_VARIABLE NCCL_VERSION
         CMAKE_FLAGS  "-DINCLUDE_DIRECTORIES=${NCCL_INC_DIR}"
         LINK_LIBRARIES ${NCCL_LIB})
-      message(STATUS "NCCL version: ${NCCL_VERSION_FROM_HEADER}")
+      message(STATUS "NCCL version: ${NCCL_VERSION}")
   endif()
 
   set(CMAKE_REQUIRED_INCLUDES ${OLD_CMAKE_REQUIRED_INCLUDES})
