@@ -6,7 +6,7 @@ pt_initialize_context_mpi(pt_context_mpi target, pt_context leader) {
   PT_STATUS(status);
 
   if (target->active) {
-    status.code = PT_TAG_INVALID_PARAMETER;
+    status.code = PT_TAG_INVALID_NETWORK;
 
     return status;
   }
