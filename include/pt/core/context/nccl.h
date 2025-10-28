@@ -19,3 +19,4 @@ pt_status pt_release_context_nccl(pt_context_nccl target);
 pt_status
 pt_initialize_context_nccl(pt_context_nccl target, pt_context_mpi host);
 pt_status pt_finalize_context_nccl(pt_context_nccl target);
+pt_status pt_get_host_hash(pt_u64 result[1], const char* host_name);

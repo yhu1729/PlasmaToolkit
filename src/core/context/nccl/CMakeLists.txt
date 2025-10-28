@@ -5,4 +5,5 @@ target_sources(
   release_context_nccl.c
   initialize_context_nccl.c
   finalize_context_nccl.c
+  get_host_hash.c
 )
