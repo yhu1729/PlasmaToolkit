@@ -1,3 +1,6 @@
+# module
+module restore
+
 # compiler
 export CC=gcc
 

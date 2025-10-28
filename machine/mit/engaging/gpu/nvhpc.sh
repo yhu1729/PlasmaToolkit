@@ -1,3 +1,7 @@
+# module
+module restore
+module load nvhpc/24.5
+
 # compiler
 export CC=mpicc
 export CXX=mpicxx
