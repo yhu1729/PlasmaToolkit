@@ -40,6 +40,12 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
       INTERFACE
       -Wno-error=address
     )
+  elseif(CMAKE_C_COMPILER_ID MATCHES NVHPC)
+    target_compile_options(
+      PT_Dependency
+      INTERFACE
+      --diag_suppress bad_pp_directive_keyword,nonstd_ellipsis_only_param
+    )
   else()
     message(FATAL_ERROR "${CMAKE_C_COMPILER_ID} C compiler is not supported.")
   endif()
