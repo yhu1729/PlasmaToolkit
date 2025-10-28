@@ -14,7 +14,7 @@ pt_initialize_context_mpi(pt_context_mpi target, pt_context leader) {
   target->active = true;
 
   if (leader) {
-    pt_emit_log_error("TODO");
+    pt_emit_log_error("TODO: split MPI context");
     status.code = PT_TAG_INVALID_PARAMETER;
 
     return status;
