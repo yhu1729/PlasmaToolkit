@@ -11,6 +11,8 @@ set(CMAKE_MESSAGE_CONTEXT_SHOW ON)
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
 option(PT_BUILD_TYPE "Build type" "Release")
 list(APPEND _pt_build_option "PT_BUILD_TYPE")
 
@@ -28,6 +30,10 @@ list(APPEND _pt_build_option "PT_CANARY" "PT_VERBOSITY")
 
 option(PT_USE_NCCL "Use NCCL features" OFF)
 list(APPEND _pt_build_option "PT_USE_NCCL")
+
+if(PT_USE_NCCL)
+  enable_language(CUDA)
+endif()
 
 # display build options
 list(APPEND CMAKE_MESSAGE_CONTEXT "PlasmaToolkit")

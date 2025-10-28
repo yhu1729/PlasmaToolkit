@@ -67,6 +67,12 @@ pkg_check_modules(
   netcdf>=4.0
 )
 
+# NCCL
+if(PT_USE_NCCL)
+  find_package(NCCL REQUIRED)
+  target_link_libraries(PT_Dependency INTERFACE NCCL::NCCL_C)
+endif()
+
 target_link_libraries(
   PT_Dependency
   INTERFACE
