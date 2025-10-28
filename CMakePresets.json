@@ -22,18 +22,55 @@
         "PT_USE_NCCL": "OFF"
       },
       "environment": {}
+    },
+    {
+      "name": "debug-gpu",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-gpu-$env{PT_COMPILER_HOST}-$env{PT_COMPILER_DEVICE}/${presetName}",
+      "cacheVariables": {
+        "PT_BUILD_TYPE": "Debug",
+        "PT_PROCESSOR_HOST": "$env{PT_PROCESSOR_HOST}",
+        "PT_COMPILER_HOST": "$env{PT_COMPILER_HOST}",
+        "PT_PROCESSOR_DEVICE": "$env{PT_PROCESSOR_DEVICE}",
+        "PT_COMPILER_DEVICE": "$env{PT_COMPILER_DEVICE}",
+        "PT_CANARY": "3",
+        "PT_VERBOSITY": "4",
+        "PT_USE_NCCL": "ON"
+      },
+      "environment": {}
     }
   ],
   "buildPresets": [
     {
       "name": "debug-cpu",
       "configurePreset": "debug-cpu"
+    },
+    {
+      "name": "debug-gpu",
+      "configurePreset": "debug-gpu"
     }
   ],
   "testPresets": [
     {
       "name": "debug-cpu",
       "configurePreset": "debug-cpu",
+      "output": {
+        "labelSummary": true,
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "ignore",
+        "stopOnFailure": true
+      },
+      "filter": {
+        "exclude": {
+          "label": ""
+        }
+      }
+    },
+    {
+      "name": "debug-gpu",
+      "configurePreset": "debug-gpu",
       "output": {
         "labelSummary": true,
         "outputOnFailure": true
@@ -64,6 +101,23 @@
         {
           "type": "test",
           "name": "debug-cpu"
+        }
+      ]
+    },
+    {
+      "name": "debug-gpu",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "debug-gpu"
+        },
+        {
+          "type": "build",
+          "name": "debug-gpu"
+        },
+        {
+          "type": "test",
+          "name": "debug-gpu"
         }
       ]
     }
