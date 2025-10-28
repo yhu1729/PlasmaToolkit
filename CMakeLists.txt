@@ -41,6 +41,7 @@ add_subdirectory(src)
 add_library(PT INTERFACE)
 target_link_libraries(PT
   INTERFACE
+  PT::Dependency
   PT::Core
   PT::Test
   PT::Profile

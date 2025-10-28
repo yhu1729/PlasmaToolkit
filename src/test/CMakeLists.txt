@@ -32,6 +32,8 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
   )
 endif()
 
+target_link_libraries(PT_Test PUBLIC PT::Dependency)
+
 add_subdirectory(check)
 add_subdirectory(expect)
 add_subdirectory(unit)

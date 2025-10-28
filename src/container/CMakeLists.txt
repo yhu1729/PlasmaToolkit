@@ -36,11 +36,7 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
   )
 endif()
 
-find_package(OpenMP 5.0 COMPONENTS C Fortran REQUIRED)
-target_link_libraries(PT_Container PUBLIC OpenMP::OpenMP_C)
-
-find_package(MPI REQUIRED)
-target_link_libraries(PT_Container PUBLIC MPI::MPI_C)
+target_link_libraries(PT_Container PUBLIC PT::Dependency)
 
 add_subdirectory(buffer)
 add_subdirectory(vector)

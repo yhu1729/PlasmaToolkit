@@ -35,8 +35,7 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
   )
 endif()
 
-find_package(MPI REQUIRED)
-target_link_libraries(PT_Profile PUBLIC MPI::MPI_C)
+target_link_libraries(PT_Profile PUBLIC PT::Dependency)
 
 add_subdirectory(timer)
 add_subdirectory(tracker)
