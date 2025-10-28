@@ -2,10 +2,11 @@
 module restore
 module load nvhpc/24.5
 
+export CUDA_HOME=/orcd/software/community/001/rocky8/nvhpc/2024_245/Linux_x86_64/24.5/cuda
+
 # compiler
 export CC=mpicc
 export CXX=mpicxx
-export CUDACXX=nvcc
 
 # sanitizer
 export LSAN_OPTIONS=suppressions=$PT_HOME/machine/mit/engaging/gpu/lsan.txt
