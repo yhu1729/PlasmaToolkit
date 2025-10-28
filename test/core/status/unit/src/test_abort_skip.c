@@ -4,7 +4,7 @@
 #include <signal.h>
 
 void
-skip(int) {}
+skip(int code) {}
 
 void
 test_bad(void) {
