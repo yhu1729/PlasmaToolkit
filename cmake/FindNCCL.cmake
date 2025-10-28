@@ -3,6 +3,7 @@ find_package(CUDAToolkit REQUIRED)
 set(NCCL_LIB_NAME "nccl")
 set(NCCL_ROOT $ENV{NVHPC_ROOT}/comm_libs/nccl)
 
+list(APPEND CMAKE_PREFIX_PATH ${NCCL_ROOT})
 find_path(NCCL_INC_DIR NAMES nccl.h)
 find_library(NCCL_LIB NAMES ${NCCL_LIB_NAME})
 
