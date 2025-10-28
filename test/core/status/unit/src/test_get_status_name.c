@@ -8,8 +8,8 @@ test_all(void) {
   pt_status target = {PT_TAG_SUCCESS, NULL, NULL};
   pt_check_same(pt_get_status_name(target), pt_get_tag_name(target.code));
   for (int code = PT_TAG_ERROR_MIN + 1; code < PT_TAG_ERROR_MAX; ++code) {
-    target.code = code;
-    pt_check_same(pt_get_status_name(target), pt_get_tag_name(code));
+    target.code = (pt_tag)code;
+    pt_check_same(pt_get_status_name(target), pt_get_tag_name((pt_tag)code));
   }
 
   pt_check_ok();
