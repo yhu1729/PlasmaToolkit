@@ -3,14 +3,21 @@
 #include "pt/config.h"
 #include "pt/core/context/local.h"
 #include "pt/core/context/mpi.h"
-#include "pt/core/context/nccl.h"
 #include "pt/core/status.h"
 #include "pt/core/tag.h"
+
+#ifdef PT_USE_NCCL
+#include "pt/core/context/nccl.h"
+#endif
 
 typedef struct _pt_context_interface_t pt_context_interface;
 struct _pt_context_interface_t {
   pt_context_local local;
   pt_context_mpi mpi;
+
+#ifdef PT_USE_NCCL
+  pt_context_nccl nccl;
+#endif
 };
 
 typedef struct _pt_context_t* pt_context;

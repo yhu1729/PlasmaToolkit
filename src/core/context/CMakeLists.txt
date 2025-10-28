@@ -10,4 +10,7 @@ target_sources(PT_Core
 
 add_subdirectory(local)
 add_subdirectory(mpi)
-add_subdirectory(nccl)
+
+if(PT_USE_NCCL)
+  add_subdirectory(nccl)
+endif()
