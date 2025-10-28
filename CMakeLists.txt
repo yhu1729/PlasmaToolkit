@@ -31,7 +31,7 @@ option(PT_USE_NCCL "Use NCCL features" OFF)
 list(APPEND _pt_build_option "PT_USE_NCCL")
 
 if(PT_USE_NCCL)
-  enable_language(CUDA)
+  enable_language(CXX CUDA)
 endif()
 
 # display build options
