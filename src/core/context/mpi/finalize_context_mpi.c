@@ -5,7 +5,7 @@ pt_finalize_context_mpi(pt_context_mpi target) {
   PT_STATUS(status);
 
   if (!(target->active)) {
-    status.code = PT_TAG_INVALID_PARAMETER;
+    status.code = PT_TAG_INVALID_NETWORK;
 
     return status;
   }

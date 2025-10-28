@@ -6,7 +6,7 @@ pt_finalize_context_local(pt_context_local target) {
   PT_STATUS(status);
 
   if (!(target->active)) {
-    status.code = PT_TAG_INVALID_PARAMETER;
+    status.code = PT_TAG_INVALID_NETWORK;
 
     return status;
   }
