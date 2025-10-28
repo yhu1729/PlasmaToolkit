@@ -2,7 +2,7 @@
 export CC=/opt/homebrew/opt/llvm/bin/clang
 
 # sanitizer
-export LSAN_OPTIONS=suppressions=$PT_HOME/machine/apple/m1/lsan.txt
+export LSAN_OPTIONS=suppressions=$PT_HOME/machine/apple/m1/cpu/lsan.txt
 
 # config
 export PT_PROCESSOR_HOST="apple"
