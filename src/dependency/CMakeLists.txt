@@ -25,6 +25,7 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(
       PT_Dependency
       INTERFACE
+      -Wno-unused-parameter
       -Wno-variadic-macro-arguments-omitted
       -fsanitize=address,undefined,leak
     )
