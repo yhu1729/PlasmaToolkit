@@ -58,7 +58,8 @@ pkg_check_modules(netCDF REQUIRED IMPORTED_TARGET netcdf>=4.0)
 
 # NCCL
 if(PT_USE_NCCL)
-  find_package(NCCL 2.0 REQUIRED)
+  find_package(CUDAToolkit REQUIRED)
+  include(FindNCCL)
   target_link_libraries(PT_Dependency INTERFACE NCCL)
 endif()
 
