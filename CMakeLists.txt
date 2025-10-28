@@ -26,7 +26,7 @@ option(PT_CANARY "Canary level" 0)
 option(PT_VERBOSITY "Verbosity level" 0)
 list(APPEND _pt_build_option "PT_CANARY" "PT_VERBOSITY")
 
-option(PT_USE_NCCL "Use NCCL features" ON)
+option(PT_USE_NCCL "Use NCCL features" OFF)
 list(APPEND _pt_build_option "PT_USE_NCCL")
 
 # display build options
