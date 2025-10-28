@@ -1,6 +1,11 @@
 Plasma Toolkit
 ==============
 
+.. toctree::
+   :maxdepth: 2
+
+   dependency
+
 Core modules:
 
 * core/type
