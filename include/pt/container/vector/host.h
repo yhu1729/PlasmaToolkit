@@ -1,12 +1,12 @@
 #pragma once
 
-#include "pt/core/memory/host.h"
+#include "pt/container/buffer/host.h"
 #include "pt/core/status.h"
 
-typedef char** pt_vector_h;
+typedef pt_buffer_h* pt_vector_h;
 
 struct pt_vector_h_impl_t {
-  char* head;
+  pt_buffer_h buffer;
   size_t stride;
   size_t length;
 };

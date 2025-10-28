@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pt/config.h"
+#include "pt/container/buffer.h"
 #include "pt/core/context.h"
 #include "pt/profile/timer.h"
 #include "pt/profile/tracker.h"
@@ -22,7 +23,8 @@
     pt_context_local: pt_acquire_context_local, \
     pt_context_mpi: pt_acquire_context_mpi, \
     pt_timer: pt_acquire_timer, \
-    pt_tracker: pt_acquire_tracker)((_target)__VA_OPT__(, ) __VA_ARGS__)
+    pt_tracker: pt_acquire_tracker, \
+    pt_buffer_h: pt_acquire_buffer_h)((_target)__VA_OPT__(, ) __VA_ARGS__)
 
 #define pt_release(_target, ...) \
   _Generic( \
@@ -31,7 +33,8 @@
     pt_context_local: pt_release_context_local, \
     pt_context_mpi: pt_release_context_mpi, \
     pt_timer: pt_release_timer, \
-    pt_tracker: pt_release_tracker)((_target)__VA_OPT__(, ) __VA_ARGS__)
+    pt_tracker: pt_release_tracker, \
+    pt_buffer_h: pt_release_buffer_h)((_target)__VA_OPT__(, ) __VA_ARGS__)
 
 #define pt_initialize(_target, ...) \
   _Generic( \
