@@ -8,12 +8,13 @@
   _entry(PT_TAG_ERROR_MIN,         "Min error code",      999) \
   _entry(PT_TAG_INVALID_PARAMETER, "Invalid parameter",  1000) \
   _entry(PT_TAG_INVALID_OPERATION, "Invalid operation",  1001) \
-  _entry(PT_TAG_NULL_POINTER,      "Null pointer",       1002) \
-  _entry(PT_TAG_OUT_OF_MEMORY,     "Out of memory",      1003) \
-  _entry(PT_TAG_OUT_OF_RANGE,      "Out of range",       1004) \
-  _entry(PT_TAG_UNREACHABLE,       "Unreachable branch", 1005) \
-  _entry(PT_TAG_INVALID_OUTPUT,    "Invalid output",     1006) \
-  _entry(PT_TAG_SINGULAR_MATRIX,   "Singular matrix",    1007) \
+  _entry(PT_TAG_INVALID_NETWORK,   "Invalid network",    1002) \
+  _entry(PT_TAG_NULL_POINTER,      "Null pointer",       1003) \
+  _entry(PT_TAG_OUT_OF_MEMORY,     "Out of memory",      1004) \
+  _entry(PT_TAG_OUT_OF_RANGE,      "Out of range",       1005) \
+  _entry(PT_TAG_UNREACHABLE,       "Unreachable branch", 1006) \
+  _entry(PT_TAG_INVALID_OUTPUT,    "Invalid output",     1007) \
+  _entry(PT_TAG_SINGULAR_MATRIX,   "Singular matrix",    1008) \
   _entry(PT_TAG_ERROR_MAX,         "Max error code",     1999) \
   _entry(PT_TAG_VERBOSITY_NONE,    "None",               2000) \
   _entry(PT_TAG_VERBOSITY_ERROR,   "Error",              2001) \
