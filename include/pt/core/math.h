@@ -1,5 +1,6 @@
 #pragma once
 
+#include "pt/core/status.h"
 #include "pt/core/type.h"
 
 #define pt_min(_a, _b) (((_a) < (_b)) ? (_a) : (_b))
@@ -16,3 +17,5 @@ pt_f64 pt_get_sign_impl_f64(const pt_f64 x);
     (_x))
 
 #define pt_get_sign(...) pt_get_sign_impl(__VA_ARGS__)
+
+pt_status pt_get_hash(pt_u64 result[1], const char* buffer, size_t length);
