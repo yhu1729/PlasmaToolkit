@@ -65,7 +65,7 @@ pkg_check_modules(netCDF REQUIRED IMPORTED_TARGET netcdf>=4.0)
 
 # CUDA
 if(PT_USE_CUDA)
-  include(ToolchainCUDA)
+  include(PTToolchainCUDA)
   target_link_libraries(
     PT_Dependency
     INTERFACE
