@@ -1,6 +1,6 @@
 pt_add_test(
   NAME reduce
-  MODULE mpi/unit
+  MODULE dependency/mpi/unit
   LIB PT::Test PT::Core
   ENV_MOD ASAN_OPTIONS=set:detect_leaks=1
   LABEL type:unit feature:mpi
