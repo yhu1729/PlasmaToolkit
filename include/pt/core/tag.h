@@ -26,13 +26,12 @@
   _entry(PT_TAG_RIGHT,             "Right",              3002) \
   _entry(PT_TAG_UPPER,             "Upper",              3003) \
   _entry(PT_TAG_LOWER,             "Lower",              3004) \
-  _entry(PT_TAG_LOCAL,             "Local",              4000) \
-  _entry(PT_TAG_MPI,               "MPI",                4001) \
-  _entry(PT_TAG_NCCL,              "NCCL",               4002) \
-  _entry(PT_TAG_MPI_NCCL,          "MPI with NCCL",      4003) \
-  _entry(PT_TAG_CPU,               "CPU",                4004) \
-  _entry(PT_TAG_GPU_NVIDIA,        "GPU/NVIDIA",         4005) \
-  _entry(PT_TAG_GPU_AMD,           "GPU/AMD",            4006)
+  _entry(PT_TAG_NETWORK_LOCAL,     "Local",              4000) \
+  _entry(PT_TAG_NETWORK_MPI,       "MPI",                4001) \
+  _entry(PT_TAG_NETWORK_NCCL,      "NCCL",               4002) \
+  _entry(PT_TAG_CPU,               "CPU",                4003) \
+  _entry(PT_TAG_GPU_NVIDIA,        "GPU/NVIDIA",         4004) \
+  _entry(PT_TAG_GPU_AMD,           "GPU/AMD",            4005)
 
 // clang-format on
 

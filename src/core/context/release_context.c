@@ -7,16 +7,18 @@ pt_release_context(pt_context target) {
   PT_STATUS(status);
 
   switch (target->type) {
-  case PT_TAG_LOCAL:
+  case PT_TAG_NETWORK_LOCAL:
     pt_release(target->interface.local);
     break;
-  case PT_TAG_MPI:
+  case PT_TAG_NETWORK_MPI:
     pt_release(target->interface.mpi);
     break;
-  case PT_TAG_NCCL:
+#ifdef PT_USE_NCCL
+  case PT_TAG_NETWORK_NCCL:
+    pt_release_context_nccl(target->interface.nccl);
+    pt_release(target->interface.mpi);
     break;
-  case PT_TAG_MPI_NCCL:
-    break;
+#endif
   default:
     status.code = PT_TAG_INVALID_PARAMETER;
   }

@@ -7,16 +7,17 @@ pt_finalize_context_interface(
   PT_STATUS(status);
 
   switch (type) {
-  case PT_TAG_LOCAL:
+  case PT_TAG_NETWORK_LOCAL:
     pt_finalize(interface.local);
     break;
-  case PT_TAG_MPI:
+  case PT_TAG_NETWORK_MPI:
     pt_finalize(interface.mpi);
     break;
-  case PT_TAG_NCCL:
+#ifdef PT_USE_NCCL
+    pt_finalize_context_nccl(interface.nccl);
+    pt_finalize(interface.mpi);
     break;
-  case PT_TAG_MPI_NCCL:
-    break;
+#endif
   default:
     status.code = PT_TAG_INVALID_PARAMETER;
   }

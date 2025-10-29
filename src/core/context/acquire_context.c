@@ -1,3 +1,4 @@
+#include "pt/config.h"
 #include "pt/core/context.h"
 #include "pt/core/macro.h"
 #include "pt/core/memory.h"
@@ -11,16 +12,18 @@ pt_acquire_context(pt_context target[1], const pt_tag type) {
   handle->type = type;
   handle->active = false;
   switch (handle->type) {
-  case PT_TAG_LOCAL:
+  case PT_TAG_NETWORK_LOCAL:
     pt_acquire(&(handle->interface.local));
     break;
-  case PT_TAG_MPI:
+  case PT_TAG_NETWORK_MPI:
     pt_acquire(&(handle->interface.mpi));
     break;
-  case PT_TAG_NCCL:
+#ifdef PT_USE_NCCL
+  case PT_TAG_NETWORK_NCCL:
+    pt_acquire(&(handle->interface.mpi));
+    pt_acquire_context_nccl(&(handle->interface.nccl));
     break;
-  case PT_TAG_MPI_NCCL:
-    break;
+#endif
   default:
     status.code = PT_TAG_INVALID_PARAMETER;
   }
