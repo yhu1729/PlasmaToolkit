@@ -7,13 +7,11 @@
 
 void
 test_root(void) {
-  pt_context target;
-  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, PT_TAG_MPI));
-  pt_check(target->type == PT_TAG_MPI);
+  pt_context_mpi target;
+  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target));
   pt_check(!(target->active));
-  pt_check(!(target->interface.mpi->active));
-  pt_check_same(target->interface.mpi->rank, 0);
-  pt_check_same(target->interface.mpi->size, 0);
+  pt_check_same(target->rank, 0);
+  pt_check_same(target->size, 0);
   pt_release(target);
   pt_check_ok();
 }

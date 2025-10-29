@@ -1,5 +1,5 @@
 #include "pt/config.h"
-#include "pt/core/context.h"
+#include "pt/core/context/local.h"
 #include "pt/core/macro.h"
 #include "pt/test/check.h"
 #include "pt/test/expect.h"
@@ -7,13 +7,11 @@
 
 void
 test_local(void) {
-  pt_context target;
-  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, PT_TAG_LOCAL));
-  pt_check(target->type == PT_TAG_LOCAL);
+  pt_context_mpi target;
+  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target));
   pt_check(!(target->active));
-  pt_check(!(target->interface.local->active));
-  pt_check_same(target->interface.local->rank, 0);
-  pt_check_same(target->interface.local->size, 0);
+  pt_check_same(target->rank, 0);
+  pt_check_same(target->size, 0);
   pt_release(target);
   pt_check_ok();
 }
