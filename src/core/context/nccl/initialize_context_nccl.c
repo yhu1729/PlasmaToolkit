@@ -50,7 +50,7 @@ pt_initialize_context_nccl(pt_context_nccl target, pt_context_mpi host) {
   }
   MPI_Bcast(&id, sizeof(id), MPI_BYTE, 0, host->network);
   cudaSetDevice(target->rank);
-  ncclCommInitRank(target->network, host->size, id, host->rank);
+  ncclCommInitRank(&(target->network), host->size, id, host->rank);
 
   return status;
 }
