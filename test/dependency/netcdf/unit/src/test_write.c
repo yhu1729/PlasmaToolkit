@@ -51,7 +51,7 @@ main(int argc, char** argv) {
     id_group[1], id_compound, "y", offsetof(struct c_t, y), NC_INT);
   nc_def_var(id_group[1], "data", id_compound, 2, id_dim, &(id_variable[1]));
 
-  nc_put_var_ulonglong(id_group[0], id_variable[0], &(data[0][0]));
+  nc_put_var(id_group[0], id_variable[0], &(data[0][0]));
   nc_put_var(id_group[1], id_variable[1], &(data_compound[0][0]));
 
   nc_close(id_file);
