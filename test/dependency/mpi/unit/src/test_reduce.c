@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 int
-main(void) {
-  MPI_Init(NULL, NULL);
+main(int argc, char** argv) {
+  MPI_Init(&argc, &argv);
 
   int mpi_rank;
   int mpi_size;
