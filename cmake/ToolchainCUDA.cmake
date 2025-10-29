@@ -1,4 +1,4 @@
-find_package(CUDAToolkit REQUIRED)
+find_package(CUDAToolkit 12.0 REQUIRED)
 
 # NCCL
 set(NCCL_LIB_NAME "nccl")
