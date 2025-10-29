@@ -62,5 +62,6 @@ target_link_libraries(PT
 
 add_subdirectory(example)
 
+include(PTAddTest)
 enable_testing()
 add_subdirectory(test)
