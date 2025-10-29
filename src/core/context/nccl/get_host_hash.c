@@ -1,5 +1,7 @@
 #include "pt/core/context/nccl.h"
 #include "pt/core/math.h"
+#include <stdio.h>
+#include <string.h>
 
 pt_status
 pt_get_host_hash(pt_u64 result[1], const char* host_name) {
