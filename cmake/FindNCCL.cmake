@@ -38,7 +38,18 @@ if(NCCL_FOUND)
 
   set(CMAKE_REQUIRED_INCLUDES ${OLD_CMAKE_REQUIRED_INCLUDES})
 
-  add_library(NCCL INTERFACE)
-  set_property(TARGET NCCL PROPERTY INTERFACE_COMPILE_OPTIONS -I${NCCL_INC_DIR} -I${CUDAToolkit_INCLUDE_DIRS})
-  set_property(TARGET NCCL PROPERTY INTERFACE_LINK_LIBRARIES -L${NCCL_LIB} -L${CUDAToolkit_LIBRARY_DIR})
+  add_library(NCCL INTERFACE IMPORTED)
+  target_include_directories(
+    NCCL
+    INTERFACE
+    "${CUDAToolkit_INCLUDE_DIRS}"
+    "${NCCL_INC_DIR}"
+  )
+  target_link_libraries(
+    NCCL
+    INTERFACE
+    -lcudart
+    -L${CUDAToolkit_LIBRARY_DIR}
+    ${NCCL_LIB}
+  )
 endif()
