@@ -14,6 +14,7 @@ pt_finalize_context_interface(
     pt_finalize(interface.mpi);
     break;
 #ifdef PT_USE_NCCL
+  case PT_TAG_NETWORK_NCCL:
     pt_finalize_context_nccl(interface.nccl);
     pt_finalize(interface.mpi);
     break;
