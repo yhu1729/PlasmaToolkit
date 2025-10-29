@@ -13,7 +13,7 @@ pt_release_context(pt_context target) {
   case PT_TAG_NETWORK_MPI:
     pt_release(target->interface.mpi);
     break;
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
   case PT_TAG_NETWORK_NCCL:
     pt_release_context_nccl(target->interface.nccl);
     pt_release(target->interface.mpi);

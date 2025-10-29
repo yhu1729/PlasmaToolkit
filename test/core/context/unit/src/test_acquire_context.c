@@ -29,7 +29,7 @@ test_mpi(void) {
   pt_check_ok();
 }
 
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
 void
 test_nccl(void) {
   pt_context target;
@@ -46,7 +46,7 @@ test_nccl(void) {
 #define _PT_TEST_LIST \
   {test_local, "Acquire local context"}, {test_mpi, "Acquire MPI context"}
 
-#ifndef PT_USE_NCCL
+#ifndef PT_USE_CUDA
 PT_TEST_LIST(_PT_TEST_LIST);
 #else
 PT_TEST_LIST(_PT_TEST_LIST, {test_nccl, "Acquire NCCL context"});

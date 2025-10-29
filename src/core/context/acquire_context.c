@@ -18,7 +18,7 @@ pt_acquire_context(pt_context target[1], const pt_tag type) {
   case PT_TAG_NETWORK_MPI:
     pt_acquire(&(handle->interface.mpi));
     break;
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
   case PT_TAG_NETWORK_NCCL:
     pt_acquire(&(handle->interface.mpi));
     pt_acquire_context_nccl(&(handle->interface.nccl));

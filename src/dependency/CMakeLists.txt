@@ -63,10 +63,17 @@ find_package(OpenMP 4.0 COMPONENTS C REQUIRED)
 # netCDF
 pkg_check_modules(netCDF REQUIRED IMPORTED_TARGET netcdf>=4.0)
 
-# NCCL
-if(PT_USE_NCCL)
-  include(FindNCCL)
-  target_link_libraries(PT_Dependency INTERFACE NCCL)
+# CUDA
+if(PT_USE_CUDA)
+  include(ToolchainCUDA)
+  target_link_libraries(
+    PT_Dependency
+    INTERFACE
+    CUDA::cudart
+    CUDA::nvJitLink
+    CUDA::cusparse
+    NCCL
+  )
 endif()
 
 target_link_libraries(PT_Dependency INTERFACE MPI::MPI_C)

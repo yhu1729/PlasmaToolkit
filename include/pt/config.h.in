@@ -3,7 +3,7 @@
 #cmakedefine PT_CANARY @PT_CANARY@
 #cmakedefine PT_VERBOSITY @PT_VERBOSITY@
 
-#cmakedefine PT_USE_NCCL
+#cmakedefine PT_USE_CUDA
 
 #ifdef PT_CANARY
 #if PT_CANARY > 0
@@ -17,7 +17,7 @@
 
 #include "mpi.h"
 
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
 #include "nccl.h"
 #endif
 

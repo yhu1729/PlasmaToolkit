@@ -9,5 +9,7 @@ Dependency
 
 Optional:
 
+* C++ compiler
 * Ninja >= 1.13
+* CUDA >= 12.0
 * NCCL >= 2.0

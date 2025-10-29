@@ -11,6 +11,6 @@ target_sources(PT_Core
 add_subdirectory(local)
 add_subdirectory(mpi)
 
-if(PT_USE_NCCL)
+if(PT_USE_CUDA)
   add_subdirectory(nccl)
 endif()

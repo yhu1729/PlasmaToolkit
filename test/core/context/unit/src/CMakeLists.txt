@@ -29,7 +29,7 @@ set_tests_properties(
   ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
 
-if(PT_USE_NCCL)
+if(PT_USE_CUDA)
   add_executable(acquire_context_nccl test_acquire_context_nccl.c)
   target_link_libraries(acquire_context_nccl PT::Test PT::Core)
   add_test(

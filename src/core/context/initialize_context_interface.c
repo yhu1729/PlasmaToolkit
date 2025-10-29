@@ -13,7 +13,7 @@ pt_initialize_context_interface(
   case PT_TAG_NETWORK_MPI:
     pt_initialize(interface.mpi, leader);
     break;
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
   case PT_TAG_NETWORK_NCCL:
     pt_initialize(interface.mpi, leader);
     pt_initialize_context_nccl(interface.nccl, interface.mpi);

@@ -13,7 +13,7 @@ pt_finalize_context_interface(
   case PT_TAG_NETWORK_MPI:
     pt_finalize(interface.mpi);
     break;
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
   case PT_TAG_NETWORK_NCCL:
     pt_finalize_context_nccl(interface.nccl);
     pt_finalize(interface.mpi);

@@ -6,7 +6,7 @@
 #include "pt/core/status.h"
 #include "pt/core/tag.h"
 
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
 #include "pt/core/context/nccl.h"
 #endif
 
@@ -15,7 +15,7 @@ struct _pt_context_interface_t {
   pt_context_local local;
   pt_context_mpi mpi;
 
-#ifdef PT_USE_NCCL
+#ifdef PT_USE_CUDA
   pt_context_nccl nccl;
 #endif
 };

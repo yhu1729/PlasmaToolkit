@@ -1,5 +1,6 @@
 find_package(CUDAToolkit REQUIRED)
 
+# NCCL
 set(NCCL_LIB_NAME "nccl")
 set(NCCL_ROOT $ENV{NVHPC_ROOT}/comm_libs/nccl)
 
