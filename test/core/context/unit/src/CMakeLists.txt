@@ -29,7 +29,7 @@ pt_add_test(
   MODULE core/unit
   LIB PT::Test PT::Core
   ENV_MOD ASAN_OPTIONS=set:detect_leaks=1
-  LABEL type:unit module:core/context network:local network:mpi
+  LABEL type:unit module:core/context network:local network:mpi network:nccl
   USE_MPI YES
   N_MPI_TASK 4
   USE_CUDA YES
