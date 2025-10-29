@@ -29,7 +29,7 @@ pt_initialize_context_nccl(pt_context_nccl target, pt_context_mpi host) {
   }
 
   pt_u64 host_hash[host->size];
-  pt_safe_invoke(&(host_hash[host->rank]), host_name);
+  pt_safe_invoke(pt_get_host_hash(&(host_hash[host->rank]), host_name));
   MPI_Allgather(
     MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, host_hash, sizeof(pt_u64), MPI_BYTE,
     host->network);
