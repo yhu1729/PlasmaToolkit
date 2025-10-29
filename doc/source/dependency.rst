@@ -3,8 +3,8 @@ Dependency
 
 * C compiler
 * CMake >= 3.31.6
-* MPI >= 3.0
 * OpenMP >= 4.0
+* MPI >= 3.0
 * netCDF >= 4.0
 
 Optional:

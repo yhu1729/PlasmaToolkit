@@ -54,11 +54,11 @@ endif()
 
 find_package(PkgConfig REQUIRED)
 
-# MPI
-find_package(MPI 3.0 REQUIRED)
-
 # OpenMP
 find_package(OpenMP 4.0 COMPONENTS C REQUIRED)
+
+# MPI
+find_package(MPI 3.0 REQUIRED)
 
 # netCDF
 pkg_check_modules(netCDF REQUIRED IMPORTED_TARGET netcdf>=4.0)
