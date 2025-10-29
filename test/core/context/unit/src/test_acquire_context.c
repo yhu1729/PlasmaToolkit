@@ -43,13 +43,13 @@ test_nccl(void) {
 }
 #endif
 
+#define _PT_TEST_LIST \
+  {test_local, "Acquire local context"}, {test_mpi, "Acquire MPI context"}
+
 #ifndef PT_USE_NCCL
-PT_TEST_LIST(
-  {test_local, "Acquire local context"}, {test_mpi, "Acquire MPI context"});
+PT_TEST_LIST(_PT_TEST_LIST);
 #else
-PT_TEST_LIST(
-  {test_local, "Acquire local context"}, {test_mpi, "Acquire MPI context"},
-  {test_nccl, "Acquire NCCL context"});
+PT_TEST_LIST(_PT_TEST_LIST, {test_nccl, "Acquire NCCL context"});
 #endif
 
 PT_TEST_UNIT_MAIN
