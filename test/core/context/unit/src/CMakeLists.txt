@@ -47,3 +47,20 @@ if(PT_USE_NCCL)
     ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
   )
 endif()
+
+add_executable(acquire_context test_acquire_context.c)
+target_link_libraries(acquire_context PT::Test)
+add_test(
+  NAME core/unit/acquire_context
+  COMMAND
+    ${MPIEXEC_EXECUTABLE} ${MPIEXEC_PREFLAGS}
+    ${MPIEXEC_NUMPROC_FLAG} 4
+    ${MPIEXEC_POSTFLAGS}
+    ./acquire_context
+)
+set_tests_properties(
+  core/unit/acquire_context
+  PROPERTIES
+  LABELS "type:unit;module:core/context"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
+)
