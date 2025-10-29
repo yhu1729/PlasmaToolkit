@@ -28,3 +28,22 @@ set_tests_properties(
   LABELS "type:unit;module:core/context;network:mpi"
   ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
+
+if(PT_USE_NCCL)
+  add_executable(acquire_context_nccl test_acquire_context_nccl.c)
+  target_link_libraries(acquire_context_nccl PT::Test PT::Core)
+  add_test(
+    NAME core/unit/acquire_context_nccl
+    COMMAND
+      ${MPIEXEC_EXECUTABLE} ${MPIEXEC_PREFLAGS}
+      ${MPIEXEC_NUMPROC_FLAG} 4
+      ${MPIEXEC_POSTFLAGS}
+      ./acquire_context_nccl
+  )
+  set_tests_properties(
+    core/unit/acquire_context_nccl
+    PROPERTIES
+    LABELS "type:unit;module:core/context;network:nccl"
+    ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
+  )
+endif()
