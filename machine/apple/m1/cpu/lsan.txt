@@ -1,1 +1,14 @@
-leak:dyld4::*
+leak:AutoreleasePoolPage::autoreleaseNoPage
+leak:__CFTSDGetTable
+leak:_fetchInitializingClassList
+leak:_vasprintf
+leak:dyld4::APIs::setErrorString
+leak:dyld::ThreadLocalVariables::instantiateVariable
+leak:get_data
+leak:getifaddrs
+leak:mca_btl_tcp_proc_create
+leak:ompi_comm_init_mpi3
+leak:ompi_op_base_op_select
+leak:opal_reachable_allocate
+leak:pmix_bfrop_tma_kval_new
+leak:pmix_rte_init
