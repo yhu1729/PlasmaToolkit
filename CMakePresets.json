@@ -19,7 +19,7 @@
         "PT_COMPILER_DEVICE": "$env{PT_COMPILER_DEVICE}",
         "PT_CANARY": "3",
         "PT_VERBOSITY": "4",
-        "PT_USE_CUDA": "OFF"
+        "PT_USE_CUDA": "NO"
       },
       "environment": {}
     },
@@ -35,7 +35,7 @@
         "PT_COMPILER_DEVICE": "$env{PT_COMPILER_DEVICE}",
         "PT_CANARY": "3",
         "PT_VERBOSITY": "4",
-        "PT_USE_CUDA": "ON"
+        "PT_USE_CUDA": "YES"
       },
       "environment": {}
     }

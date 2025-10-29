@@ -7,7 +7,7 @@ project(PlasmaToolkit
 
 configure_file(include/pt/config.h.in include/pt/config.h @ONLY)
 
-set(CMAKE_MESSAGE_CONTEXT_SHOW ON)
+set(CMAKE_MESSAGE_CONTEXT_SHOW YES)
 set(CMAKE_C_STANDARD 23)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
@@ -27,7 +27,7 @@ option(PT_CANARY "Canary level" 0)
 option(PT_VERBOSITY "Verbosity level" 0)
 list(APPEND _pt_build_option "PT_CANARY" "PT_VERBOSITY")
 
-option(PT_USE_CUDA "Use NCCL features" OFF)
+option(PT_USE_CUDA "Use NCCL features" NO)
 list(APPEND _pt_build_option "PT_USE_CUDA")
 
 if(PT_USE_CUDA)
