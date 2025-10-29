@@ -18,6 +18,6 @@ test_root(void) {
   pt_check_ok();
 }
 
-PT_TEST_LIST({test_root, "Acquire MPI context"});
+PT_TEST_LIST({test_root, "Acquire root MPI context"});
 
 PT_TEST_UNIT_MAIN
