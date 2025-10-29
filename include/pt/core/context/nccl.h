@@ -1,10 +1,9 @@
 #pragma once
 
 #include "pt/config.h"
+#include "pt/core/context/mpi.h"
 #include "pt/core/status.h"
 #include "pt/core/type.h"
-
-typedef struct _pt_context_mpi_t* pt_context_mpi;
 
 typedef struct _pt_context_nccl_t* pt_context_nccl;
 struct _pt_context_nccl_t {
