@@ -1,5 +1,6 @@
 #include "pt/core/context/nccl.h"
 #include "pt/core/type.h"
+#include <unistd.h>
 
 pt_status
 pt_initialize_context_nccl(pt_context_nccl target, pt_context_mpi host) {
