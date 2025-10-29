@@ -32,4 +32,5 @@ pt_add_test(
   LABEL type:unit module:core/context network:local network:mpi
   USE_MPI YES
   N_MPI_TASK 4
+  USE_CUDA YES
 )
