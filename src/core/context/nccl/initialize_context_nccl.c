@@ -23,7 +23,7 @@ pt_initialize_context_nccl(pt_context_nccl target, pt_context_mpi host) {
   gethostname(host_name, 32);
   for (int index = 0; index < 32; ++index) {
     if (host_name[index] == '.') {
-      hostname[index] = '\0';
+      host_name[index] = '\0';
       break;
     }
   }
