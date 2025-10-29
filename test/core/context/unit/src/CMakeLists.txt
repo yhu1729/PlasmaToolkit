@@ -16,7 +16,8 @@ target_link_libraries(acquire_context_mpi PT::Test PT::Core)
 add_test(
   NAME core/unit/acquire_context_mpi
   COMMAND
-    ${MPIEXEC_EXECUTABLE} ${MPIEXEC_PREFLAGS}
+    ${MPIEXEC_EXECUTABLE}
+    ${MPIEXEC_PREFLAGS}
     ${MPIEXEC_NUMPROC_FLAG} 4
     ${MPIEXEC_POSTFLAGS}
     ./acquire_context_mpi
@@ -25,5 +26,5 @@ set_tests_properties(
   core/unit/acquire_context_mpi
   PROPERTIES
   LABELS "type:unit;module:core/context;network:mpi"
-ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
+  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
 )
