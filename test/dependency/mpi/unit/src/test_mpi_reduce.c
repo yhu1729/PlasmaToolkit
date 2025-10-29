@@ -1,3 +1,4 @@
+#include "pt/core/type.h"
 #include "pt/test/check.h"
 #include <mpi.h>
 #include <stdlib.h>
