@@ -3,7 +3,8 @@ target_link_libraries(mpi_reduce PT::Test PT::Core)
 add_test(
   NAME mpi/unit/reduce
   COMMAND
-    ${MPIEXEC_EXECUTABLE} ${MPIEXEC_PREFLAGS}
+    ${MPIEXEC_EXECUTABLE}
+    ${MPIEXEC_PREFLAGS}
     ${MPIEXEC_NUMPROC_FLAG} 4
     ${MPIEXEC_POSTFLAGS}
     ./mpi_reduce
