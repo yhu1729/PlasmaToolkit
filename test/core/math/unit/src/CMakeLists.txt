@@ -1,12 +1,7 @@
-add_executable(get_sign test_get_sign.c)
-target_link_libraries(get_sign PT::Test PT::Core)
-add_test(
-  NAME core/unit/get_sign
-  COMMAND ./get_sign
-)
-set_tests_properties(
-  core/unit/get_sign
-  PROPERTIES
-  LABELS "type:unit;module:core/math"
-  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
+pt_add_test(
+  NAME get_sign
+  MODULE core/math
+  LIB PT::Test PT::Core
+  USE_ASAN YES
+  LABEL type:unit
 )

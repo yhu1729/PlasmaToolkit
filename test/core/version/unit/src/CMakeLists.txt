@@ -1,12 +1,7 @@
-add_executable(print_version test_print_version.c)
-target_link_libraries(print_version PT::Test PT::Core)
-add_test(
-  NAME core/unit/print_version
-  COMMAND ./print_version
-)
-set_tests_properties(
-  core/unit/print_version
-  PROPERTIES
-  LABELS "type:unit;module:core/version"
-  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
+pt_add_test(
+  NAME print_version
+  MODULE core/version
+  LIB PT::Test PT::Core
+  USE_ASAN YES
+  LABEL type:unit
 )

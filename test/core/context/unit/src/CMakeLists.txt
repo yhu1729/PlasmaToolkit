@@ -1,36 +1,36 @@
 pt_add_test(
   NAME acquire_context_local
-  MODULE core/unit
+  MODULE core/context
   LIB PT::Test PT::Core
-  ENV_MOD ASAN_OPTIONS=set:detect_leaks=1
-  LABEL type:unit module:core/context network:local
+  USE_ASAN YES
+  LABEL type:unit network:local
 )
 pt_add_test(
   NAME acquire_context_mpi
-  MODULE core/unit
+  MODULE core/context
   LIB PT::Test PT::Core
-  ENV_MOD ASAN_OPTIONS=set:detect_leaks=1
-  LABEL type:unit module:core/context network:mpi
   USE_MPI YES
   N_MPI_TASK 4
+  USE_ASAN YES
+  LABEL type:unit network:mpi
 )
 pt_add_test(
   NAME acquire_context_nccl
-  MODULE core/unit
+  MODULE core/context
   LIB PT::Test PT::Core
-  ENV_MOD ASAN_OPTIONS=set:detect_leaks=1
-  LABEL type:unit module:core/context network:nccl
   USE_MPI YES
   N_MPI_TASK 4
   USE_CUDA YES
+  USE_ASAN YES
+  LABEL type:unit network:nccl
 )
 pt_add_test(
   NAME acquire_context
-  MODULE core/unit
+  MODULE core/context
   LIB PT::Test PT::Core
-  ENV_MOD ASAN_OPTIONS=set:detect_leaks=1
-  LABEL type:unit module:core/context network:local network:mpi network:nccl
   USE_MPI YES
   N_MPI_TASK 4
   USE_CUDA YES
+  USE_ASAN YES
+  LABEL type:unit network:local network:mpi network:nccl
 )

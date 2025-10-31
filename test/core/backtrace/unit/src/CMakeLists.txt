@@ -1,12 +1,7 @@
-add_executable(print_backtrace test_print_backtrace.c)
-target_link_libraries(print_backtrace PT::Test PT::Core)
-add_test(
-  NAME core/unit/print_backtrace
-  COMMAND ./print_backtrace
-)
-set_tests_properties(
-  core/unit/print_backtrace
-  PROPERTIES
-  LABELS "type:unit;module:core/backtrace"
-  ENVIRONMENT_MODIFICATION "ASAN_OPTIONS=set:detect_leaks=1"
+pt_add_test(
+  NAME print_backtrace
+  MODULE core/backtrace
+  LIB PT::Test PT::Core
+  USE_ASAN YES
+  LABEL type:unit
 )
