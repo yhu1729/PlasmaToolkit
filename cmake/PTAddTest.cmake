@@ -43,6 +43,11 @@ function(pt_add_test)
     )
   endif()
 
+  set_tests_properties(
+    ${_name_test}
+    PROPERTIES
+    LABELS module:${PT_TEST_ARG_MODULE}
+  )
   if(PT_TEST_ARG_LABEL)
     set_tests_properties(
       ${_name_test}
