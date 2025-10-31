@@ -2,14 +2,6 @@
 #include <cuda_runtime.h>
 #include <stdlib.h>
 
-__global__ void
-add(const int n, const double* x, double* y) {
-  int index = blockDim.x * blockIdx.x + threadIdx.x;
-  if (index < n) {
-    y[n] = y[n] + x[n];
-  }
-}
-
 int
 main(void) {
   const int n = 32 * 1024;
@@ -28,10 +20,7 @@ main(void) {
   cudaMemcpy(x_d, x, n * sizeof(double), cudaMemcpyHostToDevice);
   cudaMemcpy(y_d, y, n * sizeof(double), cudaMemcpyHostToDevice);
 
-  const int n_thread_per_block = 256;
-  const int n_block_per_grid =
-    (n + n_thread_per_block - 1) / n_thread_per_block;
-  add<<<n_block_per_grid, n_thread_per_block>>>(n, x_d, y_d);
+  invoke_kernel_add(n, x_d, y_d);
 
   cudaMemcpy(y, y_d, n * sizeof(double), cudaMemcpyDeviceToHost);
 
