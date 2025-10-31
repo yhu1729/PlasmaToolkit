@@ -1,7 +1,6 @@
 leak:AutoreleasePoolPage::autoreleaseNoPage
 leak:__CFTSDGetTable
 leak:_fetchInitializingClassList
-leak:_vasprintf
 leak:dyld4::APIs::setErrorString
 leak:dyld::ThreadLocalVariables::instantiateVariable
 leak:get_data
@@ -13,4 +12,5 @@ leak:ompi_op_base_op_select
 leak:opal_reachable_allocate
 leak:pmix_bfrop_tma_kval_new
 leak:pmix_rte_init
+leak:vasprintf
 leak:vfprintf
