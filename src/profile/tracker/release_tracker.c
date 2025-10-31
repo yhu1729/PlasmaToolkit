@@ -11,9 +11,9 @@ pt_release_tracker(pt_tracker target) {
   for (int index = 0; index < target->port_size; ++index) {
     pt_safe_invoke(pt_release(target->port[index]));
   }
-  pt_safe_invoke(pt_free(target->port));
+  pt_safe_invoke(pt_free_h(target->port));
 
-  pt_safe_invoke(pt_free(target));
+  pt_safe_invoke(pt_free_h(target));
 
   return status;
 }

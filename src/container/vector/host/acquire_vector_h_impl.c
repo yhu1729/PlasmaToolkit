@@ -8,7 +8,7 @@ pt_acquire_vector_h_impl(
   PT_STATUS(status);
 
   pt_vector_h_impl handle;
-  pt_safe_invoke(pt_malloc(&handle, sizeof *handle));
+  pt_safe_invoke(pt_malloc_h(&handle, sizeof *handle));
   pt_safe_invoke(pt_acquire(&(handle->buffer), stride * length));
   handle->stride = stride;
   handle->length = length;

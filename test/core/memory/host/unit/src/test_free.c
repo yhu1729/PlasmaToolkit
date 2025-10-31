@@ -6,8 +6,8 @@
 void
 test_free_small(void) {
   char* target;
-  pt_malloc(&target, 16);
-  pt_expect(PT_TAG_SUCCESS, pt_free(target));
+  pt_malloc_h(&target, 16);
+  pt_expect(PT_TAG_SUCCESS, pt_free_h(target));
 
   pt_check_ok();
 }
@@ -15,8 +15,8 @@ test_free_small(void) {
 void
 test_free_large(void) {
   char* target;
-  pt_malloc(&target, 1024);
-  pt_expect(PT_TAG_SUCCESS, pt_free(target));
+  pt_malloc_h(&target, 1024);
+  pt_expect(PT_TAG_SUCCESS, pt_free_h(target));
 
   pt_check_ok();
 }

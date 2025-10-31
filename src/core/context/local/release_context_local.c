@@ -9,7 +9,7 @@ pt_release_context_local(pt_context_local target) {
   if (target->active) {
     pt_safe_invoke(pt_finalize(target));
   }
-  pt_safe_invoke(pt_free(target));
+  pt_safe_invoke(pt_free_h(target));
 
   return status;
 }

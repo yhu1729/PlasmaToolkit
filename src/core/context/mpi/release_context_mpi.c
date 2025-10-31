@@ -9,7 +9,7 @@ pt_release_context_mpi(pt_context_mpi target) {
   if (target->active) {
     pt_safe_invoke(pt_finalize(target));
   }
-  pt_safe_invoke(pt_free(target));
+  pt_safe_invoke(pt_free_h(target));
 
   return status;
 }

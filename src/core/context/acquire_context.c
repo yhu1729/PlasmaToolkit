@@ -6,7 +6,7 @@ pt_status
 pt_acquire_context(pt_context target[1], const pt_tag type) {
   PT_STATUS(status);
 
-  pt_safe_invoke(pt_malloc(target, sizeof **target));
+  pt_safe_invoke(pt_malloc_h(target, sizeof **target));
   pt_context handle = *target;
   handle->type = type;
   handle->active = false;

@@ -6,9 +6,9 @@
 void
 test_allocate_small(void) {
   char* target;
-  pt_expect(PT_TAG_SUCCESS, pt_malloc(&target, 16 * sizeof(char)));
+  pt_expect(PT_TAG_SUCCESS, pt_malloc_h(&target, 16 * sizeof(char)));
   target[15] = 'a';
-  pt_free(target);
+  pt_free_h(target);
 
   pt_check_ok();
 }
@@ -16,9 +16,9 @@ test_allocate_small(void) {
 void
 test_allocate_large(void) {
   double* target;
-  pt_expect(PT_TAG_SUCCESS, pt_malloc(&target, 1024 * sizeof(double)));
+  pt_expect(PT_TAG_SUCCESS, pt_malloc_h(&target, 1024 * sizeof(double)));
   target[1023] = 1.0;
-  pt_free(target);
+  pt_free_h(target);
 
   pt_check_ok();
 }

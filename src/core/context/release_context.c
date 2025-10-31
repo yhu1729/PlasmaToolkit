@@ -22,7 +22,7 @@ pt_release_context(pt_context target) {
   default:
     status.code = PT_TAG_INVALID_PARAMETER;
   }
-  pt_safe_invoke(pt_free(target));
+  pt_safe_invoke(pt_free_h(target));
 
   return status;
 }
