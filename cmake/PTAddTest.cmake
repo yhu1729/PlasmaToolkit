@@ -50,11 +50,11 @@ function(pt_add_test)
     PROPERTIES
     ENVIRONMENT_MODIFICATION "${env_mod}"
   )
+
+  set(test_label "")
+  list(APPEND test_label module:${PT_TEST_ARG_MODULE})
   if(PT_TEST_ARG_LABEL)
-    set_tests_properties(
-      ${_name_test}
-      PROPERTIES
-      LABELS "${PT_TEST_ARG_LABEL}"
-    )
+    list(APPEND test_label "${PT_TEST_ARG_LABEL}")
   endif()
+  set_tests_properties(${_name_test} PROPERTIES LABELS "${test_label}")
 endfunction()
