@@ -1,6 +1,9 @@
 function(pt_add_test)
-  set(arg_one_value "NAME" "MODULE" "USE_MPI" "N_MPI_TASK" "USE_CUDA")
+  set(arg_one_value
+    "NAME" "MODULE" "USE_MPI" "N_MPI_TASK" "USE_CUDA" "USE_ASAN"
+  )
   set(arg_multi_value "LIB" "ENV_MOD" "LABEL")
+  set(env_mod "")
 
   cmake_parse_arguments(
     PARSE_ARGV 0
@@ -12,6 +15,10 @@ function(pt_add_test)
 
   if(PT_TEST_ARG_USE_CUDA AND (NOT PT_USE_CUDA))
     return()
+  endif()
+
+  if(PT_TEST_ARG_USE_ASAN)
+    list(APPEND env_mod ASAN_OPTIONS=set:detect_leaks=1)
   endif()
 
   set(_name_exe ${PT_TEST_ARG_NAME})
@@ -36,17 +43,12 @@ function(pt_add_test)
   endif()
 
   if(PT_TEST_ARG_ENV_MOD)
-    set_tests_properties(
-      ${_name_test}
-      PROPERTIES
-      ENVIRONMENT_MODIFICATION "${PT_TEST_ARG_ENV_MOD}"
-    )
+    list(APPEND env_mod "${PT_TEST_ARG_ENV_MOD}")
   endif()
-
   set_tests_properties(
     ${_name_test}
     PROPERTIES
-    LABELS module:${PT_TEST_ARG_MODULE}
+    ENVIRONMENT_MODIFICATION "${env_mod}"
   )
   if(PT_TEST_ARG_LABEL)
     set_tests_properties(
