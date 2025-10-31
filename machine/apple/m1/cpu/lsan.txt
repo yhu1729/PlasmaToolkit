@@ -13,3 +13,4 @@ leak:ompi_op_base_op_select
 leak:opal_reachable_allocate
 leak:pmix_bfrop_tma_kval_new
 leak:pmix_rte_init
+leak:vfprintf
