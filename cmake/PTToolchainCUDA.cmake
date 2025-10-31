@@ -24,8 +24,8 @@ if(NCCL_FOUND)
       #include <nccl.h>
       int main()
       {
-        int vection;
-        ncclGetVersion(&vection);
+        int version;
+        ncclGetVersion(&version);
         return (x == NCCL_VERSION_CODE);
       }")
       try_run(
