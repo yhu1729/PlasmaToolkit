@@ -16,6 +16,7 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
     -Wall
     -Wextra
     $<$<COMPILE_LANGUAGE:C>:-Werror>
+    -Wno-unused-parameter
     -g
     -O0
     -fno-omit-frame-pointer
@@ -26,7 +27,6 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
       PT_Dependency
       INTERFACE
       -Wno-deprecated-declarations
-      -Wno-unused-parameter
       -Wno-variadic-macro-arguments-omitted
       -fsanitize=address,undefined,leak
     )
@@ -40,7 +40,6 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
       PT_Dependency
       INTERFACE
       -Wno-address
-      -Wno-unused-parameter
     )
   elseif(CMAKE_C_COMPILER_ID MATCHES NVHPC)
     target_compile_options(
