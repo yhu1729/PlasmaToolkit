@@ -15,7 +15,7 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
     -pedantic
     -Wall
     -Wextra
-    -Werror
+    -Werror=all
     -g
     -O0
     -fno-omit-frame-pointer
