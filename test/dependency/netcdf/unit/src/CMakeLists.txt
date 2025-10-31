@@ -1,5 +1,5 @@
 pt_add_test(
-  NAME get_version
+  NAME netcdf_get_version
   MODULE dependency/netcdf
   LIB PT::Test PT::Core
   USE_MPI YES
@@ -8,7 +8,7 @@ pt_add_test(
   LABEL type:unit feature:netcdf
 )
 pt_add_test(
-  NAME write
+  NAME netcdf_write
   MODULE dependency/netcdf
   LIB PT::Test PT::Core
   USE_MPI YES
