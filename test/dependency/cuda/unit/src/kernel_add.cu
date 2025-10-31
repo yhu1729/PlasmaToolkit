@@ -8,8 +8,7 @@ kernel_add(const int n, const double* x, double* y) {
   }
 }
 
-extern "C" {
-void
+extern "C" void
 invoke_kernel_add(const int n, const double* x, double* y) {
   double* x_d;
   double* y_d;
@@ -28,5 +27,4 @@ invoke_kernel_add(const int n, const double* x, double* y) {
 
   cudaFree(x_d);
   cudaFree(y_d);
-}
 }
