@@ -4,7 +4,7 @@ __global__ void
 kernel_add(const int n, const double* x, double* y) {
   int index = blockDim.x * blockIdx.x + threadIdx.x;
   if (index < n) {
-    y[n] = y[n] + x[n];
+    y[index] += x[index];
   }
 }
 
