@@ -2,6 +2,8 @@
 #include <cuda_runtime.h>
 #include <stdlib.h>
 
+void invoke_kernel_add(const int n, const double* x_d, const double* y_d);
+
 int
 main(void) {
   const int n = 32 * 1024;
