@@ -59,7 +59,7 @@ find_package(PkgConfig REQUIRED)
 find_package(OpenMP 4.0 COMPONENTS C REQUIRED)
 
 # MPI
-find_package(MPI 3.0 REQUIRED)
+find_package(MPI 3.0 COMPONENTS C REQUIRED)
 
 # netCDF
 pkg_check_modules(netCDF REQUIRED IMPORTED_TARGET netcdf>=4.0)
@@ -80,3 +80,8 @@ endif()
 target_link_libraries(PT_Dependency INTERFACE MPI::MPI_C)
 target_link_libraries(PT_Dependency INTERFACE OpenMP::OpenMP_C)
 target_link_libraries(PT_Dependency INTERFACE PkgConfig::netCDF)
+
+if(PT_USE_CUDA)
+  find_package(MPI 3.0 COMPONENTS CXX REQUIRED)
+  target_link_libraries(PT_Dependency INTERFACE MPI::MPI_CXX)
+endif()
