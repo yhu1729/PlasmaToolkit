@@ -1,5 +1,5 @@
 pt_add_test(
-  NAME reduce
+  NAME mpi_reduce
   MODULE dependency/mpi
   LIB PT::Test PT::Core
   USE_MPI YES
