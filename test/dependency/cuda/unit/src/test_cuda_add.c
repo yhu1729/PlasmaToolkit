@@ -9,8 +9,8 @@ main(void) {
   double* x = calloc(n, sizeof(double));
   double* y = calloc(n, sizeof(double));
   for (int index = 0; index < n; ++index) {
-    y[index] = 0;
     x[index] = rand() / (double)RAND_MAX;
+    y[index] = 0;
   }
 
   invoke_kernel_add(n, x, y);
