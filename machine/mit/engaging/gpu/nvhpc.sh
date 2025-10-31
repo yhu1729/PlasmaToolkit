@@ -3,6 +3,7 @@ module restore
 module load nvhpc/24.5
 
 export CUDA_HOME=$NVHPC_ROOT/cuda
+export CPATH=$NVHPC_ROOT/comm_libs/mpi/include:$CPATH
 export LD_LIBRARY_PATH=$NVHPC_ROOT/comm_libs/mpi/lib:$LD_LIBRARY_PATH
 
 # compiler
