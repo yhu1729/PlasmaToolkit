@@ -1,8 +1,7 @@
 #include "pt/test/check.h"
-#include <cuda_runtime.h>
 #include <stdlib.h>
 
-void invoke_kernel_add(const int n, const double* x_d, double* y_d);
+void invoke_kernel_add(const int n, const double* x, double* y);
 
 int
 main(void) {
@@ -14,24 +13,11 @@ main(void) {
     x[index] = rand() / (double)RAND_MAX;
   }
 
-  double* x_d;
-  double* y_d;
-  cudaMalloc((void**)&x_d, n * sizeof(double));
-  cudaMalloc((void**)&y_d, n * sizeof(double));
-
-  cudaMemcpy(x_d, x, n * sizeof(double), cudaMemcpyHostToDevice);
-  cudaMemcpy(y_d, y, n * sizeof(double), cudaMemcpyHostToDevice);
-
-  invoke_kernel_add(n, x_d, y_d);
-
-  cudaMemcpy(y, y_d, n * sizeof(double), cudaMemcpyDeviceToHost);
+  invoke_kernel_add(n, x, y);
 
   for (int index = 0; index < n; ++index) {
     pt_check_equal(y[index], x[index], PT_EPSILON_F64);
   }
-
-  cudaFree(x_d);
-  cudaFree(y_d);
 
   free(x);
   free(y);
