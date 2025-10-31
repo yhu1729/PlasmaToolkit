@@ -7,7 +7,7 @@ pt_acquire_buffer_h(pt_buffer_h target[1], const size_t length) {
 
   pt_safe_invoke(pt_malloc(target, sizeof **target));
   pt_buffer_h handle = *target;
-  handle->content = malloc(length);
+  pt_safe_invoke(pt_malloc_h(&(handle->content), length));
   handle->length = length;
 
   return status;
