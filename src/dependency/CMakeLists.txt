@@ -12,7 +12,7 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
   target_compile_options(
     PT_Dependency
     INTERFACE
-    -pedantic
+    $<$<COMPILE_LANGUAGE:C>:-pedantic>
     -Wall
     -Wextra
     $<$<COMPILE_LANGUAGE:C>:-Werror>
