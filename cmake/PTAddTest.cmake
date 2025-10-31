@@ -2,7 +2,7 @@ function(pt_add_test)
   set(arg_one_value
     "NAME" "MODULE" "USE_MPI" "N_MPI_TASK" "USE_CUDA" "USE_ASAN"
   )
-  set(arg_multi_value "LIB" "ENV_MOD" "LABEL")
+  set(arg_multi_value "LIB" "CUDA_KERNEL" "ENV_MOD" "LABEL")
   set(env_mod "")
 
   cmake_parse_arguments(
@@ -27,6 +27,12 @@ function(pt_add_test)
   foreach(lib ${PT_TEST_ARG_LIB})
     target_link_libraries(${_name_exe} ${lib})
   endforeach()
+
+  if(PT_TEST_ARG_CUDA_KERNEL AND PT_TEST_ARG_USE_CUDA AND PT_USE_CUDA)
+    foreach(kernel ${PT_TEST_ARG_CUDA_KERNEL})
+      target_sources(${_name_exe} PRIVATE ${kernel})
+    endforeach()
+  endif()
 
   if(PT_TEST_ARG_USE_MPI)
     add_test(
