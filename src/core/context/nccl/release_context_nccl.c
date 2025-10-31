@@ -8,7 +8,7 @@ pt_release_context_nccl(pt_context_nccl target) {
   if (target->active) {
     pt_safe_invoke(pt_finalize_context_nccl(target));
   }
-  pt_safe_invoke(pt_free(target));
+  pt_safe_invoke(pt_free_h(target));
 
   return status;
 }
