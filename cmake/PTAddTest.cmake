@@ -46,8 +46,8 @@ function(pt_add_test)
   if(PT_TEST_ARG_LABEL)
     set_tests_properties(
       ${_name_test}
-      PROPERTIES LABELS
-      "${PT_TEST_ARG_LABEL}"
+      PROPERTIES
+      LABELS "${PT_TEST_ARG_LABEL}"
     )
   endif()
 endfunction()
