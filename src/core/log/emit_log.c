@@ -1,4 +1,3 @@
-#include "pt/config.h"
 #include "pt/core/log.h"
 #include <stdarg.h>
 #include <stdio.h>

@@ -1,4 +1,3 @@
-#include "pt/config.h"
 #include "pt/core/context.h"
 #include "pt/core/macro.h"
 #include "pt/core/memory.h"

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pt/config.h"
 #include "pt/core/context/local.h"
 #include "pt/core/context/mpi.h"
 #include "pt/core/status.h"

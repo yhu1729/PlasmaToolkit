@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pt/config.h"
 #include "pt/core/memory/device.h"
 #include "pt/core/memory/host.h"
 

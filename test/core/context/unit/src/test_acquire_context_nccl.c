@@ -1,4 +1,3 @@
-#include "pt/config.h"
 #include "pt/core/context/nccl.h"
 #include "pt/test/check.h"
 #include "pt/test/expect.h"

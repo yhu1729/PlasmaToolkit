@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pt/config.h"
 #include "pt/container/buffer.h"
 #include "pt/core/context.h"
 #include "pt/profile/timer.h"

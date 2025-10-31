@@ -1,4 +1,3 @@
-#include "pt/config.h"
 #include "pt/core/context/local.h"
 #include "pt/core/macro.h"
 #include "pt/test/check.h"

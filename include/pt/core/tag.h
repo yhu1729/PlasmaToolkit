@@ -1,5 +1,7 @@
 #pragma once
 
+#include "pt/config.h"
+
 // clang-format off
 
 #define _PT_TAG_LIST(_entry) \

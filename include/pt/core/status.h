@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pt/config.h"
 #include "pt/core/tag.h"
 #include <stdlib.h>
 
