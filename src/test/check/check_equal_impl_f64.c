@@ -17,11 +17,11 @@ pt_check_equal_impl_f64(
 
   if (result) {
     pt_emit_log_debug(
-      "%s: %s:%d  abs(%d - %d) <= %d", feedback, file, line, lhs, rhs,
+      "%s: %s:%d  abs(%.6E - %.6E) <= %.6E", feedback, file, line, lhs, rhs,
       tolerance);
   } else {
     pt_emit_log_debug(
-      "%s: %s:%d  abs(%d - %d) > %d", feedback, file, line, lhs, rhs,
+      "%s: %s:%d  abs(%.6E - %.6E) > %.6E", feedback, file, line, lhs, rhs,
       tolerance);
   }
 
