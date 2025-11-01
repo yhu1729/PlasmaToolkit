@@ -1,4 +1,4 @@
-#include "pt/core/memory.h"
+#include "pt/core/memory/host.h"
 #include "pt/test/check.h"
 #include "pt/test/expect.h"
 #include "pt/test/unit.h"
