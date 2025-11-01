@@ -4,7 +4,7 @@
 #include "pt/test/unit.h"
 
 void
-test_allocate_small(void) {
+test_small(void) {
   char* target;
   pt_expect(PT_TAG_SUCCESS, pt_malloc_h(&target, 16 * sizeof(char)));
   target[15] = 'a';
@@ -14,7 +14,7 @@ test_allocate_small(void) {
 }
 
 void
-test_allocate_large(void) {
+test_large(void) {
   double* target;
   pt_expect(PT_TAG_SUCCESS, pt_malloc_h(&target, 1024 * sizeof(double)));
   target[1023] = 1.0;
@@ -24,7 +24,7 @@ test_allocate_large(void) {
 }
 
 PT_TEST_LIST(
-  {test_allocate_small, "Allocate small chunks"},
-  {test_allocate_large, "Allocate large chunks"});
+  {test_small, "Allocate small chunks"},
+  {test_large, "Allocate large chunks"});
 
 PT_TEST_UNIT_MAIN

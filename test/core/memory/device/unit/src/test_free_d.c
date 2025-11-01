@@ -4,7 +4,7 @@
 #include "pt/test/unit.h"
 
 void
-test_free_small(void) {
+test_small(void) {
   char* target;
   pt_malloc_d(&target, 16);
   pt_expect(PT_TAG_SUCCESS, pt_free_d(target));
@@ -13,7 +13,7 @@ test_free_small(void) {
 }
 
 void
-test_free_large(void) {
+test_large(void) {
   char* target;
   pt_malloc_d(&target, 1024);
   pt_expect(PT_TAG_SUCCESS, pt_free_d(target));
@@ -22,7 +22,7 @@ test_free_large(void) {
 }
 
 PT_TEST_LIST(
-  {test_free_small, "Free small chunks"},
-  {test_free_large, "Free large chunks"});
+  {test_small, "Free small chunks"},
+  {test_large, "Free large chunks"});
 
 PT_TEST_UNIT_MAIN
