@@ -3,5 +3,6 @@ if(PT_USE_CUDA)
     PRIVATE
     free_d_impl.c
     malloc_d_impl.c
+    calloc_d_impl.c
   )
 endif()
