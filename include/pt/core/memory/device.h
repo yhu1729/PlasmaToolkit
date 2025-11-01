@@ -3,10 +3,6 @@
 #include "pt/core/status.h"
 #include <stdlib.h>
 
-#if __cplusplus
-extern "C" {
-#endif
-
 pt_status pt_free_d_impl(
   void* target, const char* function, const char* file, const int line);
 pt_status pt_malloc_d_impl(
@@ -15,10 +11,6 @@ pt_status pt_malloc_d_impl(
 pt_status pt_calloc_d_impl(
   void** target, const size_t num, const size_t size, const char* function,
   const char* file, const int line);
-
-#if __cplusplus
-}
-#endif
 
 #ifdef USE_CUDA
 #define pt_free_d(_target) \

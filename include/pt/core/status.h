@@ -20,18 +20,8 @@ struct _pt_status_t {
 #endif
 
 const char* pt_get_status_name(const pt_status target);
-
-#if __cplusplus
-extern "C" {
-#endif
-
 pt_status pt_ignore(const pt_tag code, void* context);
 pt_status pt_abort(const pt_tag code, void* context);
-
-#if __cplusplus
-}
-#endif
-
 pt_status pt_invoke_impl(
   const pt_status target, pt_status_callback_t callback, void* context,
   const char* function, const char* file, const int line);
