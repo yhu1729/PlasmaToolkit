@@ -13,6 +13,7 @@ test_local(void) {
   pt_check_same(target->interface.local->rank, 0);
   pt_check_same(target->interface.local->size, 0);
   pt_release(target);
+
   pt_check_ok();
 }
 
@@ -25,6 +26,7 @@ test_mpi(void) {
   pt_check_same(target->interface.mpi->rank, 0);
   pt_check_same(target->interface.mpi->size, 0);
   pt_release(target);
+
   pt_check_ok();
 }
 
@@ -37,6 +39,7 @@ test_nccl(void) {
   pt_check_same(target->interface.nccl->rank, 0);
   pt_check_same(target->interface.nccl->size, 0);
   pt_release(target);
+
   pt_check_ok();
 }
 

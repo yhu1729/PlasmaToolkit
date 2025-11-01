@@ -12,6 +12,7 @@ test_local(void) {
   pt_check_same(target->rank, 0);
   pt_check_same(target->size, 0);
   pt_release(target);
+
   pt_check_ok();
 }
 

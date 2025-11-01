@@ -11,6 +11,7 @@ test_single(void) {
   pt_check_same(target->rank, 0);
   pt_check_same(target->size, 0);
   pt_release_context_nccl(target);
+
   pt_check_ok();
 }
 
