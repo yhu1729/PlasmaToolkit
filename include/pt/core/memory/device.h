@@ -12,7 +12,7 @@ pt_status pt_calloc_d_impl(
   void** target, const size_t num, const size_t size, const char* function,
   const char* file, const int line);
 
-#ifdef USE_CUDA
+#ifdef PT_USE_CUDA
 #define pt_free_d(_target) \
   pt_free_d_impl((void*)(_target), __func__, __FILE__, __LINE__)
 #define pt_malloc_d(_target, _size) \
