@@ -1,19 +1,19 @@
 pt_add_test(
-  NAME free
+  NAME free_h
   MODULE core/memory
   LIB PT::Test PT::Core
   USE_ASAN YES
   LABEL type:unit
 )
 pt_add_test(
-  NAME malloc
+  NAME malloc_h
   MODULE core/memory
   LIB PT::Test PT::Core
   USE_ASAN YES
   LABEL type:unit
 )
 pt_add_test(
-  NAME calloc
+  NAME calloc_h
   MODULE core/memory
   LIB PT::Test PT::Core
   USE_ASAN YES
