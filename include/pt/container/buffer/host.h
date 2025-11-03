@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pt/core/memory/host.h"
 #include "pt/core/status.h"
 
 typedef struct pt_buffer_h_t* pt_buffer_h;

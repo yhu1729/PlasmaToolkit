@@ -1,5 +1,5 @@
 #include "pt/container/buffer/host.h"
-#include "pt/core/memory.h"
+#include "pt/core/memory/host.h"
 
 pt_status
 pt_release_buffer_h(pt_buffer_h target) {
