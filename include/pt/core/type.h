@@ -17,3 +17,5 @@ typedef double pt_f64;
 typedef long double pt_f128;
 
 typedef pt_i32 pt_index;
+
+typedef pt_u16 pt_feature;
