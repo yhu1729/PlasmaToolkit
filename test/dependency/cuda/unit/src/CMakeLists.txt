@@ -3,7 +3,7 @@ pt_add_test(
   MODULE dependency/cuda
   LIB PT::Test PT::Dependency
   USE_CUDA YES
-  CUDA_KERNEL kernel_add.cu
+  CUDA_KERNEL add.cu
   USE_ASAN YES
   LABEL type:unit feature:cuda
 )

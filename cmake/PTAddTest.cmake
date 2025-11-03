@@ -29,8 +29,8 @@ function(pt_add_test)
   endforeach()
 
   if(PT_TEST_ARG_CUDA_KERNEL AND PT_TEST_ARG_USE_CUDA AND PT_USE_CUDA)
-    foreach(kernel ${PT_TEST_ARG_CUDA_KERNEL})
-      target_sources(${_name_exe} PRIVATE ${kernel})
+    foreach(_name ${PT_TEST_ARG_CUDA_KERNEL})
+      target_sources(${_name_exe} PRIVATE kernel_${_name})
     endforeach()
   endif()
 
