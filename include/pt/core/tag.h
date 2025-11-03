@@ -49,3 +49,6 @@ enum _pt_tag_t {
 typedef enum _pt_tag_t pt_tag;
 
 const char* pt_get_tag_name(const pt_tag);
+
+#define PT_FEATURE_ON_HOST (1)
+#define PT_FEATURE_ON_DEVICE (1 << 1)
