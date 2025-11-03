@@ -12,3 +12,12 @@ pt_add_test(
   USE_ASAN YES
   LABEL type:unit
 )
+pt_add_test(
+  NAME acquire_buffer_d
+  MODULE container/buffer
+  LIB PT::Test PT::Container
+  USE_CUDA YES
+  CUDA_KERNEL fill.cu
+  USE_ASAN YES
+  LABEL type:unit
+)
