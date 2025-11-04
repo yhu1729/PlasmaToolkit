@@ -14,7 +14,7 @@ pt_finalize_context_mpi(pt_context_mpi target) {
   target->rank = 0;
   target->size = 0;
 
-  target->network = NULL;
+  target->network = 0;
 
   return status;
 }

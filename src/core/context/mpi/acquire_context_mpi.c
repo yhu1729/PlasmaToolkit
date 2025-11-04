@@ -10,7 +10,7 @@ pt_acquire_context_mpi(pt_context_mpi target[1]) {
   handle->active = false;
   handle->rank = 0;
   handle->size = 0;
-  handle->network = NULL;
+  handle->network = 0;
 
   return status;
 }
