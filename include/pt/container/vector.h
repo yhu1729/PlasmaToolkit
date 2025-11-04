@@ -16,6 +16,5 @@ pt_status pt_acquire_vector_impl(
   pt_feature feature);
 pt_status pt_release_vector(pt_vector target);
 
-#define pt_acquire_vector(_target, _type, _length, _on_host, _on_device) \
-  pt_acquire_vector_impl( \
-    (_target), sizeof(_type), (_length), (_on_host), (_on_device))
+#define pt_acquire_vector(_target, _type, _length, _feature) \
+  pt_acquire_vector_impl((_target), sizeof(_type), (_length), (_feature))
