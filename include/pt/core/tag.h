@@ -52,3 +52,4 @@ const char* pt_get_tag_name(const pt_tag);
 
 #define PT_FEATURE_ON_HOST (1)
 #define PT_FEATURE_ON_DEVICE (1 << 1)
+#define PT_FEATURE_PAGE_LOCKED (1 << 2)
