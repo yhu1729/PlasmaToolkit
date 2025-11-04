@@ -1,5 +1,6 @@
 #pragma once
 
+#include "pt/core/memory/host.h"
 #include "pt/core/status.h"
 #include <stdlib.h>
 
