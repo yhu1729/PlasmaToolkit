@@ -1,7 +1,7 @@
 #include "pt/container/buffer/device.h"
 #include <cuda.h>
 
-__device__ void
+__global__ void
 kernel_fill(const size_t n, char* buffer) {
   for (int index = 0; index < n; ++index) {
     buffer[index] = 0;
