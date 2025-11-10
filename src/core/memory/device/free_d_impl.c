@@ -1,6 +1,6 @@
 #include "pt/core/log.h"
 #include "pt/core/memory/device.h"
-#include <cuda.h>
+#include <cuda_runtime.h>
 
 pt_status
 pt_free_d_impl(
