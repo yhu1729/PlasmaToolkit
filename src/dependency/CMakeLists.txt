@@ -70,6 +70,7 @@ if(PT_USE_CUDA)
   target_link_libraries(
     PT_Dependency
     INTERFACE
+    CUDA::cuda_driver
     CUDA::cudart
     CUDA::nvJitLink
     CUDA::cusparse
