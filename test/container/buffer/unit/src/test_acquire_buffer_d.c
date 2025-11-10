@@ -1,5 +1,4 @@
 #include "pt/container/buffer/device.h"
-#include "pt/core/macro.h"
 #include "pt/test/check.h"
 #include "pt/test/expect.h"
 #include "pt/test/unit.h"
@@ -9,9 +8,9 @@ void invoke_kernel_fill(pt_buffer_d target);
 void
 test_small(void) {
   pt_buffer_d target;
-  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, 16));
+  pt_expect(PT_TAG_SUCCESS, pt_acquire_buffer_d(&target, 16));
   invoke_kernel_fill(target);
-  pt_release(target);
+  pt_release_buffer_d(target);
 
   pt_check_ok();
 }
@@ -19,9 +18,9 @@ test_small(void) {
 void
 test_large(void) {
   pt_buffer_d target;
-  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, 131072));
+  pt_expect(PT_TAG_SUCCESS, pt_acquire_buffer_d(&target, 131072));
   invoke_kernel_fill(target);
-  pt_release(target);
+  pt_release_buffer_d(target);
 
   pt_check_ok();
 }

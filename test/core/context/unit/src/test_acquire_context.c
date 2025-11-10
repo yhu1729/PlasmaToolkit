@@ -1,5 +1,4 @@
 #include "pt/core/context.h"
-#include "pt/core/macro.h"
 #include "pt/test/check.h"
 #include "pt/test/expect.h"
 #include "pt/test/unit.h"
@@ -7,12 +6,12 @@
 void
 test_local(void) {
   pt_context target;
-  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, PT_TAG_NETWORK_LOCAL));
+  pt_expect(PT_TAG_SUCCESS, pt_acquire_context(&target, PT_TAG_NETWORK_LOCAL));
   pt_check(!(target->active));
   pt_check(!(target->interface.local->active));
   pt_check_same(target->interface.local->rank, 0);
   pt_check_same(target->interface.local->size, 0);
-  pt_release(target);
+  pt_release_context(target);
 
   pt_check_ok();
 }
@@ -20,12 +19,12 @@ test_local(void) {
 void
 test_mpi(void) {
   pt_context target;
-  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, PT_TAG_NETWORK_MPI));
+  pt_expect(PT_TAG_SUCCESS, pt_acquire_context(&target, PT_TAG_NETWORK_MPI));
   pt_check(!(target->active));
   pt_check(!(target->interface.mpi->active));
   pt_check_same(target->interface.mpi->rank, 0);
   pt_check_same(target->interface.mpi->size, 0);
-  pt_release(target);
+  pt_release_context(target);
 
   pt_check_ok();
 }
@@ -33,12 +32,12 @@ test_mpi(void) {
 void
 test_nccl(void) {
   pt_context target;
-  pt_expect(PT_TAG_SUCCESS, pt_acquire(&target, PT_TAG_NETWORK_NCCL));
+  pt_expect(PT_TAG_SUCCESS, pt_acquire_context(&target, PT_TAG_NETWORK_NCCL));
   pt_check(!(target->active));
   pt_check(!(target->interface.nccl->active));
   pt_check_same(target->interface.nccl->rank, 0);
   pt_check_same(target->interface.nccl->size, 0);
-  pt_release(target);
+  pt_release_context(target);
 
   pt_check_ok();
 }
