@@ -17,6 +17,7 @@ if(PT_BUILD_TYPE STREQUAL "Debug")
     -Wextra
     $<$<COMPILE_LANGUAGE:C>:-Werror>
     -Wno-unused-parameter
+    $<$<COMPILE_LANGUAGE:CXX>:-Wno-cast-function-type>
     -g
     -O0
     -fno-omit-frame-pointer
