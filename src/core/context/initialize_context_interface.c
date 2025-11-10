@@ -1,5 +1,4 @@
 #include "pt/core/context.h"
-#include "pt/core/macro.h"
 
 pt_status
 pt_initialize_context_interface(
@@ -8,14 +7,14 @@ pt_initialize_context_interface(
 
   switch (type) {
   case PT_TAG_NETWORK_LOCAL:
-    pt_initialize(interface.local);
+    pt_initialize_context_local(interface.local);
     break;
   case PT_TAG_NETWORK_MPI:
-    pt_initialize(interface.mpi, leader);
+    pt_initialize_context_mpi(interface.mpi, leader);
     break;
 #ifdef PT_USE_CUDA
   case PT_TAG_NETWORK_NCCL:
-    pt_initialize(interface.mpi, leader);
+    pt_initialize_context_mpi(interface.mpi, leader);
     pt_initialize_context_nccl(interface.nccl, interface.mpi);
     break;
 #endif

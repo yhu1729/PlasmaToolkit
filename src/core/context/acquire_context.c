@@ -1,5 +1,4 @@
 #include "pt/core/context.h"
-#include "pt/core/macro.h"
 #include "pt/core/memory.h"
 
 pt_status
@@ -12,14 +11,14 @@ pt_acquire_context(pt_context target[1], const pt_tag type) {
   handle->active = false;
   switch (handle->type) {
   case PT_TAG_NETWORK_LOCAL:
-    pt_acquire(&(handle->interface.local));
+    pt_acquire_context_local(&(handle->interface.local));
     break;
   case PT_TAG_NETWORK_MPI:
-    pt_acquire(&(handle->interface.mpi));
+    pt_acquire_context_mpi(&(handle->interface.mpi));
     break;
 #ifdef PT_USE_CUDA
   case PT_TAG_NETWORK_NCCL:
-    pt_acquire(&(handle->interface.mpi));
+    pt_acquire_context_mpi(&(handle->interface.mpi));
     pt_acquire_context_nccl(&(handle->interface.nccl));
     break;
 #endif

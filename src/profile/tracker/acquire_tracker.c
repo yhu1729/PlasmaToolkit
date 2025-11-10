@@ -1,4 +1,3 @@
-#include "pt/core/macro.h"
 #include "pt/core/memory.h"
 #include "pt/profile/tracker.h"
 
@@ -11,7 +10,7 @@ pt_acquire_tracker(
   pt_tracker handle = *target;
   handle->name = name;
   handle->active = false;
-  pt_safe_invoke(pt_acquire(&(handle->timer), name));
+  pt_safe_invoke(pt_acquire_timer(&(handle->timer), name));
 
   pt_safe_invoke(
     pt_calloc_h(&(handle->port), port_capacity, sizeof(pt_tracker)));

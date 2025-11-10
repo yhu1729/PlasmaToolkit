@@ -1,5 +1,4 @@
 #include "pt/core/context.h"
-#include "pt/core/macro.h"
 
 pt_status
 pt_initialize_context(pt_context target, pt_context leader) {
@@ -11,7 +10,8 @@ pt_initialize_context(pt_context target, pt_context leader) {
     return status;
   }
 
-  pt_safe_invoke(pt_initialize(target->interface, target->type, leader));
+  pt_safe_invoke(
+    pt_initialize_context_interface(target->interface, target->type, leader));
   target->active = true;
 
   return status;

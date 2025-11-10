@@ -1,5 +1,4 @@
 #include "pt/container/vector/host.h"
-#include "pt/core/macro.h"
 #include "pt/core/memory.h"
 
 pt_status
@@ -9,7 +8,7 @@ pt_acquire_vector_h_impl(
 
   pt_vector_h_impl handle;
   pt_safe_invoke(pt_malloc_h(&handle, sizeof *handle));
-  pt_safe_invoke(pt_acquire(&(handle->buffer), stride * length));
+  pt_safe_invoke(pt_acquire_buffer_h(&(handle->buffer), stride * length));
   handle->stride = stride;
   handle->length = length;
 

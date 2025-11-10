@@ -1,4 +1,3 @@
-#include "pt/core/macro.h"
 #include "pt/core/memory.h"
 #include "pt/profile/tracker.h"
 
@@ -24,7 +23,7 @@ pt_attach_tracker_port(
       status = pt_attach_tracker_port(target, port_name, port_capacity);
     } else {
       pt_tracker port;
-      pt_safe_invoke(pt_acquire(&port, port_name, port_capacity));
+      pt_safe_invoke(pt_acquire_tracker(&port, port_name, port_capacity));
       target->port[target->port_size] = port;
       target->port_size += 1;
     }

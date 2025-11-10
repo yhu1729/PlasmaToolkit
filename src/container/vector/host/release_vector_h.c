@@ -8,7 +8,7 @@ pt_release_vector_h(pt_vector_h target) {
 
   pt_vector_h_impl handle =
     pt_container_of(target, struct pt_vector_h_impl_t, buffer);
-  pt_safe_invoke(pt_release(*target));
+  pt_safe_invoke(pt_release_buffer_h(*target));
   pt_safe_invoke(pt_free_h(handle));
 
   return status;
