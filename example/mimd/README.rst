@@ -12,8 +12,8 @@ Example
 .. code:
 
    HYDRA_IFACE=lo0 hydra_nameserver &
-   mpirun -n 1 -nameserver localhost ./mpi_server > server.log 2>&1 < /dev/null &
-   mpirun -n 1 -nameserver localhost ./mpi_client > client.log 2>&1 < /dev/null &
+   mpirun -n 1 -nameserver localhost ./example_mpi_server > server.log 2>&1 < /dev/null &
+   mpirun -n 1 -nameserver localhost ./example_mpi_client > client.log 2>&1 < /dev/null &
    pkill hydra_nameserver
 
 Output
