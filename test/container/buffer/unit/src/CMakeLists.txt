@@ -17,7 +17,7 @@ pt_add_test(
   MODULE container/buffer
   LIB PT::Test PT::Container
   USE_CUDA YES
-  CUDA_KERNEL fill.cu
+  CUDA_KERNEL fill
   USE_ASAN YES
   LABEL type:unit
 )
